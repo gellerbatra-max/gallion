@@ -1,0 +1,485 @@
+# Gelian CMS configuration (Sveltia CMS)
+#
+# Every field below maps to a value in src/content/data/*.json. Saving in the
+# CMS commits straight to the main branch on GitHub, which triggers a Netlify
+# rebuild — so a change is live a minute or two after you press Publish.
+#
+# Adding a field here does not add it to the website; the site code has to know
+# about it too. Editing labels and help text is always safe.
+
+backend:
+  name: github
+  repo: gellerbatra-max/gallion
+  branch: main
+
+media_folder: public/media
+public_folder: /media
+
+collections:
+  # ------------------------------------------------------------------ #
+  - name: content
+    label: Website content
+    files:
+      # ---------------------------------------------------------------- #
+      - name: site
+        label: Business details
+        file: src/content/data/site.json
+        description: >-
+          Your name, tagline, contact details, offices and social links. These
+          appear in the header, the footer and the contact page.
+        fields:
+          - label: Business
+            name: site
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Legal name, name: legalName, widget: string }
+              - {
+                  label: Website address,
+                  name: url,
+                  widget: string,
+                  hint: "Used for search engines and link previews. Include https://",
+                }
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Year founded, name: founded, widget: number, value_type: int }
+              - { label: Mission line, name: mission, widget: text }
+
+          - label: Main menu
+            name: nav
+            widget: list
+            label_singular: menu item
+            summary: "{{fields.label}}"
+            hint: The links across the top of every page.
+            fields:
+              - { label: Label, name: label, widget: string }
+              - {
+                  label: Link,
+                  name: href,
+                  widget: string,
+                  hint: "A page on this site, e.g. /about",
+                }
+
+          - label: Footer menu
+            name: footerNav
+            widget: list
+            label_singular: footer column
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Column heading, name: title, widget: string }
+              - label: Links
+                name: links
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+          - label: Contact details
+            name: contact
+            widget: object
+            fields:
+              - { label: General email, name: general, widget: string }
+              - { label: Ventures email, name: ventures, widget: string }
+              - { label: Press email, name: press, widget: string }
+              - { label: Phone (displayed), name: phone, widget: string }
+              - {
+                  label: Phone (link),
+                  name: phoneHref,
+                  widget: string,
+                  pattern: ['^tel:\+?[0-9]+$', "Must look like tel:+94771234567"],
+                  hint: "The tappable version. Digits only, no spaces.",
+                }
+              - {
+                  label: WhatsApp link,
+                  name: whatsapp,
+                  widget: string,
+                  hint: "e.g. https://wa.me/94771234567",
+                }
+              - label: Offices
+                name: offices
+                widget: list
+                label_singular: office
+                summary: "{{fields.city}}"
+                fields:
+                  - { label: City, name: city, widget: string }
+                  - { label: Country, name: country, widget: string }
+                  - {
+                      label: Role,
+                      name: role,
+                      widget: string,
+                      hint: "e.g. Registered office",
+                    }
+                  - { label: Note, name: note, widget: string }
+                  - {
+                      label: Coordinates,
+                      name: coords,
+                      widget: string,
+                      hint: "Decorative text only, e.g. 6.9271° N, 79.8612° E",
+                    }
+              - { label: Response time line, name: responseTime, widget: text }
+
+          - label: Social links
+            name: social
+            widget: list
+            label_singular: social link
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+
+          - label: Ports
+            name: ports
+            widget: list
+            label_singular: port
+            summary: "{{fields.code}} — {{fields.name}}"
+            hint: Shown on the route diagram on the home and about pages.
+            fields:
+              - {
+                  label: Code,
+                  name: code,
+                  widget: string,
+                  hint: "Three letters, e.g. CMB",
+                }
+              - { label: Name, name: name, widget: string }
+              - { label: Region, name: region, widget: string }
+
+      # ---------------------------------------------------------------- #
+      - name: team
+        label: Leadership
+        file: src/content/data/team.json
+        description: >-
+          The people shown on the About page. The names currently here are
+          invented placeholders — replace or remove them before the site is
+          public.
+        fields:
+          - label: People
+            name: team
+            widget: list
+            label_singular: person
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - {
+                  label: Initials,
+                  name: initials,
+                  widget: string,
+                  pattern: ['^.{1,3}$', "One to three characters"],
+                  hint: "Shown in the circle avatar",
+                }
+              - { label: Biography, name: bio, widget: text }
+              - {
+                  label: Focus,
+                  name: focus,
+                  widget: string,
+                  hint: "Short list, e.g. Platform strategy, capital",
+                }
+
+      # ---------------------------------------------------------------- #
+      - name: journey
+        label: Timeline
+        file: src/content/data/journey.json
+        description: The year-by-year story shown on the About page.
+        fields:
+          - label: Milestones
+            name: milestones
+            widget: list
+            label_singular: milestone
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: Year, name: year, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+              - {
+                  label: Still planned,
+                  name: planned,
+                  widget: boolean,
+                  required: false,
+                  default: false,
+                  hint: "Tick for things that have not happened yet — they render muted so nothing reads as already achieved.",
+                }
+
+      # ---------------------------------------------------------------- #
+      - name: themes
+        label: Areas of interest
+        file: src/content/data/themes.json
+        description: The themes shown on the home page and the Future Ventures page.
+        fields:
+          - label: Themes
+            name: themes
+            widget: list
+            label_singular: theme
+            summary: "{{fields.index}} — {{fields.title}}"
+            fields:
+              - {
+                  label: ID,
+                  name: id,
+                  widget: string,
+                  pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
+                  hint: "Used to link ventures to this theme. Changing it can break those links.",
+                }
+              - {
+                  label: Number,
+                  name: index,
+                  widget: string,
+                  hint: "e.g. 01",
+                }
+              - { label: Title, name: title, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Detail, name: detail, widget: text }
+              - label: Markers
+                name: markers
+                widget: list
+                label_singular: marker
+                hint: The short tags listed under the theme.
+                field: { label: Marker, name: marker, widget: string }
+
+      # ---------------------------------------------------------------- #
+      - name: ventures
+        label: Ventures
+        file: src/content/data/ventures.json
+        description: >-
+          The venture list and the status labels used to describe them. Nothing
+          here should read as an operating business until it genuinely is one.
+        fields:
+          - label: Ventures
+            name: ventures
+            widget: list
+            label_singular: venture
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - {
+                  label: Slug,
+                  name: slug,
+                  widget: string,
+                  pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
+                }
+              - { label: Name, name: name, widget: string }
+              - { label: Theme name, name: theme, widget: string }
+              - {
+                  label: Theme ID,
+                  name: themeId,
+                  widget: string,
+                  hint: "Must match an ID from Areas of interest.",
+                }
+              - { label: One-liner, name: oneLiner, widget: text }
+              - { label: Description, name: description, widget: text }
+              - label: Status
+                name: status
+                widget: select
+                options:
+                  - { label: Exploring, value: exploring }
+                  - { label: In development, value: development }
+                  - { label: Coming soon, value: "coming-soon" }
+                  - { label: Live, value: live }
+              - {
+                  label: Geography,
+                  name: geography,
+                  widget: string,
+                  hint: "Written as a route, e.g. Sri Lanka → Europe",
+                }
+              - { label: Since, name: since, widget: string }
+              - {
+                  label: Website,
+                  name: href,
+                  widget: string,
+                  required: false,
+                  hint: "Only once the venture is public.",
+                }
+
+          - label: Status labels
+            name: statusMeta
+            widget: object
+            collapsed: true
+            fields:
+              - label: Exploring
+                name: exploring
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - label: In development
+                name: development
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - label: Coming soon
+                name: coming-soon
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - label: Live
+                name: live
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+      # ---------------------------------------------------------------- #
+      - name: principles
+        label: Philosophy
+        file: src/content/data/principles.json
+        description: The principles that make up the Philosophy page.
+        fields:
+          - label: Principles
+            name: principles
+            widget: list
+            label_singular: principle
+            summary: "{{fields.number}}. {{fields.title}}"
+            fields:
+              - {
+                  label: Numeral,
+                  name: number,
+                  widget: string,
+                  hint: "e.g. IV",
+                }
+              - { label: Title, name: title, widget: string }
+              - { label: Claim, name: claim, widget: string }
+              - { label: Body, name: body, widget: text }
+
+      # ---------------------------------------------------------------- #
+      - name: process
+        label: How you work
+        file: src/content/data/process.json
+        description: >-
+          The venture stages, the criteria you evaluate against, and the
+          frequently-asked questions.
+        fields:
+          - label: Stages
+            name: stages
+            widget: list
+            label_singular: stage
+            summary: "{{fields.step}} — {{fields.title}}"
+            fields:
+              - { label: Step number, name: step, widget: string }
+              - { label: Title, name: title, widget: string }
+              - {
+                  label: Duration,
+                  name: duration,
+                  widget: string,
+                  hint: "e.g. 6–12 weeks",
+                }
+              - { label: Summary, name: summary, widget: text }
+              - label: Paragraphs
+                name: detail
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+
+          - label: Evaluation criteria
+            name: evaluation
+            widget: list
+            label_singular: criterion
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Question, name: title, widget: string }
+              - { label: Answer, name: body, widget: text }
+
+          - label: Frequently asked questions
+            name: faqs
+            widget: list
+            label_singular: question
+            summary: "{{fields.q}}"
+            fields:
+              - { label: Question, name: q, widget: text }
+              - { label: Answer, name: a, widget: text }
+
+      # ---------------------------------------------------------------- #
+      - name: insights
+        label: Journal articles
+        file: src/content/data/insights.json
+        description: >-
+          The written pieces under Insights. Each article is built from blocks —
+          add paragraphs, headings, quotes and lists in the order you want them.
+        fields:
+          - label: Articles
+            name: insights
+            widget: list
+            label_singular: article
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - {
+                  label: Slug,
+                  name: slug,
+                  widget: string,
+                  pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
+                  hint: "The web address of the article. Changing it breaks existing links.",
+                }
+              - { label: Title, name: title, widget: string }
+              - {
+                  label: Deck,
+                  name: deck,
+                  widget: text,
+                  hint: "The standfirst shown under the title.",
+                }
+              - label: Category
+                name: category
+                widget: select
+                options:
+                  - Founder Note
+                  - Market Observation
+                  - Field Note
+                  - Essay
+              - {
+                  label: Date,
+                  name: date,
+                  widget: string,
+                  pattern: ['^\d{4}-\d{2}-\d{2}$', "Use YYYY-MM-DD"],
+                  hint: "Format: YYYY-MM-DD. Articles sort newest first.",
+                }
+              - {
+                  label: Reading time,
+                  name: readingTime,
+                  widget: string,
+                  hint: "e.g. 6 min",
+                }
+              - { label: Author, name: author, widget: string }
+              - {
+                  label: Featured,
+                  name: featured,
+                  widget: boolean,
+                  required: false,
+                  default: false,
+                  hint: "Featured articles are given more prominence on the index.",
+                }
+              - label: Body
+                name: body
+                widget: list
+                label_singular: block
+                types:
+                  - label: Paragraph
+                    name: p
+                    widget: object
+                    summary: "{{fields.text}}"
+                    fields:
+                      - { label: Text, name: text, widget: text }
+                  - label: Heading
+                    name: h2
+                    widget: object
+                    summary: "{{fields.text}}"
+                    fields:
+                      - { label: Heading, name: text, widget: string }
+                  - label: Pull quote
+                    name: quote
+                    widget: object
+                    summary: "{{fields.text}}"
+                    fields:
+                      - { label: Quote, name: text, widget: text }
+                      - {
+                          label: Attribution,
+                          name: cite,
+                          widget: string,
+                          required: false,
+                        }
+                  - label: Bulleted list
+                    name: list
+                    widget: object
+                    fields:
+                      - label: Items
+                        name: items
+                        widget: list
+                        label_singular: item
+                        field: { label: Item, name: item, widget: string }

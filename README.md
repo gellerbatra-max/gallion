@@ -49,7 +49,7 @@ src/
 │   ├── visuals/      Meridians, CompassRose, RouteDiagram, Atmosphere
 │   ├── ContactForm.tsx  NewsletterForm.tsx  Timeline.tsx  FAQ.tsx
 │
-├── content/          all copy and data — the only files you need to edit
+├── content/          typed wrappers; the copy itself lives in content/data/*.json
 │   ├── site.ts       nav, contact details, offices, socials, ports
 │   ├── themes.ts     the six areas of interest
 │   ├── ventures.ts   future ventures + status definitions
@@ -57,7 +57,8 @@ src/
 │   ├── process.ts    venture stages, evaluation criteria, FAQ
 │   ├── journey.ts    timeline milestones
 │   ├── team.ts       leadership
-│   └── insights.ts   journal articles (structured blocks, not MDX)
+│   ├── insights.ts   journal articles (structured blocks, not MDX)
+│   └── data/         the JSON the CMS and the local editor edit
 │
 └── lib/              cn(), pageMeta()
 ```
@@ -98,17 +99,38 @@ summary, per-field `aria-invalid` / `aria-describedby` and live status regions.
 
 ---
 
+## Editing content
+
+Copy and data live in `src/content/data/*.json`. The `src/content/*.ts` files are thin
+typed wrappers around that JSON — they define the shapes, and nothing else. There are
+three ways to change the words, and all three edit the same JSON:
+
+| Way | Where | Good for |
+| --- | --- | --- |
+| **CMS** | `/admin` on the deployed site | Editing from any browser or phone; publishes to the live site |
+| **Local editor** | `npm run edit`, then `localhost:4000` | Editing offline, no GitHub token needed |
+| **By hand** | `src/content/data/*.json` | Bulk changes, or adding and removing entries |
+
+The CMS ([Sveltia](https://github.com/sveltia/sveltia-cms), configured in
+`public/admin/config.yml`) commits straight to `main`. Sign in with a GitHub personal
+access token that has write access to this repo — no OAuth app or proxy needed.
+
+Adding a field to `config.yml` does not add it to the website; the site code has to know
+about it too. Editing labels and help text is always safe.
+
+---
+
 ## Adding content
 
-**A venture** — append to `src/content/ventures.ts`. Set `status` to `exploring`,
+**A venture** — append to `ventures` in `src/content/data/ventures.json`. Set `status` to `exploring`,
 `development`, `coming-soon` or `live`; add `href` once it has a site of its own. The card
 turns into a link and the counts on `/portfolio` update automatically.
 
-**An insight** — append to `src/content/insights.ts` with a `body` of typed blocks
+**An insight** — append to `insights` in `src/content/data/insights.json` with a `body` of typed blocks
 (`p`, `h2`, `quote`, `list`). The index, the home preview, the article route, the
 prev/next navigation and the sitemap all pick it up.
 
-**A nav item** — `nav` in `src/content/site.ts` drives desktop and mobile navigation.
+**A nav item** — `nav` in `src/content/data/site.json` drives desktop and mobile navigation.
 
 ---
 
@@ -133,13 +155,13 @@ These were decided in the absence of a brief and are all easy to change.
 
 | What | Where |
 | --- | --- |
-| Domain `gelian.lk`, all email addresses, phone / WhatsApp number | `src/content/site.ts` |
-| Office locations and coordinates | `src/content/site.ts` |
-| **Leadership names and biographies — invented, do not publish as real people** | `src/content/team.ts` |
-| Timeline milestones and dates | `src/content/journey.ts` |
+| Domain `gelian.lk`, all email addresses, phone / WhatsApp number | `src/content/data/site.json` |
+| Office locations and coordinates | `src/content/data/site.json` |
+| **Leadership names and biographies — invented, do not publish as real people** | `src/content/data/team.json` |
+| Timeline milestones and dates | `src/content/data/journey.json` |
 | Founder quote and attribution on the home page | `src/app/page.tsx` |
-| Venture working names and stages | `src/content/ventures.ts` |
-| Social profile URLs | `src/content/site.ts` |
+| Venture working names and stages | `src/content/data/ventures.json` |
+| Social profile URLs | `src/content/data/site.json` |
 | Legal copy — **template text, not legal advice; have counsel review it** | `src/app/privacy/page.tsx`, `src/app/terms/page.tsx` |
 
 ## Before launch

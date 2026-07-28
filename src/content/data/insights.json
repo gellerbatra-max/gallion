@@ -1,0 +1,287 @@
+{
+  "insights": [
+    {
+      "slug": "the-serendipity-premium",
+      "title": "The Serendipity Premium",
+      "deck": "Sri Lanka has one of the most valuable origin stories in world trade, and almost none of it shows up on the invoice.",
+      "category": "Founder Note",
+      "date": "2026-06-18",
+      "readingTime": "6 min",
+      "author": "Rehan Alwis",
+      "featured": true,
+      "body": [
+        {
+          "type": "p",
+          "text": "There is a particular kind of conversation that anyone in Sri Lankan export has had a hundred times. A buyer holds the product, turns it over, says something generous about the quality, and then asks for a price that assumes the thing in their hand is interchangeable with a dozen others. It is not. Everyone in the room knows it is not. But the invoice is written as though it were."
+        },
+        {
+          "type": "p",
+          "text": "Call it the serendipity premium: the difference between what an origin is worth and what it is paid. In some categories the gap is small. In ours it is embarrassing. Ceylon cinnamon, Ceylon sapphire, Ceylon tea — these are among the strongest geographic signals in global commerce, and in most of them the island captures the first ten percent of the value and watches the other ninety accumulate somewhere with better shopfronts."
+        },
+        {
+          "type": "h2",
+          "text": "The gap is not a quality problem"
+        },
+        {
+          "type": "p",
+          "text": "It is tempting to explain this away as a manufacturing story — that the product needs to be finished better, certified more, packaged smarter. Some of that is true. Most of it is a distraction. The gap is not primarily about the product. It is about who owns the relationship with the person who finally pays."
+        },
+        {
+          "type": "p",
+          "text": "Ownership of that relationship is the whole game. It determines who sets the price, who holds the customer data, who can launch the second product, and who gets called first when the market moves. A supplier is a line item. A brand is a counterparty. The distance between them is not capability; it is willingness to spend years building something that does not pay off in the first two."
+        },
+        {
+          "type": "quote",
+          "text": "A supplier is a line item. A brand is a counterparty. The distance between them is measured in patience, not in capability."
+        },
+        {
+          "type": "h2",
+          "text": "What it takes to close it"
+        },
+        {
+          "type": "p",
+          "text": "We think three things have to be true at once, and the reason the gap persists is that most attempts have only managed two."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Provenance has to be verifiable, not asserted. The buyer who pays a premium for origin is the same buyer who will ask you to prove it, and 'trust us' is not a supply chain.",
+            "The narrative has to be built for someone who has never been here. Not a heritage brochure — a reason to choose this over the alternative sitting next to it on the shelf.",
+            "The economics have to survive the trip. Freight, duty, returns, working capital, and the very long payment terms that come with selling to serious retailers. Many good products die between the port and the shelf."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "None of this is exotic. It is ordinary commercial work, done consistently, over a longer horizon than most balance sheets allow. Which is precisely why we built Gelian as a holding platform rather than a single operating company. The premium is real. Collecting it takes time that a quarterly business does not have."
+        }
+      ]
+    },
+    {
+      "slug": "ports-not-borders",
+      "title": "Ports, Not Borders",
+      "deck": "How to read a small economy through the things that move in and out of it.",
+      "category": "Market Observation",
+      "date": "2026-05-27",
+      "readingTime": "5 min",
+      "author": "Nadia Rahman",
+      "body": [
+        {
+          "type": "p",
+          "text": "A border tells you where a country ends. A port tells you what it is for. If you want to understand a small trading economy quickly, ignore the map and read the manifest — what leaves, what arrives, in whose vessel, on whose terms."
+        },
+        {
+          "type": "p",
+          "text": "Sri Lanka sits at a latitude that has mattered for two thousand years. The east–west shipping lane that carries a meaningful share of world trade passes within a few hours' sail. That geography built Galle, then Colombo, and it is the single most durable fact about the island's commercial position. It is also, curiously, the fact most often left out of the pitch."
+        },
+        {
+          "type": "h2",
+          "text": "Transshipment is a hint, not a strategy"
+        },
+        {
+          "type": "p",
+          "text": "Colombo is one of the busiest transshipment hubs in South Asia, which means a great deal of cargo touches the island without ever belonging to it. Boxes are lifted, sorted, and sent on. Value passes through at speed. It is excellent business for the port and a limited one for the country, because nothing about a transshipped container requires anything Sri Lankan except the crane."
+        },
+        {
+          "type": "p",
+          "text": "The interesting question is not how to move more boxes. It is which of them could plausibly have been filled here — and what would have had to be true for that to happen."
+        },
+        {
+          "type": "quote",
+          "text": "A border tells you where a country ends. A port tells you what it is for."
+        },
+        {
+          "type": "h2",
+          "text": "Reading the flow in both directions"
+        },
+        {
+          "type": "p",
+          "text": "We keep a running list of categories where the inbound and outbound flows do not make sense together — where the island imports a finished good whose primary input it also exports. That mismatch is usually where a venture hides. It means the capability exists locally, the demand exists locally, and someone in between is collecting a fee for solving a coordination problem rather than a technical one."
+        },
+        {
+          "type": "p",
+          "text": "It also cuts the other way. Plenty of foreign operators would enter this market if entry were less opaque. They are not deterred by competition; they are deterred by not knowing who to trust. That is a solvable problem, and solving it is a business."
+        }
+      ]
+    },
+    {
+      "slug": "before-we-look-at-numbers",
+      "title": "What We Look For Before We Look at Numbers",
+      "deck": "Five questions we ask about a venture long before we ask what it might be worth.",
+      "category": "Essay",
+      "date": "2026-04-30",
+      "readingTime": "7 min",
+      "author": "Ishara Wijeratne",
+      "body": [
+        {
+          "type": "p",
+          "text": "Financial models are easy to make agree with you. Given a spreadsheet and a motive, anyone can produce a curve that bends the right way. So we try to spend the first several conversations somewhere the model cannot reach."
+        },
+        {
+          "type": "h2",
+          "text": "One. Who is the customer, precisely?"
+        },
+        {
+          "type": "p",
+          "text": "Not the market. The customer. A name, a city, a reason to switch. If the answer arrives as a total addressable market, we are still at the beginning. If it arrives as 'the buyer at this kind of store, who currently buys this, and is unhappy about that' — now we are somewhere."
+        },
+        {
+          "type": "h2",
+          "text": "Two. What is true here that is not true elsewhere?"
+        },
+        {
+          "type": "p",
+          "text": "Every venture we build should have a reason to be built in Sri Lanka specifically. Cheaper labour is not that reason; it is a temporary condition that someone else will undercut. Material, craft, geography, accumulated knowledge — those last."
+        },
+        {
+          "type": "h2",
+          "text": "Three. What happens on the second order?"
+        },
+        {
+          "type": "p",
+          "text": "The first order is a demonstration. The second is a business. We ask what has to be true for a customer to come back without being persuaded again, and whether the operation can deliver the same thing twice. A great deal of hospitality and craft-led export fails exactly here."
+        },
+        {
+          "type": "quote",
+          "text": "The first order is a demonstration. The second is a business."
+        },
+        {
+          "type": "h2",
+          "text": "Four. Who is accountable when it is difficult?"
+        },
+        {
+          "type": "p",
+          "text": "Ventures do not fail in the plan; they fail on a Tuesday when a shipment is wrong and someone has to decide who eats the cost. We want to know whose decision that is before we start, because an unnamed owner is a slow-motion dispute."
+        },
+        {
+          "type": "h2",
+          "text": "Five. Can we hold it for ten years?"
+        },
+        {
+          "type": "p",
+          "text": "Not will we — can we. Does the cost base allow a bad year? Does the structure allow a partner to leave without breaking the thing? Is there any point at which we would be forced to sell at someone else's timing? If the answer is yes, we would rather find that out now than discover it later at a discount."
+        },
+        {
+          "type": "p",
+          "text": "None of these questions require a spreadsheet. All of them decide whether the spreadsheet is worth building."
+        }
+      ]
+    },
+    {
+      "slug": "the-second-cargo",
+      "title": "The Second Cargo",
+      "deck": "Why story crosses borders more reliably than product — and why we treat narrative as infrastructure.",
+      "category": "Essay",
+      "date": "2026-03-19",
+      "readingTime": "5 min",
+      "author": "Rehan Alwis",
+      "body": [
+        {
+          "type": "p",
+          "text": "Every ship that ever left this island carried two cargoes. The first was in the hold. The second was whatever the crew said about the place when they arrived — and the second one usually determined the price of the first."
+        },
+        {
+          "type": "p",
+          "text": "This is not a romantic observation. It is a commercial one. A buyer in an unfamiliar market is making a decision with incomplete information, and the story is the information. It tells them what the product is for, why it costs what it costs, and whether they will look sensible for having chosen it."
+        },
+        {
+          "type": "h2",
+          "text": "Marketing spend is not narrative capability"
+        },
+        {
+          "type": "p",
+          "text": "Most small exporters treat this as an expense to be added once the product works. By then the story is being written by the distributor, the retailer, or nobody at all. What arrives on the shelf is a good product with a generic account of itself, competing on price against products that have already explained why they are different."
+        },
+        {
+          "type": "quote",
+          "text": "Nothing crosses a border alone. The story is the second cargo, and it usually sets the price of the first."
+        },
+        {
+          "type": "p",
+          "text": "So we build the capability before the ventures need it. Film, photography, editorial and publishing sit inside the platform rather than being bought project by project. It means every Gelian venture starts with a credible voice on its first day, and it means the standard of that voice is ours to set rather than ours to hope for."
+        },
+        {
+          "type": "p",
+          "text": "The test is simple. If someone encounters the venture with no context — no introduction, no relationship, no benefit of the doubt — do they understand what it is and why it should exist? If not, the product is not finished, whatever the factory says."
+        }
+      ]
+    },
+    {
+      "slug": "notes-from-ratnapura",
+      "title": "Notes from Ratnapura",
+      "deck": "Provenance, value and the very long chain between a pit in Sabaragamuwa and a vitrine in Geneva.",
+      "category": "Field Note",
+      "date": "2026-02-11",
+      "readingTime": "6 min",
+      "author": "Ishara Wijeratne",
+      "body": [
+        {
+          "type": "p",
+          "text": "The gem trade runs on a form of credit that has nothing to do with banks. Stones move between hands on trust, sometimes for weeks, often without paperwork, and the system works because everyone in it expects to still be in it next year. It is one of the oldest functioning markets on the island and one of the least legible from outside."
+        },
+        {
+          "type": "p",
+          "text": "That illegibility is expensive. A stone that changes hands six times before it is cut accumulates margin at every step and loses its history at most of them. By the time it reaches a retail setting, the origin claim is a matter of assertion — which is precisely why the final buyer discounts it."
+        },
+        {
+          "type": "h2",
+          "text": "What provenance is actually worth"
+        },
+        {
+          "type": "p",
+          "text": "In categories where origin can be proven — wine, coffee, certain diamonds — buyers pay materially more for the same physical good. There is no reason to think coloured stones are different in kind. The difference is that the infrastructure for proof was never built here, because the people best placed to build it were the same people the chain was designed to obscure."
+        },
+        {
+          "type": "quote",
+          "text": "A stone with a verified history is a different asset to a stone without one. Same carbon, different market."
+        },
+        {
+          "type": "h2",
+          "text": "The uncomfortable part"
+        },
+        {
+          "type": "p",
+          "text": "Any serious attempt to shorten this chain removes income from people currently standing in it. That is not a footnote. If a venture's entire value proposition is disintermediation, it should be honest about who is being disintermediated, and thoughtful about which relationships it wants to keep."
+        },
+        {
+          "type": "p",
+          "text": "Our view is that the miner and the cutter should end up better off, not worse, and that this is commercially achievable rather than merely virtuous — because a supply chain that people want to stay in is a supply chain that gives you first sight of the best material. We are still testing whether that holds at scale. We will say so either way."
+        }
+      ]
+    },
+    {
+      "slug": "patient-is-not-passive",
+      "title": "Patient Is Not Passive",
+      "deck": "Long horizons get used as an excuse for slow work. They shouldn't be.",
+      "category": "Founder Note",
+      "date": "2026-01-22",
+      "readingTime": "4 min",
+      "author": "Rehan Alwis",
+      "body": [
+        {
+          "type": "p",
+          "text": "'Patient capital' has become a comfortable phrase. It is often deployed to explain why nothing has happened yet, which is a shame, because the idea underneath it is a serious one."
+        },
+        {
+          "type": "p",
+          "text": "A long horizon is a structural choice about when you are allowed to be judged, not a licence to move slowly in the meantime. It means declining an exit you would otherwise be forced into. It means building a cost base that survives a bad eighteen months. It does not mean taking three years to open one shop."
+        },
+        {
+          "type": "h2",
+          "text": "Fast at the small scale, slow at the large"
+        },
+        {
+          "type": "p",
+          "text": "The pattern we want is quick cycles inside a long commitment. Test a format in a month, not a year. Kill a concept in six weeks if the customer will not come back. But hold the ventures that work through the periods where holding is unfashionable, because that is the only window in which cheap ownership is available."
+        },
+        {
+          "type": "quote",
+          "text": "A long horizon decides when you are judged. It does not decide how fast you work."
+        },
+        {
+          "type": "p",
+          "text": "The discipline this requires is mostly negative: not raising money that comes with a clock, not signing leases that assume the good case, not hiring ahead of demonstrated demand. Dull, unglamorous constraints. They are what makes the patience real rather than rhetorical."
+        }
+      ]
+    }
+  ]
+}

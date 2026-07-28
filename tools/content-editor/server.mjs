@@ -1,27 +1,28 @@
 /**
- * Gelian content editor.
+ * Gelian content editor (offline).
  *
  * A tiny local web app for editing every piece of copy on the site without
- * touching code. It reads the files in src/content/, finds each text value,
- * shows them as labelled boxes in the browser, and writes your edits straight
- * back into the same files.
+ * touching code, and without needing a network connection or a GitHub token.
+ * It reads src/content/data/*.json — the same files the CMS at /admin edits —
+ * shows every text value as a labelled box, and writes your edits back.
  *
  * Run it with:   npm run edit
  * Then open:     http://localhost:4000
  *
- * Nothing is uploaded anywhere. It only touches files on this machine, and it
- * only ever replaces the text inside quotes — never the surrounding code.
+ * This and the CMS are two doors into the same content. Use whichever suits:
+ * the CMS publishes to the live site, this one edits the copy on your machine.
+ * Don't run both against the same change at once, or one will overwrite the
+ * other — same as editing the same document in two places.
  */
 
 import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import ts from "typescript";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const CONTENT_DIR = path.join(ROOT, "src", "content");
+const DATA_DIR = path.join(ROOT, "src", "content", "data");
 const PORT = Number(process.env.EDITOR_PORT ?? 4000);
 const SITE_URL = process.env.SITE_URL ?? "http://localhost:3000";
 
@@ -30,47 +31,47 @@ const SITE_URL = process.env.SITE_URL ?? "http://localhost:3000";
  * ------------------------------------------------------------------ */
 
 const FILE_INFO = {
-  "site.ts": {
+  "site.json": {
     title: "Business details",
     blurb:
       "Your name, tagline, email addresses, phone, offices and social links. These appear in the header, the footer and the contact page.",
     order: 1,
   },
-  "team.ts": {
+  "team.json": {
     title: "Leadership",
     blurb:
       "The people shown on the About page. The names currently here are invented placeholders — replace or remove them before the site is public.",
     order: 2,
     warn: "These are invented placeholder people. Do not leave them published.",
   },
-  "journey.ts": {
+  "journey.json": {
     title: "Timeline",
     blurb:
       "The year-by-year story on the About page. The dates currently here are illustrative.",
     order: 3,
   },
-  "themes.ts": {
+  "themes.json": {
     title: "Areas of interest",
     blurb: "The themes shown on the home page and the Future Ventures page.",
     order: 4,
   },
-  "ventures.ts": {
+  "ventures.json": {
     title: "Ventures",
     blurb: "The venture list and the status labels used to describe them.",
     order: 5,
   },
-  "principles.ts": {
+  "principles.json": {
     title: "Philosophy",
     blurb: "The principles that make up the Philosophy page.",
     order: 6,
   },
-  "process.ts": {
+  "process.json": {
     title: "How you work",
     blurb:
       "Venture stages, the criteria you evaluate against, and the frequently-asked questions.",
     order: 7,
   },
-  "insights.ts": {
+  "insights.json": {
     title: "Journal articles",
     blurb:
       "The written pieces under Insights. Each article's paragraphs are listed in order.",
@@ -79,7 +80,7 @@ const FILE_INFO = {
 };
 
 /** Keys that control how the page is built, not what it says. */
-const LOCKED_KEYS = new Set(["type", "slug"]);
+const LOCKED_KEYS = new Set(["type", "slug", "id", "themeId"]);
 
 /** Gentle format hints for the fields where the shape matters. */
 const HINTS = {
@@ -88,10 +89,10 @@ const HINTS = {
   date: "Format: YYYY-MM-DD",
   coords: "Shown as decorative text only",
   initials: "Two letters, shown in the circle avatar",
-  email: "A plain email address",
+  status: "One of: exploring, development, coming-soon, live",
+  category: "One of: Founder Note, Market Observation, Field Note, Essay",
 };
 
-/** Turn a key like "readingTime" into "Reading time". */
 function prettyKey(key) {
   const spaced = key
     .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
@@ -100,156 +101,90 @@ function prettyKey(key) {
   return spaced.charAt(0).toUpperCase() + spaced.slice(1);
 }
 
-/* ------------------------------------------------------------------ *
- * Reading: pull every text value out of a content file.
- * ------------------------------------------------------------------ */
-
-/**
- * Find a readable name for an item in a list, so the editor can show
- * "Ishara Wijeratne" instead of "team[1]".
- */
-function labelForNode(node) {
-  if (!ts.isObjectLiteralExpression(node)) return null;
-  const preferred = [
-    "name",
-    "title",
-    "label",
-    "city",
-    "question",
-    "year",
-    "heading",
-    "slug",
-  ];
-  for (const key of preferred) {
-    for (const prop of node.properties) {
-      if (
-        ts.isPropertyAssignment(prop) &&
-        prop.name &&
-        ts.isIdentifier(prop.name) &&
-        prop.name.text === key &&
-        (ts.isStringLiteral(prop.initializer) ||
-          ts.isNoSubstitutionTemplateLiteral(prop.initializer))
-      ) {
-        return prop.initializer.text;
-      }
+/** A readable name for a list item, so cards say "Ishara Wijeratne". */
+function labelFor(value, fallback) {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    for (const key of ["name", "title", "label", "city", "q", "year", "code"]) {
+      if (typeof value[key] === "string" && value[key].trim()) return value[key];
     }
   }
-  return null;
+  return fallback;
 }
 
-function extractFields(source, fileName) {
-  const sf = ts.createSourceFile(
-    fileName,
-    source,
-    ts.ScriptTarget.Latest,
-    true,
-    ts.ScriptKind.TS,
-  );
+/* ------------------------------------------------------------------ *
+ * Reading
+ * ------------------------------------------------------------------ */
 
+function collectFields(json) {
   const fields = [];
 
   function walk(node, ctx) {
-    // A piece of text we can edit.
-    if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
-      if (!ctx.key) return; // bare strings with no key give the user no context
+    if (typeof node === "string") {
+      if (!ctx.key) return;
       fields.push({
-        file: fileName,
         path: ctx.path,
         group: ctx.group,
         groupLabel: ctx.groupLabel,
         key: ctx.key,
         label: prettyKey(ctx.key),
-        value: node.text,
-        start: node.getStart(sf),
-        end: node.end,
+        value: node,
         locked: LOCKED_KEYS.has(ctx.key),
         hint: HINTS[ctx.key] ?? null,
-        multiline: node.text.length > 90,
+        multiline: node.length > 90,
       });
       return;
     }
 
-    if (ts.isArrayLiteralExpression(node)) {
-      node.elements.forEach((el, i) => {
-        const itemLabel = labelForNode(el);
-        const isRecord = ts.isObjectLiteralExpression(el);
-        walk(el, {
+    if (Array.isArray(node)) {
+      node.forEach((item, i) => {
+        const isRecord = item && typeof item === "object" && !Array.isArray(item);
+        walk(item, {
           ...ctx,
           path: `${ctx.path}[${i}]`,
-          // Each object in a top-level list becomes its own card.
+          // Objects directly inside a top-level list become their own card.
           group: isRecord && ctx.depth === 0 ? `${ctx.path}[${i}]` : ctx.group,
           groupLabel:
             isRecord && ctx.depth === 0
-              ? itemLabel || `${prettyKey(ctx.rootName)} ${i + 1}`
+              ? labelFor(item, `${prettyKey(ctx.rootName)} ${i + 1}`)
               : ctx.groupLabel,
           depth: isRecord ? ctx.depth + 1 : ctx.depth,
+          // A bare list of strings keeps its parent's key as the label.
+          key: typeof item === "string" ? ctx.key : ctx.key,
         });
       });
       return;
     }
 
-    if (ts.isObjectLiteralExpression(node)) {
-      node.properties.forEach((prop) => {
-        if (!ts.isPropertyAssignment(prop) || !prop.name) return;
-        const key = ts.isIdentifier(prop.name)
-          ? prop.name.text
-          : ts.isStringLiteral(prop.name)
-            ? prop.name.text
-            : null;
-        if (!key) return;
-        walk(prop.initializer, {
-          ...ctx,
-          key,
-          path: `${ctx.path}.${key}`,
-        });
-      });
-      return;
+    if (node && typeof node === "object") {
+      for (const [key, value] of Object.entries(node)) {
+        walk(value, { ...ctx, key, path: `${ctx.path}.${key}` });
+      }
     }
-
-    node.forEachChild((child) => walk(child, ctx));
   }
 
-  // Only walk exported constants — never type declarations, which contain
-  // string literals that are part of the code's structure.
-  sf.statements.forEach((stmt) => {
-    if (!ts.isVariableStatement(stmt)) return;
-    const exported = stmt.modifiers?.some(
-      (m) => m.kind === ts.SyntaxKind.ExportKeyword,
-    );
-    if (!exported) return;
-
-    stmt.declarationList.declarations.forEach((decl) => {
-      if (!decl.initializer || !ts.isIdentifier(decl.name)) return;
-      const rootName = decl.name.text;
-      // `as const` wrappers sit between the name and the value.
-      let value = decl.initializer;
-      while (ts.isAsExpression(value) || ts.isSatisfiesExpression(value)) {
-        value = value.expression;
-      }
-      walk(value, {
-        rootName,
-        path: rootName,
-        group: rootName,
-        groupLabel: prettyKey(rootName),
-        key: null,
-        depth: 0,
-      });
+  for (const [rootName, value] of Object.entries(json)) {
+    walk(value, {
+      rootName,
+      path: rootName,
+      group: rootName,
+      groupLabel: prettyKey(rootName),
+      key: null,
+      depth: 0,
     });
-  });
+  }
 
   return fields;
 }
 
 async function readAll() {
-  const names = (await fs.readdir(CONTENT_DIR)).filter((n) => n.endsWith(".ts"));
+  const names = (await fs.readdir(DATA_DIR)).filter((n) => n.endsWith(".json"));
   const files = [];
 
   for (const name of names) {
-    const source = await fs.readFile(path.join(CONTENT_DIR, name), "utf8");
-    const fields = extractFields(source, name);
+    const json = JSON.parse(await fs.readFile(path.join(DATA_DIR, name), "utf8"));
+    const fields = collectFields(json);
     if (fields.length === 0) continue;
 
-    // Group the flat field list into cards for the interface.
     const groups = [];
     const byKey = new Map();
     for (const f of fields) {
@@ -286,11 +221,34 @@ async function readAll() {
 }
 
 /* ------------------------------------------------------------------ *
- * Writing: put edited text back into the file, in place.
+ * Writing
  * ------------------------------------------------------------------ */
 
+/** Split "contact.offices[1].city" into ["contact","offices",1,"city"]. */
+function parsePath(p) {
+  const parts = [];
+  const re = /([^.[\]]+)|\[(\d+)\]/g;
+  let m;
+  while ((m = re.exec(p)) !== null) {
+    parts.push(m[2] !== undefined ? Number(m[2]) : m[1]);
+  }
+  return parts;
+}
+
+function setAt(root, parts, value) {
+  let node = root;
+  for (let i = 0; i < parts.length - 1; i++) {
+    node = node[parts[i]];
+    if (node === undefined) throw new Error(`Path not found: ${parts.join(".")}`);
+  }
+  const last = parts[parts.length - 1];
+  if (typeof node[last] !== "string") {
+    throw new Error(`Refusing to write a non-text value at ${parts.join(".")}`);
+  }
+  node[last] = value;
+}
+
 async function saveEdits(edits) {
-  // Group the incoming edits by file.
   const byFile = new Map();
   for (const edit of edits) {
     const [file, fieldPath] = edit.id.split("::");
@@ -301,52 +259,22 @@ async function saveEdits(edits) {
   const written = [];
 
   for (const [file, fileEdits] of byFile) {
-    if (!/^[\w.-]+\.ts$/.test(file)) throw new Error(`Bad file name: ${file}`);
-    const full = path.join(CONTENT_DIR, file);
-    let source = await fs.readFile(full, "utf8");
+    if (!/^[\w-]+\.json$/.test(file)) throw new Error(`Bad file name: ${file}`);
+    const full = path.join(DATA_DIR, file);
+    const json = JSON.parse(await fs.readFile(full, "utf8"));
 
-    // Re-read positions from the current file so offsets are always fresh.
-    const fields = extractFields(source, file);
-    const index = new Map(fields.map((f) => [f.path, f]));
-
-    const applied = [];
+    let count = 0;
     for (const edit of fileEdits) {
-      const target = index.get(edit.path);
-      if (!target) throw new Error(`Could not find ${edit.path} in ${file}`);
-      if (target.locked) continue; // structural — refuse silently
-      if (target.value === edit.value) continue; // unchanged
-      applied.push({ ...target, next: edit.value });
+      const parts = parsePath(edit.path);
+      const key = parts[parts.length - 1];
+      if (typeof key === "string" && LOCKED_KEYS.has(key)) continue;
+      setAt(json, parts, edit.value);
+      count++;
     }
 
-    if (applied.length === 0) continue;
-
-    // Apply back-to-front so earlier offsets stay valid.
-    applied.sort((a, b) => b.start - a.start);
-    for (const change of applied) {
-      // JSON.stringify gives a correctly escaped double-quoted string,
-      // which is also valid TypeScript.
-      const literal = JSON.stringify(change.next);
-      source = source.slice(0, change.start) + literal + source.slice(change.end);
-    }
-
-    // Safety net: the result must still parse as TypeScript.
-    const check = ts.createSourceFile(
-      file,
-      source,
-      ts.ScriptTarget.Latest,
-      true,
-      ts.ScriptKind.TS,
-    );
-    // @ts-expect-error - parseDiagnostics is internal but reliable here.
-    const errors = check.parseDiagnostics ?? [];
-    if (errors.length > 0) {
-      throw new Error(
-        `Refusing to save ${file} — the result would not be valid. No changes were written.`,
-      );
-    }
-
-    await fs.writeFile(full, source, "utf8");
-    written.push({ file, count: applied.length });
+    if (count === 0) continue;
+    await fs.writeFile(full, JSON.stringify(json, null, 2) + "\n", "utf8");
+    written.push({ file, count });
   }
 
   return written;
@@ -377,8 +305,7 @@ const server = http.createServer(async (req, res) => {
       for await (const chunk of req) chunks.push(chunk);
       const { edits } = JSON.parse(Buffer.concat(chunks).toString("utf8"));
       if (!Array.isArray(edits)) return send(res, 400, { error: "Bad payload" });
-      const written = await saveEdits(edits);
-      return send(res, 200, { ok: true, written });
+      return send(res, 200, { ok: true, written: await saveEdits(edits) });
     }
 
     send(res, 404, { error: "Not found" });
@@ -391,6 +318,6 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`\n  Gelian content editor\n`);
   console.log(`  Open:     http://localhost:${PORT}`);
-  console.log(`  Editing:  ${CONTENT_DIR}`);
+  console.log(`  Editing:  ${DATA_DIR}`);
   console.log(`  Preview:  ${SITE_URL}  (run "npm run dev" in another window)\n`);
 });

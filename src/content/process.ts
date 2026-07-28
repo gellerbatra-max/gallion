@@ -1,4 +1,11 @@
-/** How a venture moves from an observation to a business. Used on /ventures. */
+/**
+ * How a venture moves from an observation to a business. Used on /ventures.
+ *
+ * The data lives in `data/process.json` and is edited through the CMS at
+ * /admin. This file only gives it its types.
+ */
+
+import data from "./data/process.json";
 
 export type Stage = {
   step: string;
@@ -8,102 +15,10 @@ export type Stage = {
   detail: string[];
 };
 
-export const stages: Stage[] = [
-  {
-    step: "01",
-    title: "Observation",
-    duration: "Ongoing",
-    summary:
-      "Something does not add up in a market, and it keeps not adding up.",
-    detail: [
-      "We keep a live register of mismatches — categories where the island supplies the input and imports the finished good, or where the margin sits several time zones from the craft.",
-      "Most entries stay on the register for years. A few start to look like a business.",
-    ],
-  },
-  {
-    step: "02",
-    title: "Study",
-    duration: "6–12 weeks",
-    summary: "We go and find out whether the observation survives contact.",
-    detail: [
-      "Operators, suppliers and buyers are met in person. Costs are built from the bottom up rather than benchmarked from a report.",
-      "We write a short internal thesis with the case against it stated first. If the case against is stronger, the file closes and we say why.",
-    ],
-  },
-  {
-    step: "03",
-    title: "Pilot",
-    duration: "3–6 months",
-    summary: "The smallest version of the idea that a real customer can pay for.",
-    detail: [
-      "One product, one corridor, one set of buyers. Deliberately under-built, because the point is to learn what breaks.",
-      "A pilot has a defined kill condition agreed before it starts. Ventures that cannot survive their own kill condition do not proceed.",
-    ],
-  },
-  {
-    step: "04",
-    title: "Brand",
-    duration: "2–4 months",
-    summary: "The venture stops being a project and gets its own name.",
-    detail: [
-      "Identity, narrative and standards are set with the same seriousness as the operating model, because the story is what crosses the border.",
-      "The venture is incorporated separately, with its own accountable leadership and its own board rhythm.",
-    ],
-  },
-  {
-    step: "05",
-    title: "Business line",
-    duration: "12–24 months",
-    summary: "It stands on its own, and Gelian steps back.",
-    detail: [
-      "The venture runs its own P&L, hires its own team and is measured on its own terms. The platform holds equity and provides capital, capability and governance.",
-      "Only at this point does it appear on the portfolio page as a live venture rather than an exploration area.",
-    ],
-  },
-];
+export type Criterion = { title: string; body: string };
 
-export const evaluation = [
-  {
-    title: "Is it true here?",
-    body: "A reason to be built in Sri Lanka that is not simply cost — material, craft, geography or accumulated knowledge.",
-  },
-  {
-    title: "Is it legible there?",
-    body: "Would a buyer in a demanding market understand it without an introduction, and choose it on its own merits?",
-  },
-  {
-    title: "Does it repeat?",
-    body: "Can the second order, the second property, the second season be as good as the first — with the team we can actually hire?",
-  },
-  {
-    title: "Can we hold it?",
-    body: "Modest fixed costs, real margins, and no structure that forces a sale at someone else's timing.",
-  },
-];
+export type Faq = { q: string; a: string };
 
-export const faqs = [
-  {
-    q: "Is Gelian an investment fund?",
-    a: "No. Gelian is a privately held venture platform that builds and holds its own ventures. We do not manage outside money, we do not offer securities, and nothing on this website is an offer or a solicitation to invest.",
-  },
-  {
-    q: "Are any of the ventures trading yet?",
-    a: "Not publicly. Everything shown on the Future Ventures page is an exploration area or a concept in development. When a venture begins trading under its own name, we will say so plainly and it will appear as a live venture.",
-  },
-  {
-    q: "Do you invest in companies you did not start?",
-    a: "Occasionally, and selectively. We are more useful to a founder as an operating partner than as a passive cheque, so we look for situations where market access, brand capability or governance is the binding constraint rather than capital alone.",
-  },
-  {
-    q: "Which sectors are you actually looking at?",
-    a: "Six themes: trade and commerce, travel and hospitality, gemstones and jewellery, content and media, digital services, and cross-border market access. We would rather go deep in a few than shallow across many.",
-  },
-  {
-    q: "Do you work outside Sri Lanka?",
-    a: "Yes — in both directions. Half the mandate is carrying Sri Lankan ventures into global markets; the other half is helping credible international operators enter Sri Lanka with partners who are accountable for the outcome.",
-  },
-  {
-    q: "How do I bring you an opportunity?",
-    a: "Write to us with the specifics: what it is, who the customer is, what stage it is at, and what you need that is not money. Short and concrete beats long and polished. We reply to every serious enquiry within three working days.",
-  },
-];
+export const stages = data.stages as Stage[];
+export const evaluation = data.evaluation as Criterion[];
+export const faqs = data.faqs as Faq[];

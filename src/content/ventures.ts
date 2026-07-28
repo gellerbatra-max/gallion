@@ -1,12 +1,17 @@
 /**
  * Future ventures.
  *
+ * The data lives in `data/ventures.json` and is edited through the CMS at
+ * /admin. This file only gives it its types.
+ *
  * IMPORTANT
  * Nothing here is an operating business, a completed investment or a
  * performance claim. Each entry is an exploration area with a working name.
  * When a venture launches, change its `status` to "live" and add `href` — the
  * portfolio grid renders the new state automatically. No layout work needed.
  */
+
+import data from "./data/ventures.json";
 
 export type VentureStatus =
   | "exploring"
@@ -31,108 +36,9 @@ export type Venture = {
   href?: string;
 };
 
-export const ventures: Venture[] = [
-  {
-    slug: "meridian-trade",
-    name: "Meridian Trade",
-    theme: "Trade & Commerce",
-    themeId: "trade",
-    oneLiner:
-      "An export house for Sri Lankan categories that deserve to be sold under their own name.",
-    description:
-      "A study into owning the brand layer above commodity export — starting with a single category, a single corridor, and a small number of buyers who care about provenance.",
-    status: "development",
-    geography: "Sri Lanka → Europe & the Gulf",
-    since: "2026",
-  },
-  {
-    slug: "ratna-atelier",
-    name: "Ratna Atelier",
-    theme: "Gemstones & Jewellery",
-    themeId: "gems",
-    oneLiner:
-      "Ceylon stones, traceable from the pit to the setting, designed for people who ask where things come from.",
-    description:
-      "An exploration of verified provenance as a product feature: certification, cutting and design held under one roof, sold directly to collectors and independent jewellers.",
-    status: "development",
-    geography: "Ratnapura → global collectors",
-    since: "2026",
-  },
-  {
-    slug: "serendib-house",
-    name: "Serendib House",
-    theme: "Travel & Hospitality",
-    themeId: "travel",
-    oneLiner:
-      "A small hospitality format built around one place, done properly, and repeatable.",
-    description:
-      "Concept work on a compact residence format — few keys, high craft, strong operating standards — designed so that the second property is as good as the first.",
-    status: "exploring",
-    geography: "Southern & Central Sri Lanka",
-    since: "2026",
-  },
-  {
-    slug: "longitude-studio",
-    name: "Longitude Studio",
-    theme: "Content & Media",
-    themeId: "media",
-    oneLiner:
-      "The narrative arm of the platform — film, editorial and photography for everything we build.",
-    description:
-      "An in-house studio treated as infrastructure rather than agency spend: it gives every Gelian venture a credible voice from its first day, and it can eventually take outside work.",
-    status: "development",
-    geography: "Colombo → global audiences",
-    since: "2026",
-  },
-  {
-    slug: "portside-digital",
-    name: "Portside Digital",
-    theme: "Digital Services",
-    themeId: "digital",
-    oneLiner:
-      "Specialist technical teams sold on outcomes, not on hours or headcount.",
-    description:
-      "An early look at narrow, senior service businesses built on Sri Lankan engineering and design talent, priced and positioned for buyers in mature markets.",
-    status: "coming-soon",
-    geography: "Sri Lanka → North America & Australia",
-    since: "2027",
-  },
-  {
-    slug: "landfall",
-    name: "Landfall",
-    theme: "Cross-Border Market Access",
-    themeId: "bridge",
-    oneLiner:
-      "Market entry in both directions, with people who are actually accountable for the outcome.",
-    description:
-      "A structure for helping credible foreign operators land in Sri Lanka — and Sri Lankan operators land abroad — through joint ventures, distribution and licensing rather than advice alone.",
-    status: "exploring",
-    geography: "Sri Lanka ⇄ global",
-    since: "2027",
-  },
-];
+export const ventures = data.ventures as Venture[];
 
-export const statusMeta: Record<
+export const statusMeta = data.statusMeta as Record<
   VentureStatus,
   { label: string; description: string }
-> = {
-  exploring: {
-    label: "Exploring",
-    description:
-      "Thesis work. We are reading the market, meeting operators and testing whether the opportunity is real.",
-  },
-  development: {
-    label: "In development",
-    description:
-      "Concept, brand and operating model are being built. Not yet trading.",
-  },
-  "coming-soon": {
-    label: "Coming soon",
-    description:
-      "Scoped and scheduled. Work begins once the ventures ahead of it are standing on their own.",
-  },
-  live: {
-    label: "Live",
-    description: "Operating under its own name.",
-  },
-};
+>;
