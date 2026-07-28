@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import { nav, contact } from "@/content/site";
 import { Wordmark } from "./Wordmark";
-import { Button } from "@/components/ui/Button";
 
 export function Header() {
   const pathname = usePathname();
@@ -64,7 +63,7 @@ export function Header() {
   }, [open]);
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(`${href}/`);
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header
@@ -85,7 +84,9 @@ export function Header() {
           <Wordmark />
         </div>
 
-        {/* Desktop navigation */}
+        {/* Desktop navigation — four co-equal items, no separate CTA pill.
+            Contact is a plain nav link, matching the calm, institutional
+            register asked for across the rest of the site. */}
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {nav.map((item) => (
@@ -113,12 +114,6 @@ export function Header() {
             ))}
           </ul>
         </nav>
-
-        <div className="hidden lg:block">
-          <Button href="/contact" size="sm" variant="secondary" withArrow>
-            Start a conversation
-          </Button>
-        </div>
 
         {/* Mobile toggle */}
         <button
@@ -164,18 +159,6 @@ export function Header() {
           className="flex min-h-full flex-col px-6 py-8 sm:px-8"
         >
           <ul className="flex flex-col">
-            <li>
-              <Link
-                href="/"
-                aria-current={pathname === "/" ? "page" : undefined}
-                className={cn(
-                  "block border-b border-tide/50 py-4 font-display text-2xl transition-colors",
-                  pathname === "/" ? "text-brass" : "text-ivory hover:text-brass",
-                )}
-              >
-                Home
-              </Link>
-            </li>
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
@@ -192,20 +175,6 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/contact"
-                aria-current={isActive("/contact") ? "page" : undefined}
-                className={cn(
-                  "block py-4 font-display text-2xl transition-colors",
-                  isActive("/contact")
-                    ? "text-brass"
-                    : "text-ivory hover:text-brass",
-                )}
-              >
-                Contact
-              </Link>
-            </li>
           </ul>
 
           <div className="mt-auto flex flex-col gap-3 pt-12">

@@ -8,61 +8,25 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 
 import { contact } from "@/content/site";
+import { contactContent } from "@/content/contact";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Contact",
-  description:
-    "Speak to Gelian about partnerships, joint ventures, market entry into Sri Lanka, supplier introductions or press. We reply to every serious enquiry within three working days.",
+  title: contactContent.seo.title,
+  description: contactContent.seo.description,
   path: "/contact",
 });
 
-const collaboration = [
-  {
-    title: "Operators & founders",
-    body: "You are already doing the difficult part and the constraint is distribution, brand or capital rather than capability. This is the conversation we most want to have.",
-  },
-  {
-    title: "Makers & suppliers",
-    body: "Growers, cutters, weavers, workshops and small manufacturers in any of our six themes. We are building relationships years before we need them.",
-  },
-  {
-    title: "Inbound market entry",
-    body: "International operators looking at Sri Lanka who need a partner accountable for the outcome rather than a consultant accountable for a deck.",
-  },
-  {
-    title: "Co-investors & partners",
-    body: "Family offices, holding companies and operators with a complementary corridor. We share deals rarely and carefully, but we do share them.",
-  },
-  {
-    title: "Specialists",
-    body: "Certification, logistics, export finance, retail buying, hospitality operations. Occasional, well-scoped work with people who are genuinely expert.",
-  },
-  {
-    title: "Press & speaking",
-    body: "We speak on Sri Lankan categories, cross-border trade and long-horizon venture building — and decline more of these than we accept.",
-  },
-];
-
 export default function ContactPage() {
+  const { header, form, details, collaboration } = contactContent;
+
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
-        title="Start a conversation."
-        lede={
-          <p>
-            We are a small team and we read everything ourselves. Short and
-            concrete beats long and polished — tell us what it is, who the
-            customer is, and what you need that is not money.
-          </p>
-        }
-        meta={[
-          { label: "General", value: contact.general },
-          { label: "Ventures", value: contact.ventures },
-          { label: "Response", value: "Within 3 working days" },
-          { label: "Home port", value: `${contact.offices[0].city}, Sri Lanka` },
-        ]}
+        eyebrow={header.eyebrow}
+        title={header.title}
+        lede={<p>{header.lede}</p>}
+        meta={header.meta}
       />
 
       {/* ---------------------------------------------------------------- */}
@@ -74,21 +38,20 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-7">
               <Reveal>
-                <Eyebrow>Write to us</Eyebrow>
+                <Eyebrow>{form.eyebrow}</Eyebrow>
                 <h2
                   id="form-heading"
                   className="mt-6 text-3xl leading-[1.14] sm:text-4xl"
                 >
-                  Send a message.
+                  {form.title}
                 </h2>
                 <p className="measure mt-6 text-[1.0625rem] leading-[1.8] text-mist">
-                  {contact.responseTime} If we are not the right people, we will
-                  say so quickly rather than leave you waiting.
+                  {form.body}
                 </p>
               </Reveal>
 
               <Reveal delay={120} className="mt-12">
-                <ContactForm />
+                <ContactForm topics={form.topics} />
               </Reveal>
             </div>
 
@@ -97,11 +60,11 @@ export default function ContactPage() {
               <Reveal delay={80}>
                 <div className="flex flex-col gap-10 rounded-2xl border border-tide/70 bg-hull/30 p-8 sm:p-10">
                   <div>
-                    <p className="label text-haze">Direct</p>
+                    <p className="label text-haze">{details.directLabel}</p>
                     <ul className="mt-5 flex flex-col gap-4">
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
-                          General enquiries
+                          {details.generalNote}
                         </span>
                         <a
                           href={`mailto:${contact.general}`}
@@ -112,18 +75,18 @@ export default function ContactPage() {
                       </li>
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
-                          Ventures &amp; opportunities
+                          {details.partnershipsNote}
                         </span>
                         <a
-                          href={`mailto:${contact.ventures}`}
+                          href={`mailto:${contact.partnerships}`}
                           className="link-draw w-fit text-ivory transition-colors hover:text-brass"
                         >
-                          {contact.ventures}
+                          {contact.partnerships}
                         </a>
                       </li>
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
-                          Press &amp; speaking
+                          {details.pressNote}
                         </span>
                         <a
                           href={`mailto:${contact.press}`}
@@ -136,11 +99,11 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t border-tide/60 pt-8">
-                    <p className="label text-haze">By phone</p>
+                    <p className="label text-haze">{details.phoneLabel}</p>
                     <ul className="mt-5 flex flex-col gap-4">
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
-                          Office &middot; weekdays, 09:00&ndash;17:30 (+05:30)
+                          {details.officeHoursNote}
                         </span>
                         <a
                           href={contact.phoneHref}
@@ -151,7 +114,7 @@ export default function ContactPage() {
                       </li>
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
-                          WhatsApp &middot; for introductions in transit
+                          {details.whatsappNote}
                         </span>
                         <a
                           href={contact.whatsapp}
@@ -159,14 +122,14 @@ export default function ContactPage() {
                           rel="noreferrer noopener"
                           className="link-draw w-fit text-ivory transition-colors hover:text-brass"
                         >
-                          Message on WhatsApp
+                          {details.whatsappLabel}
                         </a>
                       </li>
                     </ul>
                   </div>
 
                   <div className="border-t border-tide/60 pt-8">
-                    <p className="label text-haze">Where we are</p>
+                    <p className="label text-haze">{details.locationLabel}</p>
                     <ul className="mt-5 flex flex-col gap-6">
                       {contact.offices.map((office) => (
                         <li key={office.city} className="flex flex-col gap-1.5">
@@ -183,8 +146,7 @@ export default function ContactPage() {
                       ))}
                     </ul>
                     <p className="mt-6 text-xs leading-relaxed text-haze">
-                      Full registered address available on request. We meet by
-                      appointment rather than drop-in.
+                      {details.locationNote}
                     </p>
                   </div>
                 </div>
@@ -205,22 +167,13 @@ export default function ContactPage() {
       >
         <Container size="wide">
           <SectionHeading
-            eyebrow="Partnership types"
-            title={
-              <span id="collaboration-heading">
-                Where a conversation is most likely to go somewhere.
-              </span>
-            }
-            lede={
-              <p>
-                We are not trying to be reachable by everyone. These are the six
-                kinds of enquiry we are genuinely set up to act on.
-              </p>
-            }
+            eyebrow={collaboration.eyebrow}
+            title={<span id="collaboration-heading">{collaboration.title}</span>}
+            lede={<p>{collaboration.lede}</p>}
           />
 
           <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {collaboration.map((item, index) => (
+            {collaboration.items.map((item, index) => (
               <Reveal
                 key={item.title}
                 delay={(index % 3) * 90}
@@ -236,10 +189,7 @@ export default function ContactPage() {
 
           <Reveal delay={280}>
             <p className="measure mt-14 border-t border-tide/60 pt-8 text-sm leading-[1.8] text-haze">
-              What we cannot help with: requests for donations or sponsorship,
-              unsolicited agency and outsourcing pitches, and cold approaches
-              asking us to invest in businesses outside the six themes. No
-              offence intended in saying so — it saves everyone a week.
+              {collaboration.declineNote}
             </p>
           </Reveal>
         </Container>

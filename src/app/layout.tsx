@@ -35,10 +35,10 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "Gelian",
-    "venture platform",
+    "investment vehicle",
     "Sri Lanka",
     "holding company",
-    "venture studio",
+    "Ceylon trade",
     "Colombo",
     "cross-border trade",
     "market entry Sri Lanka",

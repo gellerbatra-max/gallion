@@ -1,0 +1,144 @@
+{
+  "seo": {
+    "title": "Gelian — An investment vehicle for Ceylon value",
+    "description": "Gelian is a privately held investment vehicle that discovers distinctive Sri Lankan value, shapes it into disciplined businesses, and carries it to global markets — and brings capital, standards and opportunity back in return."
+  },
+  "hero": {
+    "kicker": "Colombo · Private investment vehicle",
+    "headline": "A vessel for Ceylon value, bound for the world.",
+    "headlineAccent": "Ceylon value",
+    "subheadline": "Gelian identifies what Sri Lanka does distinctly well, shapes it into disciplined brands and businesses, and carries it to global markets — while bringing capital, standards and opportunity back in return.",
+    "primaryCta": {
+      "label": "Our philosophy",
+      "href": "/philosophy"
+    },
+    "secondaryCta": {
+      "label": "About Gelian",
+      "href": "/about"
+    },
+    "stats": [
+      {
+        "value": "Private",
+        "label": "Capital, principally our own"
+      },
+      {
+        "value": "Two-way",
+        "label": "Mandate, not one"
+      },
+      {
+        "value": "10 yr",
+        "label": "Minimum holding horizon"
+      },
+      {
+        "value": "6.9° N",
+        "label": "Home port, Colombo"
+      }
+    ]
+  },
+  "whatWeAre": {
+    "eyebrow": "What Gelian is",
+    "title": "An investment vehicle, built to hold what it carries.",
+    "paragraphs": [
+      "Gelian is a privately held investment vehicle — a structure that originates, acquires and holds businesses, rather than a single company operating under one name. Each business we build keeps its own name, its own leadership and its own reason to exist.",
+      "That structure is the point. It lets us fund something through the years before it earns, keep what works, and close what does not, without the fate of one venture deciding the fate of the rest. It also keeps the standard in one place — whatever we hold, it is held to the same brief.",
+      "We are early. What exists today is a thesis, a structure, and the first work in development. We would rather say that plainly than dress it up."
+    ],
+    "primaryCta": {
+      "label": "About the vehicle",
+      "href": "/about"
+    },
+    "secondaryCta": {
+      "label": "Our philosophy",
+      "href": "/philosophy"
+    }
+  },
+  "vessel": {
+    "eyebrow": "The vessel, not the cargo",
+    "title": "A trade vessel, built for a specific crossing.",
+    "lede": "Gelian takes its structural cue from the ocean-going trade vessel — commercial infrastructure built to carry value across a distance reliably, more than once, not a single lucky voyage.",
+    "cards": [
+      {
+        "tier": "The hold",
+        "name": "What we carry",
+        "body": "Distinctive Sri Lankan value — a craft, a stone, a category, a skill — identified early and given the standard it deserves before it travels."
+      },
+      {
+        "tier": "The vessel",
+        "name": "What we are",
+        "body": "A disciplined holding structure that funds, governs and protects what it carries, without absorbing it into a single undifferentiated business."
+      },
+      {
+        "tier": "The crossing",
+        "name": "What we do",
+        "body": "Move that value into markets that will pay for what it actually is — and bring capital, standards and opportunity back on the return leg."
+      }
+    ]
+  },
+  "exchange": {
+    "eyebrow": "Both directions",
+    "title": "Sri Lanka to the world.",
+    "titleAccent": "And the world to Sri Lanka.",
+    "paragraphs": [
+      "A crossing with traffic in one direction only is a drain, not a bridge. Half the mandate is carrying distinctive Sri Lankan value into demanding markets. The other half is bringing capital, standards, partners and opportunity back — and leaving the place better supplied than we found it.",
+      "Getting out is hard. Getting in is harder still. International operators are rarely deterred by competition here; they are deterred by not knowing whom to trust. That is a solvable problem, and solving it properly is itself part of the work."
+    ],
+    "corridorsLabel": "Corridors of interest",
+    "corridorsNote": "Illustrative corridors under study. Not an indication of established operations or partnerships in these markets."
+  },
+  "process": {
+    "eyebrow": "How value is identified",
+    "title": "Discover. Curate. Refine. Carry.",
+    "lede": "The same discipline applied to every candidate, in this order, before capital or a name is committed.",
+    "steps": [
+      {
+        "label": "01",
+        "title": "Discover",
+        "body": "A wide, patient search for value that is genuinely distinctive to Sri Lanka — in trade, craft, hospitality or expertise — rather than merely cheap to produce here."
+      },
+      {
+        "label": "02",
+        "title": "Curate",
+        "body": "Most candidates are declined. Saying no is the majority of the work, and the only way a small vehicle keeps its standard intact as it grows."
+      },
+      {
+        "label": "03",
+        "title": "Refine",
+        "body": "What survives is shaped properly — brand, governance and operating standard set before the first customer arrives, not retrofitted afterward."
+      },
+      {
+        "label": "04",
+        "title": "Carry",
+        "body": "Moved to market under its own name, held for the years it takes to compound, and judged on what it looks like a decade on rather than this quarter."
+      }
+    ]
+  },
+  "directionsPreview": {
+    "eyebrow": "Future directions",
+    "title": "Where we are looking.",
+    "lede": "A compact preview of the categories under study — not a portfolio of holdings, a set of active questions.",
+    "cta": {
+      "label": "More on our approach",
+      "href": "/about#directions"
+    }
+  },
+  "vision": {
+    "eyebrow": "A short note",
+    "quote": "The same meeting kept happening. Someone would hold up something made here — a stone, a cloth, a cup of tea — and the room would agree it was excellent. Then the price would be set as though it were ordinary. Gelian exists because we stopped accepting that as the natural order of things.",
+    "body": "We are not in a hurry, and we are not standing still. The plan is to hold a small number of businesses properly, for a long time, and be judged on what they look like in a decade rather than what they promise this year.",
+    "attributionName": "Founder's note",
+    "attributionRole": "Gelian"
+  },
+  "closingCta": {
+    "eyebrow": "Come aboard",
+    "title": "If something you hold should be travelling, we should talk.",
+    "body": "We are interested in operators, makers and partners on either side of the crossing — whether the work is leaving the island or landing on it. Tell us what it is and what you need that is not capital.",
+    "primaryCta": {
+      "label": "Start a conversation",
+      "href": "/contact"
+    },
+    "secondaryCta": {
+      "label": "Read our philosophy",
+      "href": "/philosophy"
+    }
+  }
+}

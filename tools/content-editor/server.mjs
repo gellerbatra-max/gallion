@@ -34,63 +34,50 @@ const FILE_INFO = {
   "site.json": {
     title: "Business details",
     blurb:
-      "Your name, tagline, email addresses, phone, offices and social links. These appear in the header, the footer and the contact page.",
+      "Your name, tagline, email addresses, phone, offices, social links and both menus. These appear in the header, the footer and the contact page.",
     order: 1,
   },
-  "team.json": {
-    title: "Leadership",
+  "home.json": {
+    title: "Home page",
     blurb:
-      "The people shown on the About page. The names currently here are invented placeholders — replace or remove them before the site is public.",
+      "Every section of the home page, top to bottom — hero, what Gelian is, the vessel, the exchange, how value is identified, the vision statement and the closing call to action.",
     order: 2,
-    warn: "These are invented placeholder people. Do not leave them published.",
   },
-  "journey.json": {
-    title: "Timeline",
+  "about.json": {
+    title: "About page",
     blurb:
-      "The year-by-year story on the About page. The dates currently here are illustrative.",
+      "The name, the distinction from a venture firm, the origin story, the long view and the timeline of milestones.",
     order: 3,
   },
-  "themes.json": {
-    title: "Areas of interest",
-    blurb: "The themes shown on the home page and the Future Ventures page.",
+  "philosophy.json": {
+    title: "Philosophy page",
+    blurb: "The opening essay, the eight numbered principles, and what the philosophy rules out.",
     order: 4,
   },
-  "ventures.json": {
-    title: "Ventures",
-    blurb: "The venture list and the status labels used to describe them.",
+  "contact.json": {
+    title: "Contact page",
+    blurb: "The form introduction, the contact-details labels, and the six collaboration types.",
     order: 5,
   },
-  "principles.json": {
-    title: "Philosophy",
-    blurb: "The principles that make up the Philosophy page.",
+  "directions.json": {
+    title: "Future directions",
+    blurb:
+      "The six category cards shown on both the home page and the About page — one set of cards, edited once here.",
     order: 6,
-  },
-  "process.json": {
-    title: "How you work",
-    blurb:
-      "Venture stages, the criteria you evaluate against, and the frequently-asked questions.",
-    order: 7,
-  },
-  "insights.json": {
-    title: "Journal articles",
-    blurb:
-      "The written pieces under Insights. Each article's paragraphs are listed in order.",
-    order: 8,
   },
 };
 
 /** Keys that control how the page is built, not what it says. */
-const LOCKED_KEYS = new Set(["type", "slug", "id", "themeId"]);
+const LOCKED_KEYS = new Set(["type", "slug", "id"]);
 
 /** Gentle format hints for the fields where the shape matters. */
 const HINTS = {
   href: "A web address or a page path such as /about",
   phoneHref: "Must start with tel: and contain digits only, e.g. tel:+94771234567",
-  date: "Format: YYYY-MM-DD",
   coords: "Shown as decorative text only",
-  initials: "Two letters, shown in the circle avatar",
-  status: "One of: exploring, development, coming-soon, live",
-  category: "One of: Founder Note, Market Observation, Field Note, Essay",
+  status: "One of: exploring, developing, selective, active",
+  headlineAccent:
+    "Must be an exact substring of the headline above it — that phrase renders in gold.",
 };
 
 function prettyKey(key) {

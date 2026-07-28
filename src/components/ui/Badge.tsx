@@ -1,26 +1,31 @@
 import { cn } from "@/lib/cn";
-import type { VentureStatus } from "@/content/ventures";
-import { statusMeta } from "@/content/ventures";
+import type { DirectionStatus } from "@/content/directions";
+import { directionStatusMeta } from "@/content/directions";
 
-const tones: Record<VentureStatus, string> = {
+/**
+ * Verdigris is reserved for exactly this one tone — "selective" reads as
+ * more deliberate than "exploring" without borrowing brass, which stays the
+ * site's single colour for interaction and emphasis.
+ */
+const tones: Record<DirectionStatus, string> = {
   exploring: "border-shoal/60 text-mist",
-  development: "border-brass/45 text-brass",
-  "coming-soon": "border-shoal/40 text-mist/80",
-  live: "border-brass text-abyss bg-brass",
+  developing: "border-brass/45 text-brass",
+  selective: "border-verdigris/60 text-verdigris-soft",
+  active: "border-brass text-abyss bg-brass",
 };
 
-const dots: Record<VentureStatus, string> = {
+const dots: Record<DirectionStatus, string> = {
   exploring: "bg-mist/70",
-  development: "bg-brass",
-  "coming-soon": "bg-mist/40",
-  live: "bg-abyss",
+  developing: "bg-brass",
+  selective: "bg-verdigris-soft",
+  active: "bg-abyss",
 };
 
 export function Badge({
   status,
   className,
 }: {
-  status: VentureStatus;
+  status: DirectionStatus;
   className?: string;
 }) {
   return (
@@ -36,10 +41,10 @@ export function Badge({
         className={cn(
           "size-1.5 rounded-full",
           dots[status],
-          status === "development" && "animate-sheen",
+          status === "developing" && "animate-sheen",
         )}
       />
-      {statusMeta[status].label}
+      {directionStatusMeta[status].label}
     </span>
   );
 }

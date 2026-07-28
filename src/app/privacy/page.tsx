@@ -59,7 +59,7 @@ export default function PrivacyPage() {
 
               <h2>1. Who we are</h2>
               <p>
-                Gelian is a privately held venture platform registered in Sri
+                Gelian is a privately held investment vehicle registered in Sri
                 Lanka, with its registered office in {contact.offices[0].city}.
                 For the purposes of applicable data protection law, Gelian is
                 the controller of the personal information described in this

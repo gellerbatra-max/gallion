@@ -58,9 +58,9 @@ export default function TermsPage() {
               <h2>1. About this site</h2>
               <p>
                 The site is an informational presence for a privately held
-                venture platform. It describes who we are, how we think, and the
-                areas we are studying. It is not a transactional service, it
-                does not host an account system, and it does not process
+                investment vehicle. It describes who we are, how we think, and
+                the areas we are studying. It is not a transactional service,
+                it does not host an account system, and it does not process
                 payments.
               </p>
 

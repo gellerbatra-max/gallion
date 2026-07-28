@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 import { Reveal } from "@/components/ui/Reveal";
-import type { Milestone } from "@/content/journey";
+import type { Milestone } from "@/content/about";
 
 /**
  * Company journey. Planned milestones are visually demoted and labelled so a

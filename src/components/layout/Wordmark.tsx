@@ -49,7 +49,7 @@ export function Wordmark({
           {site.name}
         </span>
         {showTagline ? (
-          <span className="label mt-2 text-haze">Venture Platform</span>
+          <span className="label mt-2 text-haze">Investment Vehicle</span>
         ) : null}
       </span>
     </Link>

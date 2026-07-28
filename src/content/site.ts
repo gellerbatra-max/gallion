@@ -18,6 +18,8 @@ export type Site = {
   founded: number;
   /** Short line used in the footer and in structured data. */
   mission: string;
+  /** Precise positioning statement — used in the footer's legal line. */
+  legalNote: string;
 };
 
 export type NavItem = { label: string; href: string };
@@ -34,7 +36,7 @@ export type Office = {
 
 export type Contact = {
   general: string;
-  ventures: string;
+  partnerships: string;
   press: string;
   phone: string;
   phoneHref: string;
@@ -51,5 +53,5 @@ export const footerNav = data.footerNav as FooterGroup[];
 export const contact = data.contact as Contact;
 export const social = data.social as NavItem[];
 
-/** Ports referenced by the route diagram on the home and about pages. */
+/** Ports referenced by the route diagram on the home page. */
 export const ports = data.ports as Port[];

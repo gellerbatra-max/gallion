@@ -4,12 +4,36 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Meridians } from "@/components/visuals/Meridians";
 import { CompassRose } from "@/components/visuals/CompassRose";
 import { HorizonGlow } from "@/components/visuals/Atmosphere";
+import { home } from "@/content/home";
+
+/**
+ * Splits a headline on its accent phrase so the phrase can be styled
+ * separately. Falls back to rendering the whole string plainly if the accent
+ * text is not found — content edits should never be able to crash the page.
+ */
+function Headline({ text, accent }: { text: string; accent: string }) {
+  const index = accent ? text.indexOf(accent) : -1;
+  if (index === -1) return <>{text}</>;
+
+  const before = text.slice(0, index);
+  const after = text.slice(index + accent.length);
+
+  return (
+    <>
+      {before}
+      <span className="text-gilt">{accent}</span>
+      {after}
+    </>
+  );
+}
 
 /**
  * Home hero. Every layer here is vector or gradient — no photography, no
  * video, nothing that blocks first paint.
  */
 export function Hero() {
+  const { hero } = home;
+
   return (
     <section className="relative isolate overflow-hidden">
       {/* Depth stack: chart → rose → horizon */}
@@ -30,33 +54,28 @@ export function Hero() {
       >
         <Reveal className="flex items-center gap-4">
           <span aria-hidden="true" className="h-px w-10 bg-brass/60" />
-          <p className="label text-brass">Colombo &middot; Est. 2024</p>
+          <p className="label text-brass">{hero.kicker}</p>
         </Reveal>
 
         <Reveal delay={90}>
           <h1 className="mt-10 max-w-5xl text-[2.75rem] leading-[1.05] font-light sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
-            A venture platform carrying
-            <span className="text-gilt"> Sri Lanka </span>
-            to the world — and the world back.
+            <Headline text={hero.headline} accent={hero.headlineAccent} />
           </h1>
         </Reveal>
 
         <Reveal delay={180}>
           <p className="measure mt-9 text-lg leading-[1.75] text-mist sm:text-xl">
-            Gelian is a holding platform for brands and businesses built on an
-            island that has been a waypoint in world trade for two thousand
-            years. We find what deserves to travel, give it a name worth
-            carrying, and hold it for the long passage.
+            {hero.subheadline}
           </p>
         </Reveal>
 
         <Reveal delay={260}>
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href="/philosophy" withArrow>
-              Read our philosophy
+            <Button href={hero.primaryCta.href} withArrow>
+              {hero.primaryCta.label}
             </Button>
-            <Button href="/portfolio" variant="secondary">
-              See what we&rsquo;re exploring
+            <Button href={hero.secondaryCta.href} variant="secondary">
+              {hero.secondaryCta.label}
             </Button>
           </div>
         </Reveal>
@@ -64,12 +83,7 @@ export function Hero() {
         {/* Standing facts — quiet, factual, no invented performance claims */}
         <Reveal delay={340}>
           <dl className="mt-20 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-8 border-t border-tide/60 pt-10 sm:grid-cols-4">
-            {[
-              { value: "Six", label: "Themes under study" },
-              { value: "Two", label: "Directions of travel" },
-              { value: "10 yr", label: "Minimum horizon" },
-              { value: "6.9° N", label: "Home port, Colombo" },
-            ].map((item) => (
+            {hero.stats.map((item) => (
               <div key={item.label} className="flex flex-col gap-2.5">
                 <dt className="font-display text-3xl leading-none text-ivory sm:text-4xl">
                   {item.value}

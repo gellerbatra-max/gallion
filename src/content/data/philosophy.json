@@ -1,0 +1,115 @@
+{
+  "seo": {
+    "title": "Philosophy",
+    "description": "Eight principles that decide what Gelian holds, backs and declines — discover, curate, refine, connect, transport, compound, return value and build trust."
+  },
+  "header": {
+    "eyebrow": "Philosophy",
+    "title": "What we believe, and what it costs us.",
+    "lede": "Principles are only worth writing down if they occasionally make you worse off. These eight have already cost us opportunities we wanted. That is how we know they are doing something.",
+    "meta": [
+      { "label": "Principles", "value": "Eight" },
+      { "label": "Standard", "value": "Craft before scale" },
+      { "label": "Horizon", "value": "Ten years, minimum" },
+      { "label": "Direction", "value": "Both ways" }
+    ]
+  },
+  "opening": {
+    "title": "Most vehicles inherit their philosophy from whatever worked last quarter.",
+    "paragraphs": [
+      "That is not a criticism — it is what pressure does. A business under quarterly scrutiny develops the beliefs that keep it alive in three-month increments, and those beliefs are almost always about speed. Move faster. Announce sooner. Take the deal in front of you.",
+      "We built Gelian as a holding vehicle partly to escape that. Structure is not a substitute for character, but it decides which kind of character is affordable. A vehicle designed to hold things for a decade can afford beliefs that a vehicle designed to exit in four years cannot.",
+      "What follows is not a values statement written to be agreed with. It is written to be argued with — by us, in rooms where a decision is actually being made, usually when the easier answer is sitting right there."
+    ],
+    "pullQuote": "A principle that has never cost you anything is not a principle. It is a preference."
+  },
+  "manifesto": {
+    "eyebrow": "The manifesto",
+    "title": "Eight principles.",
+    "lede": "In the order we tend to apply them — from the first question we ask about an opportunity to the last thing we owe the place we built it in.",
+    "principles": [
+      {
+        "number": "I",
+        "title": "Discover",
+        "claim": "Curiosity comes before conviction.",
+        "body": "Most distinctive value is found by people who kept asking after everyone else stopped. We spend an unreasonable amount of time reading, travelling and listening before we form a view — and hold that view loosely until the market argues back."
+      },
+      {
+        "number": "II",
+        "title": "Curate",
+        "claim": "Saying no is the work.",
+        "body": "A vehicle is defined by what it declines. We would rather hold three businesses that deserve our full attention than fifteen that receive a fraction of it. Concentration is not caution; it is the only way craft survives scale."
+      },
+      {
+        "number": "III",
+        "title": "Refine",
+        "claim": "The detail is not a finishing layer.",
+        "body": "Quality is decided upstream — in sourcing, in specification, in who is hired first. We hold businesses where the standard is set before the first customer arrives, because a standard retrofitted is a standard already lost."
+      },
+      {
+        "number": "IV",
+        "title": "Connect",
+        "claim": "Build the bridge, not just the brand.",
+        "body": "A product that travels alone arrives as a stranger. We invest in the relationships, distribution and credibility that let something Sri Lankan land in an unfamiliar market on its own merits, not on an introduction we cannot repeat."
+      },
+      {
+        "number": "V",
+        "title": "Transport",
+        "claim": "Carry it properly, in both directions.",
+        "body": "Moving something across a border is a discipline, not an afterthought — packaging, logistics, compliance and timing all decide whether value arrives intact. We treat the crossing itself as part of the product."
+      },
+      {
+        "number": "VI",
+        "title": "Compound",
+        "claim": "We measure in decades, not quarters.",
+        "body": "Compounding is the only advantage available to everyone and taken by almost no one. We hold businesses so they can be kept — modest fixed costs, real margins, and no structure that forces a sale at someone else's timing."
+      },
+      {
+        "number": "VII",
+        "title": "Return value",
+        "claim": "The traffic runs both ways.",
+        "body": "Carrying Sri Lankan value outward is half the mandate. The other half is bringing capital, standards, partners and ideas back in — and leaving behind something more capable than what we found."
+      },
+      {
+        "number": "VIII",
+        "title": "Build trust",
+        "claim": "Reputation compounds faster than capital.",
+        "body": "We would rather be trusted in ten rooms than known in a thousand. Every commitment we make is one we intend to be measured against, and we do not describe as finished what is still in progress."
+      }
+    ]
+  },
+  "boundaries": {
+    "eyebrow": "The other side",
+    "title": "What this rules out.",
+    "lede": "The useful half of any philosophy is the list of things it forbids. Here is ours, stated plainly so it can be held against us.",
+    "items": [
+      {
+        "title": "We do not chase volume",
+        "body": "A larger holding is not a better one. If we cannot give a business serious attention, we should not hold it."
+      },
+      {
+        "title": "We do not sell the origin cheaply",
+        "body": "Cost arbitrage is a temporary condition someone else will undercut. If the only reason to build here is that it is cheap, we pass."
+      },
+      {
+        "title": "We do not announce what has not happened",
+        "body": "No launch is described in the past tense before it happens. Nothing on this site is a result unless it is labelled as one."
+      },
+      {
+        "title": "We do not take capital with a clock on it",
+        "body": "Money that must exit on someone else's schedule will eventually make the decision for us. We would rather grow slower and keep the choice."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "In short",
+    "statement": "Find the few things worth carrying. Build them properly. Hold them long enough to matter. Leave the place better supplied than we found it."
+  },
+  "closingCta": {
+    "eyebrow": "Next",
+    "title": "This is how the philosophy becomes a company.",
+    "body": "The About page sets out how Gelian is structured, how it differs from a venture firm, and what has to be true before it holds something.",
+    "primaryCta": { "label": "About Gelian", "href": "/about" },
+    "secondaryCta": { "label": "Start a conversation", "href": "/contact" }
+  }
+}

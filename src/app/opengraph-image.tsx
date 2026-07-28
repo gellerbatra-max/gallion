@@ -65,11 +65,10 @@ export default function OpenGraphImage() {
               maxWidth: 860,
             }}
           >
-            A venture platform carrying Sri Lanka to the world — and the world
-            back.
+            A vessel for Ceylon value, bound for the world.
           </div>
           <div style={{ fontSize: 26, color: "#9FB3BE", maxWidth: 780 }}>
-            Building, backing and holding brands between Colombo and global
+            A privately held investment vehicle between Colombo and global
             markets.
           </div>
         </div>

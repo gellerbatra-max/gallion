@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Contact",
+    "description": "Speak to Gelian about partnerships, trade opportunities, market entry into Sri Lanka, supplier introductions or co-investment. We reply to every serious enquiry within three working days."
+  },
+  "header": {
+    "eyebrow": "Contact",
+    "title": "Start a conversation.",
+    "lede": "We are a small team and we read everything ourselves. Short and concrete beats long and polished — tell us what it is, who it is for, and what you need that is not capital.",
+    "meta": [
+      { "label": "General", "value": "hello@gelian.lk" },
+      { "label": "Partnerships", "value": "partnerships@gelian.lk" },
+      { "label": "Response", "value": "Within 3 working days" },
+      { "label": "Home port", "value": "Colombo, Sri Lanka" }
+    ]
+  },
+  "form": {
+    "eyebrow": "Write to us",
+    "title": "Send a message.",
+    "body": "We reply to every serious enquiry within three working days. If we are not the right people, we will say so quickly rather than leave you waiting.",
+    "topics": [
+      "Partnership or joint venture",
+      "Bringing us an opportunity",
+      "Market entry into Sri Lanka",
+      "Supplier or maker introduction",
+      "Co-investment enquiry",
+      "Press or speaking",
+      "Something else"
+    ]
+  },
+  "details": {
+    "directLabel": "Direct",
+    "generalNote": "General enquiries",
+    "partnershipsNote": "Partnerships & opportunities",
+    "pressNote": "Press & speaking",
+    "phoneLabel": "By phone",
+    "officeHoursNote": "Office · weekdays, 09:00–17:30 (+05:30)",
+    "whatsappNote": "WhatsApp · for introductions in transit",
+    "whatsappLabel": "Message on WhatsApp",
+    "locationLabel": "Where we are",
+    "locationNote": "Full registered address available on request. We meet by appointment rather than drop-in."
+  },
+  "collaboration": {
+    "eyebrow": "Partnership types",
+    "title": "Where a conversation is most likely to go somewhere.",
+    "lede": "We are not trying to be reachable by everyone. These are the kinds of enquiry we are genuinely set up to act on.",
+    "items": [
+      {
+        "title": "Operators & founders",
+        "body": "You are already doing the difficult part, and the constraint is distribution, brand or capital rather than capability. This is the conversation we most want to have."
+      },
+      {
+        "title": "Makers & suppliers",
+        "body": "Growers, cutters, weavers, workshops and small manufacturers across our areas of exploration. We build relationships years before we need them."
+      },
+      {
+        "title": "Trade & distribution partners",
+        "body": "Operators who move goods reliably across a border, in either direction, and who share our interest in doing it properly rather than quickly."
+      },
+      {
+        "title": "Inbound market entry",
+        "body": "International operators looking at Sri Lanka who need a partner accountable for the outcome, rather than a consultant accountable for a deck."
+      },
+      {
+        "title": "Co-investors & family offices",
+        "body": "Principals with a complementary corridor or category. We share opportunities rarely and carefully, but we do share them."
+      },
+      {
+        "title": "Press & speaking",
+        "body": "We speak on Sri Lankan categories, cross-border trade and long-horizon holding structures — and decline more of these than we accept."
+      }
+    ],
+    "declineNote": "What we cannot help with: requests for donations or sponsorship, unsolicited agency and outsourcing pitches, and cold approaches asking us to invest in businesses outside our areas of exploration. No offence intended in saying so — it saves everyone a week."
+  }
+}

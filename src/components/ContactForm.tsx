@@ -8,15 +8,6 @@ type Field = "name" | "email" | "organisation" | "topic" | "message";
 type Errors = Partial<Record<Field, string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
-const TOPICS = [
-  "Partnership or joint venture",
-  "Bringing us an opportunity",
-  "Market entry into Sri Lanka",
-  "Supplier or maker introduction",
-  "Press or speaking",
-  "Something else",
-] as const;
-
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function validate(values: Record<Field, string>): Errors {
@@ -45,7 +36,7 @@ function validate(values: Record<Field, string>): Errors {
 const inputBase =
   "w-full rounded-xl border bg-abyss/50 px-4 py-3.5 text-[0.9375rem] transition-colors duration-400 outline-none placeholder:text-haze";
 
-export function ContactForm() {
+export function ContactForm({ topics }: { topics: readonly string[] }) {
   const [values, setValues] = useState<Record<Field, string>>({
     name: "",
     email: "",
@@ -221,7 +212,7 @@ export function ContactForm() {
           }}
         >
           <option value="">Select one…</option>
-          {TOPICS.map((topic) => (
+          {topics.map((topic) => (
             <option key={topic} value={topic} className="bg-hull">
               {topic}
             </option>

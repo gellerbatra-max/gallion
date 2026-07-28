@@ -19,6 +19,13 @@
   --color-brass-soft: #e0c489;
   --color-brass-deep: #8f6f2a;
 
+  /* --- Verdigris — a second, narrowly-used accent -----------------------
+     Oxidised bronze-green, the colour old fittings turn at sea. Reserved for
+     the "active" status tone and one section wash — never for interaction
+     states, so brass stays the single language of "touch this". */
+  --color-verdigris: #3c7767;
+  --color-verdigris-soft: #5f9686;
+
   /* --- Parchment & light --------------------------------------------- */
   --color-ivory: #f6f2e9;
   --color-sand: #dcd2be;

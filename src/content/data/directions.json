@@ -1,0 +1,67 @@
+{
+  "eyebrow": "Areas of exploration",
+  "title": "Where distinctive value is likely to be found.",
+  "lede": "Six categories under active study, not committed investments. Each is a candidate for the same treatment: identify what is genuinely distinctive, shape it properly, and carry it out under its own name.",
+  "statusMeta": {
+    "exploring": {
+      "label": "Exploring",
+      "description": "Thesis work — reading the category, meeting operators, and testing whether the opportunity is real."
+    },
+    "developing": {
+      "label": "In development",
+      "description": "Concept and operating model under construction. Not yet trading."
+    },
+    "selective": {
+      "label": "Selective",
+      "description": "Engaging with a small number of specific opportunities rather than the category at large."
+    },
+    "active": {
+      "label": "Active interest",
+      "description": "Live conversations and structures in progress. Still not an operating business until it says so plainly."
+    }
+  },
+  "items": [
+    {
+      "id": "gemstones",
+      "title": "Jewellery & Gemstones",
+      "description": "Ceylon sapphire and fine stones, traced from source to setting and sold on provenance rather than volume.",
+      "status": "selective",
+      "marketFocus": "Ratnapura → global collectors"
+    },
+    {
+      "id": "hospitality",
+      "title": "Curated Travel & Hospitality",
+      "description": "Small-footprint stays built around a genuine sense of place, with an operating standard that survives a second visit.",
+      "status": "exploring",
+      "marketFocus": "Southern & Central Sri Lanka"
+    },
+    {
+      "id": "export",
+      "title": "Export-Ready Ceylon Products",
+      "description": "Categories the island already produces well, brought to market under a name it owns rather than a private label.",
+      "status": "developing",
+      "marketFocus": "Sri Lanka → Europe & the Gulf"
+    },
+    {
+      "id": "craft",
+      "title": "Heritage Craft & Design",
+      "description": "Traditional making — textile, ceramic, timber — reintroduced through contemporary design and direct relationships with buyers.",
+      "status": "exploring",
+      "marketFocus": "Island workshops → design markets"
+    },
+    {
+      "id": "digital",
+      "title": "Digital Experiences",
+      "description": "Specialist technical and creative teams, priced on outcome rather than headcount, for clients in mature markets.",
+      "status": "developing",
+      "marketFocus": "Colombo → North America & Europe"
+    },
+    {
+      "id": "trade",
+      "title": "Cross-Border Trade Opportunities",
+      "description": "Structures that move credible operators in both directions — into Sri Lanka, and out of it — with one party accountable for the outcome.",
+      "status": "active",
+      "marketFocus": "Sri Lanka ⇄ global markets"
+    }
+  ]
+}

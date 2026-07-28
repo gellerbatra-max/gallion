@@ -25,8 +25,8 @@ collections:
         label: Business details
         file: src/content/data/site.json
         description: >-
-          Your name, tagline, contact details, offices and social links. These
-          appear in the header, the footer and the contact page.
+          Your name, tagline, contact details, offices and social links —
+          used in the header, footer, contact page and search-engine data.
         fields:
           - label: Business
             name: site
@@ -40,17 +40,33 @@ collections:
                   widget: string,
                   hint: "Used for search engines and link previews. Include https://",
                 }
-              - { label: Tagline, name: tagline, widget: string }
+              - {
+                  label: Tagline,
+                  name: tagline,
+                  widget: string,
+                  hint: "Shown in the browser tab and search results.",
+                }
               - { label: Description, name: description, widget: text }
               - { label: Year founded, name: founded, widget: number, value_type: int }
-              - { label: Mission line, name: mission, widget: text }
+              - {
+                  label: Mission line,
+                  name: mission,
+                  widget: text,
+                  hint: "Shown in the footer.",
+                }
+              - {
+                  label: Legal positioning note,
+                  name: legalNote,
+                  widget: text,
+                  hint: "The precise statement of what kind of investment vehicle this is, shown at the very bottom of every page. Keep this accurate — it is the line that keeps 'investment vehicle' from reading as a regulated-fund claim.",
+                }
 
           - label: Main menu
             name: nav
             widget: list
             label_singular: menu item
             summary: "{{fields.label}}"
-            hint: The links across the top of every page.
+            hint: "The four links across the top of every page: Home, About, Philosophy, Contact."
             fields:
               - { label: Label, name: label, widget: string }
               - {
@@ -80,7 +96,7 @@ collections:
             widget: object
             fields:
               - { label: General email, name: general, widget: string }
-              - { label: Ventures email, name: ventures, widget: string }
+              - { label: Partnerships email, name: partnerships, widget: string }
               - { label: Press email, name: press, widget: string }
               - { label: Phone (displayed), name: phone, widget: string }
               - {
@@ -133,7 +149,7 @@ collections:
             widget: list
             label_singular: port
             summary: "{{fields.code}} — {{fields.name}}"
-            hint: Shown on the route diagram on the home and about pages.
+            hint: Shown on the route diagram on the home page.
             fields:
               - {
                   label: Code,
@@ -145,48 +161,270 @@ collections:
               - { label: Region, name: region, widget: string }
 
       # ---------------------------------------------------------------- #
-      - name: team
-        label: Leadership
-        file: src/content/data/team.json
-        description: >-
-          The people shown on the About page. The names currently here are
-          invented placeholders — replace or remove them before the site is
-          public.
+      - name: home
+        label: Home page
+        file: src/content/data/home.json
+        description: Every section of the home page, top to bottom.
         fields:
-          - label: People
-            name: team
-            widget: list
-            label_singular: person
-            summary: "{{fields.name}} — {{fields.role}}"
+          - label: Search-engine title & description
+            name: seo
+            widget: object
             fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+          - label: Hero
+            name: hero
+            widget: object
+            hint: The full-height opening section.
+            fields:
               - {
-                  label: Initials,
-                  name: initials,
+                  label: Kicker,
+                  name: kicker,
                   widget: string,
-                  pattern: ['^.{1,3}$', "One to three characters"],
-                  hint: "Shown in the circle avatar",
+                  hint: "Small line above the headline, e.g. Colombo · Private investment vehicle",
                 }
-              - { label: Biography, name: bio, widget: text }
+              - { label: Headline, name: headline, widget: text }
               - {
-                  label: Focus,
-                  name: focus,
+                  label: Headline — gold phrase,
+                  name: headlineAccent,
                   widget: string,
-                  hint: "Short list, e.g. Platform strategy, capital",
+                  hint: "Must be an exact substring of the headline above — that phrase is rendered in gold. If it doesn't match, the whole headline just renders in plain text.",
                 }
+              - { label: Subheadline, name: subheadline, widget: text }
+              - label: Primary button
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary button
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Stat strip
+                name: stats
+                widget: list
+                label_singular: stat
+                summary: "{{fields.value}} — {{fields.label}}"
+                hint: "Four short facts under the buttons. Keep these factual — no invented performance numbers."
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+
+          - label: "What Gelian is"
+            name: whatWeAre
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - label: Primary button
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary button
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+          - label: "The vessel"
+            name: vessel
+            widget: object
+            hint: The three-card section explaining Gelian as a trade vessel.
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Cards
+                name: cards
+                widget: list
+                label_singular: card
+                summary: "{{fields.tier}} — {{fields.name}}"
+                fields:
+                  - { label: "Small label (top)", name: tier, widget: string }
+                  - { label: "Card title", name: name, widget: string }
+                  - { label: Body, name: body, widget: text }
+
+          - label: "The exchange (both directions)"
+            name: exchange
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading — line one, name: title, widget: string }
+              - { label: Heading — gold line two, name: titleAccent, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - { label: "Corridors box label", name: corridorsLabel, widget: string }
+              - { label: "Corridors disclaimer", name: corridorsNote, widget: text }
+
+          - label: "How value is identified"
+            name: process
+            widget: object
+            hint: The four-step Discover / Curate / Refine / Carry section.
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Steps
+                name: steps
+                widget: list
+                label_singular: step
+                summary: "{{fields.label}} — {{fields.title}}"
+                fields:
+                  - { label: "Number (e.g. 01)", name: label, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+
+          - label: "Future directions — intro"
+            name: directionsPreview
+            widget: object
+            hint: "The heading above the direction cards. The cards themselves are edited under 'Future directions' below, shared with the About page."
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Button
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+          - label: "Vision statement"
+            name: vision
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Pull quote, name: quote, widget: text }
+              - { label: Body text, name: body, widget: text }
+              - { label: Attribution name, name: attributionName, widget: string }
+              - { label: Attribution role, name: attributionRole, widget: string }
+
+          - label: "Closing call to action"
+            name: closingCta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+              - label: Primary button
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary button
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
 
       # ---------------------------------------------------------------- #
-      - name: journey
-        label: Timeline
-        file: src/content/data/journey.json
-        description: The year-by-year story shown on the About page.
+      - name: about
+        label: About page
+        file: src/content/data/about.json
+        description: Every section of the About page, top to bottom.
         fields:
+          - label: Search-engine title & description
+            name: seo
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+          - label: Page header
+            name: header
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: "Fact strip (4 items)"
+                name: meta
+                widget: list
+                label_singular: fact
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+
+          - label: "The name"
+            name: identity
+            widget: object
+            hint: Explains the vessel/galleon metaphor behind the name.
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+
+          - label: "What Gelian is not"
+            name: distinction
+            widget: object
+            hint: The section distinguishing an investment vehicle from a venture firm.
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Cards
+                name: cards
+                widget: list
+                label_singular: card
+                summary: "{{fields.tier}} — {{fields.name}}"
+                fields:
+                  - { label: "Small label (top)", name: tier, widget: string }
+                  - { label: "Card title", name: name, widget: string }
+                  - { label: Body, name: body, widget: text }
+              - { label: Closing note, name: closingNote, widget: text }
+
+          - label: "The founding idea"
+            name: originStory
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+
+          - label: "The long view"
+            name: longView
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+
           - label: Milestones
             name: milestones
             widget: list
             label_singular: milestone
             summary: "{{fields.year}} — {{fields.title}}"
+            hint: The timeline on the About page.
             fields:
               - { label: Year, name: year, widget: string }
               - { label: Title, name: title, widget: string }
@@ -200,98 +438,238 @@ collections:
                   hint: "Tick for things that have not happened yet — they render muted so nothing reads as already achieved.",
                 }
 
-      # ---------------------------------------------------------------- #
-      - name: themes
-        label: Areas of interest
-        file: src/content/data/themes.json
-        description: The themes shown on the home page and the Future Ventures page.
-        fields:
-          - label: Themes
-            name: themes
-            widget: list
-            label_singular: theme
-            summary: "{{fields.index}} — {{fields.title}}"
+          - label: "Journey section — heading"
+            name: journey
+            widget: object
             fields:
-              - {
-                  label: ID,
-                  name: id,
-                  widget: string,
-                  pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
-                  hint: "Used to link ventures to this theme. Changing it can break those links.",
-                }
-              - {
-                  label: Number,
-                  name: index,
-                  widget: string,
-                  hint: "e.g. 01",
-                }
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
-              - { label: Detail, name: detail, widget: text }
-              - label: Markers
-                name: markers
-                widget: list
-                label_singular: marker
-                hint: The short tags listed under the theme.
-                field: { label: Marker, name: marker, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+
+          - label: "Future directions — intro"
+            name: directionsPreview
+            widget: object
+            hint: "The heading above the direction cards on this page. The cards themselves are edited under 'Future directions', shared with the home page."
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+
+          - label: "Closing call to action"
+            name: closingCta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+              - label: Primary button
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary button
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
 
       # ---------------------------------------------------------------- #
-      - name: ventures
-        label: Ventures
-        file: src/content/data/ventures.json
-        description: >-
-          The venture list and the status labels used to describe them. Nothing
-          here should read as an operating business until it genuinely is one.
+      - name: philosophy
+        label: Philosophy page
+        file: src/content/data/philosophy.json
+        description: Every section of the Philosophy page, top to bottom.
         fields:
-          - label: Ventures
-            name: ventures
-            widget: list
-            label_singular: venture
-            summary: "{{fields.name}} ({{fields.status}})"
+          - label: Search-engine title & description
+            name: seo
+            widget: object
             fields:
-              - {
-                  label: Slug,
-                  name: slug,
-                  widget: string,
-                  pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
-                }
-              - { label: Name, name: name, widget: string }
-              - { label: Theme name, name: theme, widget: string }
-              - {
-                  label: Theme ID,
-                  name: themeId,
-                  widget: string,
-                  hint: "Must match an ID from Areas of interest.",
-                }
-              - { label: One-liner, name: oneLiner, widget: text }
+              - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
-              - label: Status
-                name: status
-                widget: select
-                options:
-                  - { label: Exploring, value: exploring }
-                  - { label: In development, value: development }
-                  - { label: Coming soon, value: "coming-soon" }
-                  - { label: Live, value: live }
-              - {
-                  label: Geography,
-                  name: geography,
-                  widget: string,
-                  hint: "Written as a route, e.g. Sri Lanka → Europe",
-                }
-              - { label: Since, name: since, widget: string }
-              - {
-                  label: Website,
-                  name: href,
-                  widget: string,
-                  required: false,
-                  hint: "Only once the venture is public.",
-                }
+
+          - label: Page header
+            name: header
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: "Fact strip (4 items)"
+                name: meta
+                widget: list
+                label_singular: fact
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+
+          - label: Opening essay
+            name: opening
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                label_singular: paragraph
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - { label: Pull quote, name: pullQuote, widget: text }
+
+          - label: Manifesto
+            name: manifesto
+            widget: object
+            hint: The eight numbered principles.
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Principles
+                name: principles
+                widget: list
+                label_singular: principle
+                summary: "{{fields.number}}. {{fields.title}}"
+                fields:
+                  - { label: "Numeral (e.g. IV)", name: number, widget: string }
+                  - { label: "Short name", name: title, widget: string }
+                  - { label: Claim, name: claim, widget: string }
+                  - { label: Body, name: body, widget: text }
+
+          - label: "What this rules out"
+            name: boundaries
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                label_singular: item
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+
+          - label: Closing statement
+            name: closing
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Statement, name: statement, widget: text }
+
+          - label: "Closing call to action"
+            name: closingCta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+              - label: Primary button
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary button
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+      # ---------------------------------------------------------------- #
+      - name: contact
+        label: Contact page
+        file: src/content/data/contact.json
+        description: Every section of the Contact page, top to bottom.
+        fields:
+          - label: Search-engine title & description
+            name: seo
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+          - label: Page header
+            name: header
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: "Fact strip (4 items)"
+                name: meta
+                widget: list
+                label_singular: fact
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+
+          - label: Form introduction
+            name: form
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+              - label: "Enquiry-type dropdown options"
+                name: topics
+                widget: list
+                label_singular: option
+                field: { label: Option, name: topic, widget: string }
+
+          - label: "Details column labels"
+            name: details
+            widget: object
+            hint: The small captions in the contact-details box next to the form.
+            fields:
+              - { label: "'Direct' heading", name: directLabel, widget: string }
+              - { label: "General email caption", name: generalNote, widget: string }
+              - { label: "Partnerships email caption", name: partnershipsNote, widget: string }
+              - { label: "Press email caption", name: pressNote, widget: string }
+              - { label: "'By phone' heading", name: phoneLabel, widget: string }
+              - { label: "Office hours caption", name: officeHoursNote, widget: string }
+              - { label: "WhatsApp caption", name: whatsappNote, widget: string }
+              - { label: "WhatsApp link text", name: whatsappLabel, widget: string }
+              - { label: "'Where we are' heading", name: locationLabel, widget: string }
+              - { label: "Location footnote", name: locationNote, widget: text }
+
+          - label: Collaboration types
+            name: collaboration
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Lede, name: lede, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                label_singular: item
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+              - { label: "What we can't help with", name: declineNote, widget: text }
+
+      # ---------------------------------------------------------------- #
+      - name: directions
+        label: Future directions
+        file: src/content/data/directions.json
+        description: >-
+          The six category cards shown on both the home page and the About
+          page. Edited once here, appears in both places.
+        fields:
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Lede, name: lede, widget: text }
 
           - label: Status labels
             name: statusMeta
             widget: object
             collapsed: true
+            hint: The four possible status badges a direction can carry.
             fields:
               - label: Exploring
                 name: exploring
@@ -300,186 +678,50 @@ collections:
                   - { label: Label, name: label, widget: string }
                   - { label: Description, name: description, widget: text }
               - label: In development
-                name: development
+                name: developing
                 widget: object
                 fields:
                   - { label: Label, name: label, widget: string }
                   - { label: Description, name: description, widget: text }
-              - label: Coming soon
-                name: coming-soon
+              - label: Selective
+                name: selective
                 widget: object
                 fields:
                   - { label: Label, name: label, widget: string }
                   - { label: Description, name: description, widget: text }
-              - label: Live
-                name: live
+              - label: Active interest
+                name: active
                 widget: object
                 fields:
                   - { label: Label, name: label, widget: string }
                   - { label: Description, name: description, widget: text }
 
-      # ---------------------------------------------------------------- #
-      - name: principles
-        label: Philosophy
-        file: src/content/data/principles.json
-        description: The principles that make up the Philosophy page.
-        fields:
-          - label: Principles
-            name: principles
+          - label: Categories
+            name: items
             widget: list
-            label_singular: principle
-            summary: "{{fields.number}}. {{fields.title}}"
+            label_singular: category
+            summary: "{{fields.title}} ({{fields.status}})"
             fields:
               - {
-                  label: Numeral,
-                  name: number,
-                  widget: string,
-                  hint: "e.g. IV",
-                }
-              - { label: Title, name: title, widget: string }
-              - { label: Claim, name: claim, widget: string }
-              - { label: Body, name: body, widget: text }
-
-      # ---------------------------------------------------------------- #
-      - name: process
-        label: How you work
-        file: src/content/data/process.json
-        description: >-
-          The venture stages, the criteria you evaluate against, and the
-          frequently-asked questions.
-        fields:
-          - label: Stages
-            name: stages
-            widget: list
-            label_singular: stage
-            summary: "{{fields.step}} — {{fields.title}}"
-            fields:
-              - { label: Step number, name: step, widget: string }
-              - { label: Title, name: title, widget: string }
-              - {
-                  label: Duration,
-                  name: duration,
-                  widget: string,
-                  hint: "e.g. 6–12 weeks",
-                }
-              - { label: Summary, name: summary, widget: text }
-              - label: Paragraphs
-                name: detail
-                widget: list
-                label_singular: paragraph
-                field: { label: Paragraph, name: paragraph, widget: text }
-
-          - label: Evaluation criteria
-            name: evaluation
-            widget: list
-            label_singular: criterion
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Question, name: title, widget: string }
-              - { label: Answer, name: body, widget: text }
-
-          - label: Frequently asked questions
-            name: faqs
-            widget: list
-            label_singular: question
-            summary: "{{fields.q}}"
-            fields:
-              - { label: Question, name: q, widget: text }
-              - { label: Answer, name: a, widget: text }
-
-      # ---------------------------------------------------------------- #
-      - name: insights
-        label: Journal articles
-        file: src/content/data/insights.json
-        description: >-
-          The written pieces under Insights. Each article is built from blocks —
-          add paragraphs, headings, quotes and lists in the order you want them.
-        fields:
-          - label: Articles
-            name: insights
-            widget: list
-            label_singular: article
-            summary: "{{fields.date}} — {{fields.title}}"
-            fields:
-              - {
-                  label: Slug,
-                  name: slug,
+                  label: ID,
+                  name: id,
                   widget: string,
                   pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only"],
-                  hint: "The web address of the article. Changing it breaks existing links.",
+                  hint: "Internal identifier. Changing it does not break anything here, but keep it lowercase.",
                 }
               - { label: Title, name: title, widget: string }
-              - {
-                  label: Deck,
-                  name: deck,
-                  widget: text,
-                  hint: "The standfirst shown under the title.",
-                }
-              - label: Category
-                name: category
+              - { label: "One-line description", name: description, widget: text }
+              - label: Status
+                name: status
                 widget: select
                 options:
-                  - Founder Note
-                  - Market Observation
-                  - Field Note
-                  - Essay
+                  - { label: Exploring, value: exploring }
+                  - { label: In development, value: developing }
+                  - { label: Selective, value: selective }
+                  - { label: Active interest, value: active }
               - {
-                  label: Date,
-                  name: date,
+                  label: Market focus,
+                  name: marketFocus,
                   widget: string,
-                  pattern: ['^\d{4}-\d{2}-\d{2}$', "Use YYYY-MM-DD"],
-                  hint: "Format: YYYY-MM-DD. Articles sort newest first.",
+                  hint: "Written as a route, e.g. Sri Lanka → Europe & the Gulf",
                 }
-              - {
-                  label: Reading time,
-                  name: readingTime,
-                  widget: string,
-                  hint: "e.g. 6 min",
-                }
-              - { label: Author, name: author, widget: string }
-              - {
-                  label: Featured,
-                  name: featured,
-                  widget: boolean,
-                  required: false,
-                  default: false,
-                  hint: "Featured articles are given more prominence on the index.",
-                }
-              - label: Body
-                name: body
-                widget: list
-                label_singular: block
-                types:
-                  - label: Paragraph
-                    name: p
-                    widget: object
-                    summary: "{{fields.text}}"
-                    fields:
-                      - { label: Text, name: text, widget: text }
-                  - label: Heading
-                    name: h2
-                    widget: object
-                    summary: "{{fields.text}}"
-                    fields:
-                      - { label: Heading, name: text, widget: string }
-                  - label: Pull quote
-                    name: quote
-                    widget: object
-                    summary: "{{fields.text}}"
-                    fields:
-                      - { label: Quote, name: text, widget: text }
-                      - {
-                          label: Attribution,
-                          name: cite,
-                          widget: string,
-                          required: false,
-                        }
-                  - label: Bulleted list
-                    name: list
-                    widget: object
-                    fields:
-                      - label: Items
-                        name: items
-                        widget: list
-                        label_singular: item
-                        field: { label: Item, name: item, widget: string }
