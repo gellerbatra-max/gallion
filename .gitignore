@@ -20,6 +20,9 @@
 # production
 /build
 
+# single-file site bundle, generated from the build for preview/sharing
+/preview
+
 # misc
 .DS_Store
 *.pem
