@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gelian — Content Editor</title>
+    <style>
+      :root {
+        --bg: #0b1620;
+        --panel: #101f2c;
+        --panel-2: #14273610;
+        --line: #23394a;
+        --text: #e8eef3;
+        --muted: #9bb0c1;
+        --gold: #c9a961;
+        --gold-dim: #8a7440;
+        --danger: #e2857a;
+        --ok: #7fc7a4;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Inter, sans-serif;
+      }
+      header.top {
+        position: sticky; top: 0; z-index: 20;
+        display: flex; align-items: center; gap: 16px;
+        padding: 14px 22px;
+        background: rgba(11, 22, 32, 0.94);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .brand { font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 13px; color: var(--gold); }
+      .grow { flex: 1; }
+      input[type="search"] {
+        width: 260px; padding: 8px 12px; border-radius: 8px;
+        border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      }
+      button {
+        font: inherit; cursor: pointer; border-radius: 8px; padding: 9px 16px;
+        border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      }
+      button.primary { background: var(--gold); color: #1a1206; border-color: var(--gold); font-weight: 600; }
+      button.primary:disabled { background: #3a3524; color: #8b8471; border-color: #3a3524; cursor: not-allowed; }
+      button:hover:not(:disabled) { border-color: var(--gold-dim); }
+
+      .layout { display: grid; grid-template-columns: 236px 1fr; gap: 0; align-items: start; }
+      nav.side {
+        position: sticky; top: 57px; align-self: start;
+        height: calc(100vh - 57px); overflow-y: auto;
+        border-right: 1px solid var(--line); padding: 18px 12px;
+      }
+      nav.side a {
+        display: flex; justify-content: space-between; gap: 8px;
+        padding: 8px 10px; border-radius: 7px; color: var(--muted);
+        text-decoration: none; font-size: 14px;
+      }
+      nav.side a:hover { background: var(--panel); color: var(--text); }
+      nav.side a .n { font-size: 12px; color: #5f7789; }
+
+      main { padding: 26px 30px 120px; max-width: 900px; }
+      section.file { margin-bottom: 54px; scroll-margin-top: 70px; }
+      section.file > h2 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+      section.file > p.blurb { margin: 0 0 8px; color: var(--muted); max-width: 62ch; }
+      .warn {
+        margin: 10px 0 18px; padding: 10px 14px; border-radius: 8px;
+        background: #33191a; border: 1px solid #5e2b2a; color: #f0bdb6; font-size: 14px;
+      }
+      .card {
+        background: var(--panel); border: 1px solid var(--line);
+        border-radius: 12px; padding: 16px 18px; margin-bottom: 14px;
+      }
+      .card > h3 {
+        margin: 0 0 14px; font-size: 13px; text-transform: uppercase;
+        letter-spacing: 0.1em; color: var(--gold);
+      }
+      .field { margin-bottom: 15px; }
+      .field:last-child { margin-bottom: 4px; }
+      .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+      .field .hint { font-size: 12px; color: #6f8698; margin-top: 4px; }
+      textarea, input.text {
+        width: 100%; padding: 9px 11px; border-radius: 8px; resize: vertical;
+        border: 1px solid var(--line); background: #0d1a25; color: var(--text);
+        font: inherit; line-height: 1.5;
+      }
+      textarea:focus, input.text:focus { outline: none; border-color: var(--gold-dim); }
+      .dirty textarea, .dirty input.text { border-color: var(--gold); background: #131f1a; }
+      .field.locked label::after { content: " · fixed"; color: #5f7789; }
+      textarea[readonly], input[readonly] { opacity: 0.55; cursor: not-allowed; }
+
+      .status { font-size: 13px; color: var(--muted); }
+      .status.ok { color: var(--ok); }
+      .status.err { color: var(--danger); }
+      .hidden { display: none !important; }
+      .loading { padding: 40px; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <span class="brand">Gelian · Content</span>
+      <input type="search" id="search" placeholder="Search all text…" />
+      <span class="grow"></span>
+      <span class="status" id="status">Loading…</span>
+      <a href="__SITE_URL__" target="_blank" rel="noopener"><button type="button">View site ↗</button></a>
+      <button type="button" class="primary" id="save" disabled>Save changes</button>
+    </header>
+
+    <div class="layout">
+      <nav class="side" id="nav"></nav>
+      <main id="main"><p class="loading">Reading your content files…</p></main>
+    </div>
+
+    <script>
+      const state = { files: [], edits: new Map() };
+      const $ = (s) => document.querySelector(s);
+
+      function setStatus(text, kind = "") {
+        const el = $("#status");
+        el.textContent = text;
+        el.className = "status " + kind;
+      }
+
+      function refreshSaveButton() {
+        const n = state.edits.size;
+        $("#save").disabled = n === 0;
+        $("#save").textContent = n === 0 ? "Save changes" : `Save ${n} change${n === 1 ? "" : "s"}`;
+      }
+
+      function fieldEl(field) {
+        const wrap = document.createElement("div");
+        wrap.className = "field" + (field.locked ? " locked" : "");
+        wrap.dataset.search = (field.label + " " + field.value).toLowerCase();
+
+        const label = document.createElement("label");
+        label.textContent = field.label;
+        label.htmlFor = field.id;
+        wrap.append(label);
+
+        const long = field.multiline || field.value.length > 90;
+        const input = long ? document.createElement("textarea") : document.createElement("input");
+        if (!long) { input.type = "text"; input.className = "text"; }
+        input.id = field.id;
+        input.value = field.value;
+        if (long) input.rows = Math.min(14, Math.max(3, Math.ceil(field.value.length / 72)));
+        if (field.locked) input.readOnly = true;
+
+        input.addEventListener("input", () => {
+          if (input.value === field.value) state.edits.delete(field.id);
+          else state.edits.set(field.id, input.value);
+          wrap.classList.toggle("dirty", input.value !== field.value);
+          refreshSaveButton();
+        });
+
+        wrap.append(input);
+        if (field.hint) {
+          const hint = document.createElement("p");
+          hint.className = "hint";
+          hint.textContent = field.hint;
+          wrap.append(hint);
+        }
+        return wrap;
+      }
+
+      function render() {
+        const main = $("#main");
+        const nav = $("#nav");
+        main.innerHTML = "";
+        nav.innerHTML = "";
+
+        for (const file of state.files) {
+          const link = document.createElement("a");
+          link.href = "#" + file.name;
+          link.innerHTML = `<span>${file.title}</span><span class="n">${file.count}</span>`;
+          nav.append(link);
+
+          const section = document.createElement("section");
+          section.className = "file";
+          section.id = file.name;
+
+          const h2 = document.createElement("h2");
+          h2.textContent = file.title;
+          section.append(h2);
+
+          if (file.blurb) {
+            const p = document.createElement("p");
+            p.className = "blurb";
+            p.textContent = file.blurb;
+            section.append(p);
+          }
+          if (file.warn) {
+            const w = document.createElement("div");
+            w.className = "warn";
+            w.textContent = "⚠  " + file.warn;
+            section.append(w);
+          }
+
+          for (const group of file.groups) {
+            const card = document.createElement("div");
+            card.className = "card";
+            const h3 = document.createElement("h3");
+            h3.textContent = group.label;
+            card.append(h3);
+            group.fields.forEach((f) => card.append(fieldEl(f)));
+            section.append(card);
+          }
+          main.append(section);
+        }
+      }
+
+      $("#search").addEventListener("input", (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        document.querySelectorAll(".field").forEach((f) => {
+          f.classList.toggle("hidden", q !== "" && !f.dataset.search.includes(q));
+        });
+        document.querySelectorAll(".card").forEach((c) => {
+          const any = [...c.querySelectorAll(".field")].some((f) => !f.classList.contains("hidden"));
+          c.classList.toggle("hidden", !any);
+        });
+        document.querySelectorAll("section.file").forEach((s) => {
+          const any = [...s.querySelectorAll(".card")].some((c) => !c.classList.contains("hidden"));
+          s.classList.toggle("hidden", !any);
+        });
+      });
+
+      $("#save").addEventListener("click", async () => {
+        const edits = [...state.edits].map(([id, value]) => ({ id, value }));
+        setStatus("Saving…");
+        $("#save").disabled = true;
+        try {
+          const res = await fetch("/api/save", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ edits }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Save failed");
+          const total = data.written.reduce((n, w) => n + w.count, 0);
+          state.edits.clear();
+          await load();
+          setStatus(`Saved ${total} change${total === 1 ? "" : "s"}. Refresh the site to see them.`, "ok");
+        } catch (err) {
+          setStatus(err.message, "err");
+        }
+        refreshSaveButton();
+      });
+
+      window.addEventListener("beforeunload", (e) => {
+        if (state.edits.size > 0) e.preventDefault();
+      });
+
+      async function load() {
+        const res = await fetch("/api/content");
+        const data = await res.json();
+        state.files = data.files;
+        render();
+        refreshSaveButton();
+        const total = data.files.reduce((n, f) => n + f.count, 0);
+        if (state.edits.size === 0) setStatus(`${total} pieces of text`);
+      }
+
+      load().catch((err) => setStatus(err.message, "err"));
+    </script>
+  </body>
+</html>
