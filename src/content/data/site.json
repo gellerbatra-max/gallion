@@ -1,29 +1,35 @@
 {
-  "contact": {
-    "general": "hello@gelian.lk",
-    "ventures": "ventures@gelian.lk",
-    "press": "press@gelian.lk",
-    "phone": "+94 76 000 0000",
-    "phoneHref": "tel:+94760000000",
-    "whatsapp": "https://wa.me/94760000000",
-    "offices": [
-      {
-        "city": "Colombo",
-        "country": "Sri Lanka",
-        "role": "Registered office",
-        "note": "Colombo 03, Western Province",
-        "coords": "6.9271° N, 79.8612° E"
-      },
-      {
-        "city": "London",
-        "country": "United Kingdom",
-        "role": "Correspondence",
-        "note": "Market development, Europe",
-        "coords": "51.5072° N, 0.1276° W"
-      }
-    ],
-    "responseTime": "We reply to every serious enquiry within three working days."
+  "site": {
+    "name": "Gelian",
+    "legalName": "Gelian (Private) Limited",
+    "url": "https://www.gelian.lk",
+    "tagline": "Investment vehicle bringing truly Ceylon products to the world.",
+    "description": "Gelian is a venture platform that discovers distinctive Sri Lankan opportunities and carries them to global markets — and brings global standards, capital and craft back home.",
+    "founded": 2024,
+    "mission": "Building and backing ventures that carry Sri Lanka outward and bring the world in."
   },
+  "nav": [
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Philosophy",
+      "href": "/philosophy"
+    },
+    {
+      "label": "Ventures",
+      "href": "/ventures"
+    },
+    {
+      "label": "Future Ventures",
+      "href": "/portfolio"
+    },
+    {
+      "label": "Insights",
+      "href": "/insights"
+    }
+  ],
   "footerNav": [
     {
       "title": "Platform",
@@ -85,26 +91,43 @@
       ]
     }
   ],
-  "nav": [
+  "contact": {
+    "general": "hello@gelian.lk",
+    "ventures": "ventures@gelian.lk",
+    "press": "press@gelian.lk",
+    "phone": "+94 76 000 0000",
+    "phoneHref": "tel:+94760000000",
+    "whatsapp": "https://wa.me/94760000000",
+    "offices": [
+      {
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "role": "Registered office",
+        "note": "Colombo 03, Western Province",
+        "coords": "6.9271° N, 79.8612° E"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "role": "Correspondence",
+        "note": "Market development, Europe",
+        "coords": "51.5072° N, 0.1276° W"
+      }
+    ],
+    "responseTime": "We reply to every serious enquiry within three working days."
+  },
+  "social": [
     {
-      "label": "About",
-      "href": "/about"
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/company/gelian"
     },
     {
-      "label": "Philosophy",
-      "href": "/philosophy"
+      "label": "Instagram",
+      "href": "https://www.instagram.com/gelian"
     },
     {
-      "label": "Ventures",
-      "href": "/ventures"
-    },
-    {
-      "label": "Future Ventures",
-      "href": "/portfolio"
-    },
-    {
-      "label": "Insights",
-      "href": "/insights"
+      "label": "X",
+      "href": "https://x.com/gelian"
     }
   ],
   "ports": [
@@ -137,29 +160,6 @@
       "code": "SYD",
       "name": "Sydney",
       "region": "Oceania"
-    }
-  ],
-  "site": {
-    "name": "Gelian",
-    "legalName": "Gelian (Private) Limited",
-    "url": "https://www.gelian.lk",
-    "tagline": "A venture platform between Sri Lanka and the world.",
-    "description": "Gelian is a venture platform that discovers distinctive Sri Lankan opportunities and carries them to global markets — and brings global standards, capital and craft back home.",
-    "founded": 2024,
-    "mission": "Building and backing ventures that carry Sri Lanka outward and bring the world in."
-  },
-  "social": [
-    {
-      "label": "LinkedIn",
-      "href": "https://www.linkedin.com/company/gelian"
-    },
-    {
-      "label": "Instagram",
-      "href": "https://www.instagram.com/gelian"
-    },
-    {
-      "label": "X",
-      "href": "https://x.com/gelian"
     }
   ]
 }
