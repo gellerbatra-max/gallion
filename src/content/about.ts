@@ -38,11 +38,6 @@ export type AboutContent = {
     cards: Card[];
     closingNote: string;
   };
-  originStory: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-  };
   longView: {
     eyebrow: string;
     title: string;

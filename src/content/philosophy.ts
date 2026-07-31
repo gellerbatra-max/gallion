@@ -15,8 +15,6 @@ export type Principle = {
   body: string;
 };
 
-export type Boundary = { title: string; body: string };
-
 export type PhilosophyContent = {
   seo: { title: string; description: string };
   header: {
@@ -30,17 +28,16 @@ export type PhilosophyContent = {
     paragraphs: string[];
     pullQuote: string;
   };
+  method: {
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+  };
   manifesto: {
     eyebrow: string;
     title: string;
     lede: string;
     principles: Principle[];
-  };
-  boundaries: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    items: Boundary[];
   };
   closing: {
     eyebrow: string;

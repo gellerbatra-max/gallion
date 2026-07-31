@@ -7,7 +7,6 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading, Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Timeline } from "@/components/Timeline";
-import { CompassRose } from "@/components/visuals/CompassRose";
 
 import { about } from "@/content/about";
 import { pageMeta } from "@/lib/seo";
@@ -39,7 +38,6 @@ export default function AboutPage() {
     header,
     identity,
     distinction,
-    originStory,
     longView,
     milestones,
     journey,
@@ -99,43 +97,9 @@ export default function AboutPage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Founding idea — narrative                                         */}
-      {/* ---------------------------------------------------------------- */}
-      <Section
-        spacing="xl"
-        tone="raised"
-        bordered
-        className="overflow-hidden"
-        aria-labelledby="origin-heading"
-      >
-        <CompassRose
-          className="pointer-events-none absolute -top-40 -left-52 w-[44rem] text-brass/[0.035]"
-        />
-        <Container size="narrow" className="relative">
-          <Reveal>
-            <Eyebrow>{originStory.eyebrow}</Eyebrow>
-            <h2
-              id="origin-heading"
-              className="mt-6 text-3xl leading-[1.14] sm:text-4xl"
-            >
-              {originStory.title}
-            </h2>
-          </Reveal>
-
-          <Reveal delay={100} className="mt-10 flex flex-col gap-7">
-            {originStory.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-[1.0625rem] leading-[1.85] text-mist">
-                {paragraph}
-              </p>
-            ))}
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
       {/* Distinction — investment vehicle, not a venture firm              */}
       {/* ---------------------------------------------------------------- */}
-      <Section aria-labelledby="distinction-heading">
+      <Section tone="raised" bordered aria-labelledby="distinction-heading">
         <Container size="wide">
           <SectionHeading
             eyebrow={distinction.eyebrow}
@@ -168,6 +132,23 @@ export default function AboutPage() {
               {distinction.closingNote}
             </p>
           </Reveal>
+        </Container>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Journey                                                           */}
+      {/* ---------------------------------------------------------------- */}
+      <Section aria-labelledby="journey-heading">
+        <Container size="wide">
+          <SectionHeading
+            eyebrow={journey.eyebrow}
+            title={<span id="journey-heading">{journey.title}</span>}
+            lede={<p>{journey.lede}</p>}
+          />
+
+          <div className="mt-16">
+            <Timeline milestones={milestones} />
+          </div>
         </Container>
       </Section>
 
@@ -205,23 +186,6 @@ export default function AboutPage() {
                 ))}
               </Reveal>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* Journey                                                           */}
-      {/* ---------------------------------------------------------------- */}
-      <Section aria-labelledby="journey-heading">
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={journey.eyebrow}
-            title={<span id="journey-heading">{journey.title}</span>}
-            lede={<p>{journey.lede}</p>}
-          />
-
-          <div className="mt-16">
-            <Timeline milestones={milestones} />
           </div>
         </Container>
       </Section>

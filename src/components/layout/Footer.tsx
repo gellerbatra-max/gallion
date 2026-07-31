@@ -56,9 +56,13 @@ export function Footer() {
                 {contact.phone}
               </a>
             </div>
-            <p className="mt-6 text-sm text-haze">
-              {contact.offices[0].city}, {contact.offices[0].country}
-            </p>
+            <div className="mt-6 flex flex-col gap-1 text-sm text-haze">
+              {contact.offices.slice(0, 2).map((office) => (
+                <p key={office.city}>
+                  {office.city}, {office.country}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
 

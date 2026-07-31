@@ -20,7 +20,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function PhilosophyPage() {
-  const { header, opening, manifesto, boundaries, closing, closingCta } = philosophy;
+  const { header, opening, method, manifesto, closing, closingCta } = philosophy;
 
   return (
     <>
@@ -59,6 +59,31 @@ export default function PhilosophyPage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* The method — the loop the principles hold us to                   */}
+      {/* ---------------------------------------------------------------- */}
+      <Section aria-labelledby="method-heading">
+        <Container size="narrow">
+          <Reveal>
+            <Eyebrow>{method.eyebrow}</Eyebrow>
+            <h2
+              id="method-heading"
+              className="mt-6 text-3xl leading-[1.16] sm:text-[2.5rem]"
+            >
+              {method.title}
+            </h2>
+          </Reveal>
+
+          <Reveal delay={100} className="mt-10 flex flex-col gap-7">
+            {method.paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-[1.0625rem] leading-[1.85] text-mist">
+                {paragraph}
+              </p>
+            ))}
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
       {/* The manifesto                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section
@@ -85,37 +110,9 @@ export default function PhilosophyPage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* What this rules out                                               */}
-      {/* ---------------------------------------------------------------- */}
-      <Section aria-labelledby="boundaries-heading">
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={boundaries.eyebrow}
-            title={<span id="boundaries-heading">{boundaries.title}</span>}
-            lede={<p>{boundaries.lede}</p>}
-          />
-
-          <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2">
-            {boundaries.items.map((item, index) => (
-              <Reveal
-                key={item.title}
-                delay={(index % 2) * 90}
-                className="border-t border-tide/70 pt-7"
-              >
-                <h3 className="text-xl leading-snug">{item.title}</h3>
-                <p className="mt-4 text-[0.9375rem] leading-[1.75] text-mist">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
       {/* Closing                                                           */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="raised" bordered spacing="xl" aria-labelledby="closing-heading">
+      <Section spacing="xl" aria-labelledby="closing-heading">
         <Container size="narrow">
           <Reveal className="flex flex-col items-center text-center">
             <Eyebrow className="justify-center">{closing.eyebrow}</Eyebrow>

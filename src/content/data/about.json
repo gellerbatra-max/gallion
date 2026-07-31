@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "About Gelian",
-    "description": "Gelian is a privately held investment vehicle based in Colombo — a holding structure for distinctive Sri Lankan businesses, built to carry value to global markets and bring capital and standards home."
+    "description": "Gelian is a private investment vehicle — a holding structure that identifies overlooked value, shapes it into disciplined products, services and businesses, and carries it to the markets where it matters most."
   },
   "header": {
     "eyebrow": "About Gelian",
@@ -25,14 +25,14 @@
     ]
   },
   "distinction": {
-    "eyebrow": "What Gelian is not",
-    "title": "An investment vehicle, not a venture firm.",
-    "lede": "The distinction is not semantic. A venture firm typically manages outside capital on a fund timeline and takes minority stakes across a wide portfolio. Gelian does neither.",
+    "eyebrow": "The structure",
+    "title": "An investment vehicle.",
+    "lede": "How Gelian works comes down to three things it will not compromise: its capital, its ownership, and its focus.",
     "cards": [
       {
         "tier": "Capital",
         "name": "Our own, principally",
-        "body": "Gelian deploys its own and its principals' capital rather than raising and managing a fund on behalf of outside limited partners. There is no external clock forcing an exit."
+        "body": "Gelian deploys its own and its principals' capital, so there is no external clock forcing an exit."
       },
       {
         "tier": "Ownership",
@@ -42,65 +42,49 @@
       {
         "tier": "Scope",
         "name": "Few, not many",
-        "body": "A venture firm's economics reward a wide portfolio. Ours reward the opposite — a small number of businesses held long enough, and closely enough, to matter."
+        "body": "A small number of businesses, held long enough and closely enough to matter. Concentration is deliberate — it is the only way each one gets the attention it needs."
       }
     ],
-    "closingNote": "In practice this means a business can be funded through the years before it earns, wound down without damaging the others, or allowed to stand fully on its own once it can. Nothing on this site should be read as an offer of, or solicitation for, any investment product."
-  },
-  "originStory": {
-    "eyebrow": "The founding idea",
-    "title": "Discover, curate, refine, carry — in that order.",
-    "paragraphs": [
-      "Discover comes first because conviction that arrives early is usually borrowed. We spend an unreasonable amount of time on the ground — with growers, cutters, operators and buyers — before we hold a view worth defending. Most of what we learn closes a file rather than opens one, and that is the point.",
-      "Curate is what stops a holding vehicle becoming a portfolio of accidents. We would rather hold three businesses that deserve our full attention than fifteen that receive a fraction of it. Saying no is not caution; it is the only way craft survives more than one venture.",
-      "Refine is the work that happens before the first customer arrives — brand, governance and operating standard, set deliberately rather than retrofitted once something has already gone to market.",
-      "Carry comes last and takes the longest. It is the actual crossing: moving what we have built into markets that will pay for what it is, and holding it there long enough for that position to compound."
-    ]
+    "closingNote": "In practice this means a business can be funded through the years before it earns, wound down without damaging the others, or allowed to stand fully on its own once it can."
   },
   "longView": {
     "eyebrow": "The long view",
     "title": "What this should look like in a decade.",
     "paragraphs": [
-      "A small number of businesses — perhaps six, perhaps fewer — each recognisable in its own market, each disciplined enough to choose its own pace, and each unmistakably of Ceylon origin.",
-      "We would like at least one of them to have changed how its category thinks about Sri Lanka — to have made provenance a reason to pay more, rather than a reason to negotiate. We would like the vehicle itself to become the least interesting part of the story, because what it holds has outgrown it.",
+      "A small number of businesses — perhaps six, perhaps fewer — each recognisable in its own market, each disciplined enough to choose its own pace, and each unmistakably built to a standard of its own.",
+      "We would like at least one of them to have changed how its category is judged — to have made quality a reason to pay more, rather than a detail to negotiate away. We would like the vehicle itself to become the least interesting part of the story, because what it holds has outgrown it.",
       "Everything on this website should be read against that horizon. We are at the beginning of it."
     ]
   },
   "milestones": [
     {
-      "year": "2023",
-      "title": "The question",
-      "body": "A simple observation, returned to often enough to become a plan: the island exports remarkable things and rarely owns the name that sells them. What would it take to change that?",
+      "year": "2017",
+      "title": "The idea, in Cambridge",
+      "body": "An engineer's conviction — that overlooked value could be built into products worth owning — first found words in Cambridge, encouraged into the open by a brother studying finance there. It stayed an idea for years before it became a plan.",
       "planned": false
     },
     {
       "year": "2024",
-      "title": "Gelian is incorporated",
-      "body": "Registered as a holding vehicle rather than an operating business — deliberately, so what it holds can be funded, built and separated cleanly as it matures.",
-      "planned": false
-    },
-    {
-      "year": "2025",
-      "title": "Thesis work",
-      "body": "Twelve months of category study across trade, hospitality, gemstones and craft. Operators met, corridors mapped, and a shortlist narrowed to six areas of exploration.",
+      "title": "The search begins",
+      "body": "The search for the right products and services began in earnest: studying categories, meeting operators, and testing where genuine value sat rather than where it was merely cheap. Most of what we looked at, we set aside.",
       "planned": false
     },
     {
       "year": "2026",
-      "title": "First work in development",
-      "body": "Concept, brand and operating models under construction for the first candidates. The vehicle's own governance and narrative capability are stood up alongside them.",
+      "title": "Gelian is incorporated",
+      "body": "Registered as a legal structure under the name Gelian — a holding vehicle rather than an operating business, so what it builds can be funded, held and separated cleanly as it matures.",
       "planned": false
     },
     {
       "year": "2027",
-      "title": "First business to market",
-      "body": "The first holding is expected to begin trading under its own name, and this site will say so plainly when it does.",
+      "title": "First products to market",
+      "body": "Two products are expected to launch under their own brands — the first businesses Gelian carries to market. This site will say so plainly when they do.",
       "planned": true
     },
     {
       "year": "Beyond",
       "title": "A small number, held properly",
-      "body": "A handful of businesses, each capable of standing alone, connected by a shared standard and a shared route between Sri Lanka and the world.",
+      "body": "A handful of businesses, each capable of standing alone, connected by a shared standard and a shared route to the markets that value them.",
       "planned": true
     }
   ],

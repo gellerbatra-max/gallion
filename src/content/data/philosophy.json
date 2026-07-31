@@ -23,10 +23,18 @@
     ],
     "pullQuote": "A principle that has never cost you anything is not a principle. It is a preference."
   },
+  "method": {
+    "eyebrow": "The method",
+    "title": "It comes down to one loop, run patiently.",
+    "paragraphs": [
+      "Beneath the principles is a single, repeatable loop. We discover value that others have overlooked, curate hard to keep only what deserves our full attention, refine it until the standard is set before the first customer arrives, and carry it to the market where it belongs — then hold it long enough to compound.",
+      "None of those moves is remarkable on its own. What makes the loop work is running it in that order, every time, and refusing to skip a step because a faster answer is on offer. The principles that follow are how we hold ourselves to it when it would be easier not to."
+    ]
+  },
   "manifesto": {
     "eyebrow": "The manifesto",
     "title": "Eight principles.",
-    "lede": "In the order we tend to apply them — from the first question we ask about an opportunity to the last thing we owe the place we built it in.",
+    "lede": "The same loop, broken into the eight principles we actually apply — from the first question we ask about an opportunity to the last thing we owe once it is built.",
     "principles": [
       {
         "number": "I",
@@ -50,7 +58,7 @@
         "number": "IV",
         "title": "Connect",
         "claim": "Build the bridge, not just the brand.",
-        "body": "A product that travels alone arrives as a stranger. We invest in the relationships, distribution and credibility that let something Sri Lankan land in an unfamiliar market on its own merits, not on an introduction we cannot repeat."
+        "body": "A product that travels alone arrives as a stranger. We invest in the relationships, distribution and credibility that let something we have built land in an unfamiliar market on its own merits, not on an introduction we cannot repeat."
       },
       {
         "number": "V",
@@ -68,7 +76,7 @@
         "number": "VII",
         "title": "Return value",
         "claim": "The traffic runs both ways.",
-        "body": "Carrying Sri Lankan value outward is half the mandate. The other half is bringing capital, standards, partners and ideas back in — and leaving behind something more capable than what we found."
+        "body": "Taking value out to the world is only half the mandate. The other half is bringing capital, standards, partners and ideas back to the people and places that built it — and leaving every market and team we touch more capable than we found it."
       },
       {
         "number": "VIII",
@@ -78,32 +86,9 @@
       }
     ]
   },
-  "boundaries": {
-    "eyebrow": "The other side",
-    "title": "What this rules out.",
-    "lede": "The useful half of any philosophy is the list of things it forbids. Here is ours, stated plainly so it can be held against us.",
-    "items": [
-      {
-        "title": "We do not chase volume",
-        "body": "A larger holding is not a better one. If we cannot give a business serious attention, we should not hold it."
-      },
-      {
-        "title": "We do not sell the origin cheaply",
-        "body": "Cost arbitrage is a temporary condition someone else will undercut. If the only reason to build here is that it is cheap, we pass."
-      },
-      {
-        "title": "We do not announce what has not happened",
-        "body": "No launch is described in the past tense before it happens. Nothing on this site is a result unless it is labelled as one."
-      },
-      {
-        "title": "We do not take capital with a clock on it",
-        "body": "Money that must exit on someone else's schedule will eventually make the decision for us. We would rather grow slower and keep the choice."
-      }
-    ]
-  },
   "closing": {
     "eyebrow": "In short",
-    "statement": "Find the few things worth carrying. Build them properly. Hold them long enough to matter. Leave the place better supplied than we found it."
+    "statement": "Find the few things worth carrying. Build them properly. Hold them long enough to matter. Leave every market and team we touch better than we found it."
   },
   "closingCta": {
     "eyebrow": "Next",
