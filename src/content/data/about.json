@@ -5,22 +5,23 @@
   },
   "header": {
     "eyebrow": "About Gelian",
-    "title": "An investment vehicle for things worth carrying.",
-    "lede": "Gelian is a privately held investment vehicle founded in Colombo. We hold businesses that move distinctive Sri Lankan value into global markets — and we are early enough that most of the work is still ahead of us.",
+    "title": "A setup structured to bring overlooked value propositions into new markets.",
+    "lede": "Gelian is a private investment vehicle focused on identifying overlooked value propositions, developing them into useful products, services, and businesses, and bringing them to the markets where relevance, demand, and long-term value are strongest.",
     "meta": [
       { "label": "Founded", "value": "2024" },
       { "label": "Structure", "value": "Private investment vehicle" },
-      { "label": "Home port", "value": "Colombo, Sri Lanka" },
-      { "label": "Horizon", "value": "Ten years, minimum" }
+      { "label": "Presence", "value": "Australia & Sri Lanka" },
+      { "label": "Focus", "value": "Products, services & ventures" }
     ]
   },
   "identity": {
-    "eyebrow": "The name",
-    "title": "Named for the vessel, not the voyage.",
+    "eyebrow": "The origin",
+    "title": "Inspired by historic sailing vessels that moved value across oceans.",
+    "titleAccent": "historic sailing vessels",
     "paragraphs": [
-      "Gelian takes its cue from the ocean-going trade vessel — the ship that made long-distance trade a repeatable business rather than a single crossing. It is a deliberate choice of metaphor, and a specific one.",
-      "A trade vessel was never romantic. It was commercial infrastructure: expensive to build, slow to load, and capable of carrying value across distances that had previously defeated it. It made distant places legible to one another, and it required an owner patient enough to wait out the weather.",
-      "That is the vehicle we are trying to be. Not the cargo, not the destination — the structure that makes the crossing possible, reliably, more than once."
+      "Our founder, an engineer by profession, had carried since childhood a curiosity to build a business that creates products he truly believes have value for consumers and can make their lives better. Yet for a long time, he never had the courage to speak about it openly or take the first step.",
+      "That changed during a visit to Cambridge, UK, where he was meeting his brother, who was then pursuing the reputed Master of Finance program at the University of Cambridge. One day, his brother took him for a drink at the Eagle's Bar — the very place where DNA was famously first discovered. Sitting at that same table, and encouraged by his brother's story about that discovery, Raveen finally found the courage, helped by a sip of beer, to bring his idea into the open.",
+      "His brother, a specialist in finance and investment management with a deep interest in historic literature, suggested giving the idea a structure inspired by the stories of Spanish sailing ships that carried trade across the world. From there, the concept evolved into an investment vehicle — one designed to develop a set of products and services, build distinct brands under them, and manage a portfolio of offerings that could be brought to market where they mattered most."
     ]
   },
   "distinction": {

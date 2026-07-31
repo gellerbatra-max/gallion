@@ -82,7 +82,7 @@ export function Hero() {
 
         {/* Standing facts — quiet, factual, no invented performance claims */}
         <Reveal delay={340}>
-          <dl className="mt-20 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-8 border-t border-tide/60 pt-10 sm:grid-cols-4">
+          <dl className="mt-20 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-8 border-t border-tide/60 pt-10 sm:grid-cols-3">
             {hero.stats.map((item) => (
               <div key={item.label} className="flex flex-col gap-2.5">
                 <dt className="font-display text-3xl leading-none text-ivory sm:text-4xl">

@@ -59,11 +59,17 @@ const FILE_INFO = {
     blurb: "The form introduction, the contact-details labels, and the six collaboration types.",
     order: 5,
   },
-  "directions.json": {
-    title: "Future directions",
+  "portfolio.json": {
+    title: "Portfolio page",
     blurb:
-      "The six category cards shown on both the home page and the About page — one set of cards, edited once here.",
+      "The Portfolio page copy — its header, the status legend explaining the card labels, and the closing call to action. The cards themselves are edited under Portfolio cards.",
     order: 6,
+  },
+  "directions.json": {
+    title: "Portfolio cards",
+    blurb:
+      "The six category cards shown on the Portfolio page and previewed on the home page — one set of cards, edited once here.",
+    order: 7,
   },
 };
 

@@ -42,3 +42,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local dev artifacts
+.claude/
+dev.log
+dev-out.log
+dev-err.log

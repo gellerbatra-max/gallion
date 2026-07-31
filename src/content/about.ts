@@ -28,6 +28,7 @@ export type AboutContent = {
   identity: {
     eyebrow: string;
     title: string;
+    titleAccent?: string;
     paragraphs: string[];
   };
   distinction: {

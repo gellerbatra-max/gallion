@@ -14,7 +14,6 @@ const nextConfig: NextConfig = {
       // in About and Philosophy. Not permanent yet — the information
       // architecture is young enough that it could move again.
       { source: "/ventures", destination: "/philosophy", permanent: false },
-      { source: "/portfolio", destination: "/about#directions", permanent: false },
       { source: "/insights", destination: "/", permanent: false },
       { source: "/insights/:slug", destination: "/", permanent: false },
     ];

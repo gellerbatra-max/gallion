@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "title": "Portfolio",
+    "description": "The areas Gelian is actively building in — overlooked value propositions under study, shaped into products, services and ventures. Not committed investments."
+  },
+  "header": {
+    "eyebrow": "Portfolio",
+    "title": "The areas we are building in.",
+    "lede": "A live view of where Gelian is looking — overlooked value propositions under study and in development, each shaped toward a product, a service or a venture of its own. Nothing here is a committed investment or an operating business unless it says so.",
+    "meta": [
+      { "label": "Areas", "value": "Six under study" },
+      { "label": "Stage", "value": "Exploration to development" },
+      { "label": "Model", "value": "Products, services & ventures" },
+      { "label": "Status", "value": "Actively evolving" }
+    ]
+  },
+  "legend": {
+    "eyebrow": "Reading the labels",
+    "title": "What each status means.",
+    "lede": "Every area carries a status, so this page stays honest about how far along each one really is."
+  },
+  "closingCta": {
+    "eyebrow": "Come aboard",
+    "title": "If something you are building belongs here, we should talk.",
+    "body": "We are interested in operators, makers and partners across every one of these areas — whether you are shaping a product, a service or a venture. Tell us what you are building and what you need that is not capital.",
+    "primaryCta": { "label": "Start a conversation", "href": "/contact" },
+    "secondaryCta": { "label": "Read our philosophy", "href": "/philosophy" }
+  }
+}

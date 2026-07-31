@@ -4,10 +4,10 @@
     "description": "Gelian is a privately held investment vehicle that discovers distinctive Sri Lankan value, shapes it into disciplined businesses, and carries it to global markets — and brings capital, standards and opportunity back in return."
   },
   "hero": {
-    "kicker": "Colombo · Private investment vehicle",
-    "headline": "A vessel for Ceylon value, bound for the world.",
-    "headlineAccent": "Ceylon value",
-    "subheadline": "Gelian identifies what Sri Lanka does distinctly well, shapes it into disciplined brands and businesses, and carries it to global markets — while bringing capital, standards and opportunity back in return.",
+    "kicker": "Private investment vehicle",
+    "headline": "A Vessel built to carry value across oceans into new markets.",
+    "headlineAccent": "value across oceans",
+    "subheadline": "Gelian identifies overlooked value propositions, develop them into useful products and services, and deliver them into markets where demand, relevance, and long-term value are strongest.",
     "primaryCta": {
       "label": "Our philosophy",
       "href": "/philosophy"
@@ -18,20 +18,16 @@
     },
     "stats": [
       {
+        "value": "Invest in",
+        "label": "Distinct Competitive Edge"
+      },
+      {
         "value": "Private",
-        "label": "Capital, principally our own"
+        "label": "Optimized to create value"
       },
       {
-        "value": "Two-way",
-        "label": "Mandate, not one"
-      },
-      {
-        "value": "10 yr",
-        "label": "Minimum holding horizon"
-      },
-      {
-        "value": "6.9° N",
-        "label": "Home port, Colombo"
+        "value": "Located",
+        "label": "Australia & Sri Lanka"
       }
     ]
   },
@@ -117,8 +113,8 @@
     "title": "Where we are looking.",
     "lede": "A compact preview of the categories under study — not a portfolio of holdings, a set of active questions.",
     "cta": {
-      "label": "More on our approach",
-      "href": "/about#directions"
+      "label": "View the portfolio",
+      "href": "/portfolio"
     }
   },
   "vision": {

@@ -7,12 +7,26 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading, Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Timeline } from "@/components/Timeline";
-import { DirectionCard } from "@/components/cards/DirectionCard";
 import { CompassRose } from "@/components/visuals/CompassRose";
 
 import { about } from "@/content/about";
-import { directions } from "@/content/directions";
 import { pageMeta } from "@/lib/seo";
+
+/**
+ * Splits a heading on its accent phrase so the phrase can be tinted gold.
+ * Falls back to the plain string if the accent is absent or not found.
+ */
+function Accented({ text, accent }: { text: string; accent?: string }) {
+  const index = accent ? text.indexOf(accent) : -1;
+  if (!accent || index === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, index)}
+      <span className="text-gilt">{accent}</span>
+      {text.slice(index + accent.length)}
+    </>
+  );
+}
 
 export const metadata: Metadata = pageMeta({
   title: about.seo.title,
@@ -29,7 +43,6 @@ export default function AboutPage() {
     longView,
     milestones,
     journey,
-    directionsPreview,
     closingCta,
   } = about;
 
@@ -55,25 +68,30 @@ export default function AboutPage() {
                   id="identity-heading"
                   className="mt-6 text-3xl leading-[1.14] sm:text-4xl lg:text-[2.9rem]"
                 >
-                  {identity.title}
+                  <Accented text={identity.title} accent={identity.titleAccent} />
                 </h2>
               </Reveal>
             </div>
 
             <div className="lg:col-span-7">
               <Reveal delay={100} className="flex flex-col gap-6">
-                {identity.paragraphs.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className={
-                      index === 0
-                        ? "measure text-lg leading-[1.75] text-sand/90"
-                        : "measure text-[1.0625rem] leading-[1.8] text-mist"
-                    }
-                  >
-                    {paragraph}
-                  </p>
-                ))}
+                {identity.paragraphs.map((paragraph, index) => {
+                  const isLast = index === identity.paragraphs.length - 1;
+                  return (
+                    <p
+                      key={index}
+                      className={[
+                        "measure",
+                        index === 0
+                          ? "text-lg leading-[1.75]"
+                          : "text-[1.0625rem] leading-[1.8]",
+                        index === 0 || isLast ? "text-sand/90" : "text-mist",
+                      ].join(" ")}
+                    >
+                      {paragraph}
+                    </p>
+                  );
+                })}
               </Reveal>
             </div>
           </div>
@@ -81,9 +99,43 @@ export default function AboutPage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* Founding idea — narrative                                         */}
+      {/* ---------------------------------------------------------------- */}
+      <Section
+        spacing="xl"
+        tone="raised"
+        bordered
+        className="overflow-hidden"
+        aria-labelledby="origin-heading"
+      >
+        <CompassRose
+          className="pointer-events-none absolute -top-40 -left-52 w-[44rem] text-brass/[0.035]"
+        />
+        <Container size="narrow" className="relative">
+          <Reveal>
+            <Eyebrow>{originStory.eyebrow}</Eyebrow>
+            <h2
+              id="origin-heading"
+              className="mt-6 text-3xl leading-[1.14] sm:text-4xl"
+            >
+              {originStory.title}
+            </h2>
+          </Reveal>
+
+          <Reveal delay={100} className="mt-10 flex flex-col gap-7">
+            {originStory.paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-[1.0625rem] leading-[1.85] text-mist">
+                {paragraph}
+              </p>
+            ))}
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
       {/* Distinction — investment vehicle, not a venture firm              */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="raised" bordered aria-labelledby="distinction-heading">
+      <Section aria-labelledby="distinction-heading">
         <Container size="wide">
           <SectionHeading
             eyebrow={distinction.eyebrow}
@@ -115,34 +167,6 @@ export default function AboutPage() {
             <p className="measure mt-12 text-[0.9375rem] leading-[1.8] text-haze">
               {distinction.closingNote}
             </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* Founding idea — narrative                                         */}
-      {/* ---------------------------------------------------------------- */}
-      <Section spacing="xl" className="overflow-hidden" aria-labelledby="origin-heading">
-        <CompassRose
-          className="pointer-events-none absolute -top-40 -left-52 w-[44rem] text-brass/[0.035]"
-        />
-        <Container size="narrow" className="relative">
-          <Reveal>
-            <Eyebrow>{originStory.eyebrow}</Eyebrow>
-            <h2
-              id="origin-heading"
-              className="mt-6 text-3xl leading-[1.14] sm:text-4xl"
-            >
-              {originStory.title}
-            </h2>
-          </Reveal>
-
-          <Reveal delay={100} className="mt-10 flex flex-col gap-7">
-            {originStory.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-[1.0625rem] leading-[1.85] text-mist">
-                {paragraph}
-              </p>
-            ))}
           </Reveal>
         </Container>
       </Section>
@@ -198,32 +222,6 @@ export default function AboutPage() {
 
           <div className="mt-16">
             <Timeline milestones={milestones} />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* Future directions                                                 */}
-      {/* ---------------------------------------------------------------- */}
-      <Section
-        id="directions"
-        tone="raised"
-        bordered
-        aria-labelledby="directions-heading"
-      >
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={directionsPreview.eyebrow}
-            title={<span id="directions-heading">{directionsPreview.title}</span>}
-            lede={<p>{directionsPreview.lede}</p>}
-          />
-
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {directions.map((direction, index) => (
-              <Reveal key={direction.id} delay={(index % 3) * 90} className="h-full">
-                <DirectionCard direction={direction} />
-              </Reveal>
-            ))}
           </div>
         </Container>
       </Section>
