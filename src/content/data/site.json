@@ -29,7 +29,7 @@
     }
   ],
   "contact": {
-    "general": "hello@gelian.lk",
+    "general": "info@gelian.lk",
     "partnerships": "partnerships@gelian.lk",
     "press": "press@gelian.lk",
     "phone": "+94 76 000 0000",
@@ -49,13 +49,6 @@
         "role": "Registered office",
         "note": "Colombo 03, Western Province",
         "coords": "6.9271° N, 79.8612° E"
-      },
-      {
-        "city": "London",
-        "country": "United Kingdom",
-        "role": "Correspondence",
-        "note": "Market development, Europe",
-        "coords": "51.5072° N, 0.1276° W"
       }
     ],
     "responseTime": "We reply to every serious enquiry within three working days."

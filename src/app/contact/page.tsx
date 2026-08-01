@@ -73,45 +73,12 @@ export default function ContactPage() {
                           {contact.general}
                         </a>
                       </li>
-                      <li className="flex flex-col gap-1">
-                        <span className="text-xs text-haze">
-                          {details.partnershipsNote}
-                        </span>
-                        <a
-                          href={`mailto:${contact.partnerships}`}
-                          className="link-draw w-fit text-ivory transition-colors hover:text-brass"
-                        >
-                          {contact.partnerships}
-                        </a>
-                      </li>
-                      <li className="flex flex-col gap-1">
-                        <span className="text-xs text-haze">
-                          {details.pressNote}
-                        </span>
-                        <a
-                          href={`mailto:${contact.press}`}
-                          className="link-draw w-fit text-ivory transition-colors hover:text-brass"
-                        >
-                          {contact.press}
-                        </a>
-                      </li>
                     </ul>
                   </div>
 
                   <div className="border-t border-tide/60 pt-8">
                     <p className="label text-haze">{details.phoneLabel}</p>
                     <ul className="mt-5 flex flex-col gap-4">
-                      <li className="flex flex-col gap-1">
-                        <span className="text-xs text-haze">
-                          {details.officeHoursNote}
-                        </span>
-                        <a
-                          href={contact.phoneHref}
-                          className="link-draw w-fit text-ivory transition-colors hover:text-brass"
-                        >
-                          {contact.phone}
-                        </a>
-                      </li>
                       <li className="flex flex-col gap-1">
                         <span className="text-xs text-haze">
                           {details.whatsappNote}
@@ -137,10 +104,7 @@ export default function ContactPage() {
                             {office.city}
                           </span>
                           <span className="text-sm text-mist">
-                            {office.note}
-                          </span>
-                          <span className="text-xs text-haze">
-                            {office.role} &middot; {office.coords}
+                            {office.country}
                           </span>
                         </li>
                       ))}
@@ -172,11 +136,11 @@ export default function ContactPage() {
             lede={<p>{collaboration.lede}</p>}
           />
 
-          <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2">
             {collaboration.items.map((item, index) => (
               <Reveal
                 key={item.title}
-                delay={(index % 3) * 90}
+                delay={(index % 2) * 90}
                 className="border-t border-tide/70 pt-7"
               >
                 <h3 className="text-xl leading-snug">{item.title}</h3>

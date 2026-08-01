@@ -50,7 +50,7 @@ export function PageHeader({
               {meta.map((item) => (
                 <div key={item.label} className="flex flex-col gap-2">
                   <dt className="label text-haze">{item.label}</dt>
-                  <dd className="text-sm text-sand">{item.value}</dd>
+                  <dd className="text-sm text-sand whitespace-pre-line">{item.value}</dd>
                 </div>
               ))}
             </dl>

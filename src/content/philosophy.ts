@@ -15,30 +15,30 @@ export type Principle = {
   body: string;
 };
 
+/** A simple eyebrow + heading + prose block, shared by several sections. */
+export type EssayBlock = {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+};
+
 export type PhilosophyContent = {
   seo: { title: string; description: string };
   header: {
     eyebrow: string;
     title: string;
-    lede: string;
+    lede: string[];
     meta: MetaPair[];
   };
-  opening: {
-    title: string;
-    paragraphs: string[];
-    pullQuote: string;
-  };
-  method: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-  };
+  strategy: EssayBlock;
+  process: EssayBlock;
   manifesto: {
     eyebrow: string;
     title: string;
-    lede: string;
+    lede: string[];
     principles: Principle[];
   };
+  style: EssayBlock;
   closing: {
     eyebrow: string;
     statement: string;

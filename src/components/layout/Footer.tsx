@@ -49,12 +49,6 @@ export function Footer() {
               >
                 {contact.general}
               </a>
-              <a
-                href={contact.phoneHref}
-                className="link-draw w-fit text-mist transition-colors hover:text-brass"
-              >
-                {contact.phone}
-              </a>
             </div>
             <div className="mt-6 flex flex-col gap-1 text-sm text-haze">
               {contact.offices.slice(0, 2).map((office) => (

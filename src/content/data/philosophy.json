@@ -1,99 +1,109 @@
 {
   "seo": {
     "title": "Philosophy",
-    "description": "Eight principles that decide what Gelian holds, backs and declines — discover, curate, refine, connect, transport, compound, return value and build trust."
+    "description": "What Gelian believes about value, the eight principles it works by, and the strategy, process and posture behind everything it builds and carries."
   },
   "header": {
     "eyebrow": "Philosophy",
-    "title": "What we believe, and what it costs us.",
-    "lede": "Principles are only worth writing down if they occasionally make you worse off. These eight have already cost us opportunities we wanted. That is how we know they are doing something.",
+    "title": "What we believe about value.",
+    "lede": [
+      "Gelian is built on the belief that value is often overlooked before it is fully understood. Some opportunities remain underdeveloped not because they lack merit, but because they are not seen clearly, not shaped carefully, or not carried into the markets where they can matter most.",
+      "We believe the work is not only to find value, but to recognize it early, protect it from dilution, refine it with discipline, and position it where it has the strongest relevance. In that sense, value is not simply discovered. It is discovered, developed, and carried."
+    ],
     "meta": [
-      { "label": "Principles", "value": "Eight" },
-      { "label": "Standard", "value": "Craft before scale" },
-      { "label": "Horizon", "value": "Ten years, minimum" },
-      { "label": "Direction", "value": "Both ways" }
+      { "label": "Belief", "value": "Overlooked value can be made visible." },
+      { "label": "Horizon", "value": "Long-term by design." },
+      { "label": "Posture", "value": "Selective, patient, deliberate." }
     ]
   },
-  "opening": {
-    "title": "Principles worth writing down are the ones that cost you something.",
+  "strategy": {
+    "eyebrow": "Strategy",
+    "title": "What we choose to build.",
     "paragraphs": [
-      "Most companies discover their real beliefs under pressure, and pressure almost always argues for speed: move faster, announce sooner, take the deal in front of you. Those are not principles; they are reflexes.",
-      "Gelian is deliberately built to resist that. Because we hold a small number of things for the long term and answer to no one else's timetable, we can commit to standards a business racing to an exit would have to abandon.",
-      "What follows is written to be argued with — by us, in the rooms where decisions are actually made. If a principle here has never once made us walk away from something we wanted, it does not belong on this list."
-    ],
-    "pullQuote": "A principle that has never cost you anything is not a principle. It is a preference."
+      "Gelian focuses on overlooked value propositions that can be developed into useful products, services, and ventures with long-term relevance. We do not aim to build broadly, but selectively — backing a smaller number of ideas with greater clarity, stronger standards, and a longer view of what they can become."
+    ]
   },
-  "method": {
-    "eyebrow": "The method",
-    "title": "It comes down to one loop, run patiently.",
+  "process": {
+    "eyebrow": "Process",
+    "title": "How we execute.",
     "paragraphs": [
-      "Beneath the principles is a single, repeatable loop. We discover value that others have overlooked, curate hard to keep only what deserves our full attention, refine it until the standard is set before the first customer arrives, and carry it to the market where it belongs — then hold it long enough to compound.",
-      "None of those moves is remarkable on its own. What makes the loop work is running it in that order, every time, and refusing to skip a step because a faster answer is on offer. The principles that follow are how we hold ourselves to it when it would be easier not to."
+      "Our process follows a deliberate sequence: we discover value that others have overlooked, curate hard to keep only what deserves our full attention, refine it until the standard is set before the first customer arrives, and carry it to the market where it belongs — then hold it long enough to compound.",
+      "The sequence matters because each stage protects the next. Discovery without selectivity creates noise. Refinement without market direction creates well-made irrelevance. Carrying without patience turns effort into movement rather than durable value."
     ]
   },
   "manifesto": {
-    "eyebrow": "The manifesto",
-    "title": "Eight principles.",
-    "lede": "The same loop, broken into the eight principles we actually apply — from the first question we ask about an opportunity to the last thing we owe once it is built.",
+    "eyebrow": "Principles",
+    "title": "How we behave under that belief.",
+    "lede": [
+      "Principles matter only when they shape decisions in practice. At Gelian, they exist to protect quality, preserve focus, and keep the company aligned with the kind of value it is built to carry.",
+      "The eight principles below are not slogans or decoration. They are the working standards that guide how opportunities are judged, how ventures are shaped, and how value is carried into the markets where it belongs."
+    ],
     "principles": [
       {
         "number": "I",
         "title": "Discover",
-        "claim": "Curiosity comes before conviction.",
-        "body": "Most distinctive value is found by people who kept asking after everyone else stopped. We spend an unreasonable amount of time reading, travelling and listening before we form a view — and hold that view loosely until the market argues back."
+        "claim": "Look past the obvious.",
+        "body": "Discovery begins with patience. The most compelling opportunities are often quiet at first, visible only to those willing to keep looking when others have already moved on. We try to stay in that mode long enough to separate real potential from passing noise."
       },
       {
         "number": "II",
         "title": "Curate",
-        "claim": "Saying no is the work.",
-        "body": "A vehicle is defined by what it declines. We would rather hold three businesses that deserve our full attention than fifteen that receive a fraction of it. Concentration is not caution; it is the only way craft survives scale."
+        "claim": "What we refuse matters.",
+        "body": "Curating is where judgment becomes visible. Not every opportunity deserves to be pursued, and not every promising idea deserves to survive unchanged. We choose deliberately, because what we decline matters as much as what we decide to carry forward."
       },
       {
         "number": "III",
         "title": "Refine",
-        "claim": "The detail is not a finishing layer.",
-        "body": "Quality is decided upstream — in sourcing, in specification, in who is hired first. We hold businesses where the standard is set before the first customer arrives, because a standard retrofitted is a standard already lost."
+        "claim": "Set the standard early.",
+        "body": "Refinement is about standards, not decoration. The quality of what we build is determined early, in the choices made before anything reaches a customer. We believe the work should already be strong at the foundation, not improved only after it is exposed to the market."
       },
       {
         "number": "IV",
         "title": "Connect",
-        "claim": "Build the bridge, not just the brand.",
-        "body": "A product that travels alone arrives as a stranger. We invest in the relationships, distribution and credibility that let something we have built land in an unfamiliar market on its own merits, not on an introduction we cannot repeat."
+        "claim": "Make it legible elsewhere.",
+        "body": "A well-made product still needs context to be understood. Connection is the work of building the path between what has been created and the market that needs it. That includes relationships, credibility, distribution, and the ability to make something feel relevant beyond its place of origin."
       },
       {
         "number": "V",
         "title": "Transport",
-        "claim": "Carry it properly, in both directions.",
-        "body": "Moving something across a border is a discipline, not an afterthought — packaging, logistics, compliance and timing all decide whether value arrives intact. We treat the crossing itself as part of the product."
+        "claim": "The crossing is part of it.",
+        "body": "When something moves from one market to another, the journey affects the outcome. Packaging, compliance, timing, logistics, and presentation all shape whether value arrives intact. We treat movement itself as part of the work, not as something added at the end."
       },
       {
         "number": "VI",
         "title": "Compound",
-        "claim": "We measure in decades, not quarters.",
-        "body": "Compounding is the only advantage available to everyone and taken by almost no one. We hold businesses so they can be kept — modest fixed costs, real margins, and no structure that forces a sale at someone else's timing."
+        "claim": "Give value time.",
+        "body": "Compounding rewards restraint and time. The advantage lies not in constant motion, but in holding the right things long enough for their value to deepen. We structure our work so that businesses can grow without being forced into short-term decisions."
       },
       {
         "number": "VII",
         "title": "Return value",
-        "claim": "The traffic runs both ways.",
-        "body": "Taking value out to the world is only half the mandate. The other half is bringing capital, standards, partners and ideas back to the people and places that built it — and leaving every market and team we touch more capable than we found it."
+        "claim": "Let value travel back.",
+        "body": "Value should not only go outward. If a business draws from a place, a market, or a network of people, it should also give something back in the form of capital, capability, standards, or opportunity. We want every relationship we touch to become stronger through exchange."
       },
       {
         "number": "VIII",
         "title": "Build trust",
-        "claim": "Reputation compounds faster than capital.",
-        "body": "We would rather be trusted in ten rooms than known in a thousand. Every commitment we make is one we intend to be measured against, and we do not describe as finished what is still in progress."
+        "claim": "Be measured by delivery.",
+        "body": "Trust is built slowly and lost quickly. We would rather be dependable in a few important places than visible everywhere without substance. Every commitment is a promise we expect to be measured against, which means progress must be real before it is described as complete."
       }
+    ]
+  },
+  "style": {
+    "eyebrow": "Style",
+    "title": "Our overall posture.",
+    "paragraphs": [
+      "Gelian is selective, patient, and deliberate by design. We prefer concentration over sprawl, standards over haste, and long-term compounding over short-term display. The aim is not to carry more, but to carry better."
     ]
   },
   "closing": {
     "eyebrow": "In short",
-    "statement": "Find the few things worth carrying. Build them properly. Hold them long enough to matter. Leave every market and team we touch better than we found it."
+    "statement": "Find what is worth carrying. Shape it properly. Bring it where it belongs. Hold it long enough to matter."
   },
   "closingCta": {
     "eyebrow": "Next",
     "title": "This is how the philosophy becomes a company.",
-    "body": "The About page sets out how Gelian is structured, how it differs from a venture firm, and what has to be true before it holds something.",
+    "body": "The About page sets out how Gelian is structured.",
     "primaryCta": { "label": "About Gelian", "href": "/about" },
     "secondaryCta": { "label": "Start a conversation", "href": "/contact" }
   }
