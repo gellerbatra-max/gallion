@@ -6,11 +6,10 @@
  */
 
 import data from "./data/home.json";
-import type { CtaLink, Card } from "./shared";
+import type { CtaLink } from "./shared";
 
-export type { CtaLink, Card };
+export type { CtaLink };
 export type Stat = { value: string; label: string };
-export type Step = { label: string; title: string; body: string };
 
 export type HomeContent = {
   seo: { title: string; description: string };
@@ -30,12 +29,6 @@ export type HomeContent = {
     primaryCta: CtaLink;
     secondaryCta: CtaLink;
   };
-  vessel: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    cards: Card[];
-  };
   exchange: {
     eyebrow: string;
     title: string;
@@ -44,24 +37,11 @@ export type HomeContent = {
     corridorsLabel: string;
     corridorsNote: string;
   };
-  process: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    steps: Step[];
-  };
   directionsPreview: {
     eyebrow: string;
     title: string;
     lede: string;
     cta: CtaLink;
-  };
-  vision: {
-    eyebrow: string;
-    quote: string;
-    body: string;
-    attributionName: string;
-    attributionRole: string;
   };
   closingCta: {
     eyebrow: string;

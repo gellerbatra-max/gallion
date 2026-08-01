@@ -9,7 +9,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { DirectionCard } from "@/components/cards/DirectionCard";
 import { RouteDiagram } from "@/components/visuals/RouteDiagram";
-import { MarkedRule } from "@/components/visuals/Atmosphere";
 
 import { home } from "@/content/home";
 import { directions } from "@/content/directions";
@@ -27,8 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const { whatWeAre, vessel, exchange, process, directionsPreview, vision, closingCta } =
-    home;
+  const { whatWeAre, exchange, directionsPreview, closingCta } = home;
 
   return (
     <>
@@ -80,7 +78,7 @@ export default function HomePage() {
                   </Button>
                   <Button
                     href={whatWeAre.secondaryCta.href}
-                    variant="quiet"
+                    variant="secondary"
                     size="sm"
                     withArrow
                   >
@@ -90,70 +88,6 @@ export default function HomePage() {
               </Reveal>
             </div>
           </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* The vessel — investment vehicle / trade vessel                    */}
-      {/* ---------------------------------------------------------------- */}
-      <Section id="vessel" aria-labelledby="vessel-heading">
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={vessel.eyebrow}
-            title={<span id="vessel-heading">{vessel.title}</span>}
-            lede={<p>{vessel.lede}</p>}
-          />
-
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-tide/70 bg-tide/70 sm:grid-cols-3">
-            {vessel.cards.map((item, index) => (
-              <Reveal
-                key={item.tier}
-                delay={index * 90}
-                className="flex flex-col gap-4 bg-abyss p-8 sm:p-9"
-              >
-                <p className="label text-brass/80">{item.tier}</p>
-                <h3 className="text-xl leading-snug">{item.name}</h3>
-                <p className="text-[0.9375rem] leading-[1.75] text-mist">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* How value is identified                                          */}
-      {/* ---------------------------------------------------------------- */}
-      <Section id="process" tone="raised" bordered aria-labelledby="process-heading">
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={process.eyebrow}
-            title={<span id="process-heading">{process.title}</span>}
-            lede={<p>{process.lede}</p>}
-          />
-
-          <ol className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {process.steps.map((step, index) => (
-              <Reveal
-                as="li"
-                key={step.label}
-                delay={index * 80}
-                className="flex flex-col gap-4 border-t border-tide/70 pt-7"
-              >
-                <span
-                  aria-hidden="true"
-                  className="text-xs font-medium tracking-[0.3em] text-brass/85"
-                >
-                  {step.label}
-                </span>
-                <h3 className="text-xl leading-snug">{step.title}</h3>
-                <p className="text-[0.9375rem] leading-[1.75] text-mist">
-                  {step.body}
-                </p>
-              </Reveal>
-            ))}
-          </ol>
         </Container>
       </Section>
 
@@ -252,42 +186,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* Vision statement                                                  */}
-      {/* ---------------------------------------------------------------- */}
-      <Section
-        id="vision"
-        spacing="xl"
-        aria-labelledby="vision-heading"
-      >
-        <Container size="narrow">
-          <Reveal className="flex flex-col items-center text-center">
-            <Eyebrow className="justify-center">{vision.eyebrow}</Eyebrow>
-            <MarkedRule className="mt-10 w-40" />
-
-            <blockquote
-              id="vision-heading"
-              className="mt-10 font-display text-2xl leading-[1.45] font-light text-ivory sm:text-[1.9rem] sm:leading-[1.42]"
-            >
-              &ldquo;{vision.quote}&rdquo;
-            </blockquote>
-
-            <p className="mt-10 text-[1.0625rem] leading-[1.8] text-mist">
-              {vision.body}
-            </p>
-
-            <MarkedRule className="mt-12 w-40" />
-
-            <p className="mt-8 text-sm text-sand">
-              {vision.attributionName}
-              <span className="mt-1.5 block text-xs text-haze">
-                {vision.attributionRole}
-              </span>
-            </p>
-          </Reveal>
         </Container>
       </Section>
 

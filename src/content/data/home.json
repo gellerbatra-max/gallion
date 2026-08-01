@@ -5,8 +5,8 @@
   },
   "hero": {
     "kicker": "Private investment vehicle",
-    "headline": "A Vessel built to carry value across oceans into new markets.",
-    "headlineAccent": "value across oceans",
+    "headline": "A Vessel built to carry value across oceans.",
+    "headlineAccent": "value across oceans.",
     "subheadline": "Gelian identifies overlooked value propositions, develop them into useful products and services, and deliver them into markets where demand, relevance, and long-term value are strongest.",
     "primaryCta": {
       "label": "Our philosophy",
@@ -18,57 +18,34 @@
     },
     "stats": [
       {
-        "value": "Invest in",
-        "label": "Distinct Competitive Edge"
+        "value": "2024",
+        "label": "Founded"
       },
       {
-        "value": "Private",
-        "label": "Optimized to create value"
+        "value": "Australia & Sri Lanka",
+        "label": "Current presence"
       },
       {
-        "value": "Located",
-        "label": "Australia & Sri Lanka"
+        "value": "Privately held",
+        "label": "Structure"
       }
     ]
   },
   "whatWeAre": {
     "eyebrow": "What Gelian is",
-    "title": "An investment vehicle, built to hold what it carries.",
+    "title": "Not one brand — a vehicle for many.",
     "paragraphs": [
-      "Gelian is a privately held investment vehicle — a structure that originates, acquires and holds businesses, rather than a single company operating under one name. Each business we build keeps its own name, its own leadership and its own reason to exist.",
-      "That structure is the point. It lets us fund something through the years before it earns, keep what works, and close what does not, without the fate of one venture deciding the fate of the rest. It also keeps the standard in one place — whatever we hold, it is held to the same brief.",
-      "We are early. What exists today is a thesis, a structure, and the first work in development. We would rather say that plainly than dress it up."
+      "Gelian is a flexible investment and holding structure created to identify overlooked value propositions and develop them into products, services, and businesses with long-term potential. Beginning with Australia and Sri Lanka, it is designed to carry those opportunities into the markets where demand, relevance, and commercial value are strongest.",
+      "Its purpose is not to be a single operating brand, but a vehicle through which distinct ideas can be shaped into enduring ventures. Over time, Gelian aims to build and hold a portfolio of reputable brands, each grounded in a clear value proposition and a market where it can matter most."
     ],
     "primaryCta": {
-      "label": "About the vehicle",
+      "label": "Our Story",
       "href": "/about"
     },
     "secondaryCta": {
       "label": "Our philosophy",
       "href": "/philosophy"
     }
-  },
-  "vessel": {
-    "eyebrow": "The vessel, not the cargo",
-    "title": "A trade vessel, built for a specific crossing.",
-    "lede": "Gelian takes its structural cue from the ocean-going trade vessel — commercial infrastructure built to carry value across a distance reliably, more than once, not a single lucky voyage.",
-    "cards": [
-      {
-        "tier": "The hold",
-        "name": "What we carry",
-        "body": "Distinctive Sri Lankan value — a craft, a stone, a category, a skill — identified early and given the standard it deserves before it travels."
-      },
-      {
-        "tier": "The vessel",
-        "name": "What we are",
-        "body": "A disciplined holding structure that funds, governs and protects what it carries, without absorbing it into a single undifferentiated business."
-      },
-      {
-        "tier": "The crossing",
-        "name": "What we do",
-        "body": "Move that value into markets that will pay for what it actually is — and bring capital, standards and opportunity back on the return leg."
-      }
-    ]
   },
   "exchange": {
     "eyebrow": "Both directions",
@@ -81,33 +58,6 @@
     "corridorsLabel": "Corridors of interest",
     "corridorsNote": "Illustrative corridors under study. Not an indication of established operations or partnerships in these markets."
   },
-  "process": {
-    "eyebrow": "How value is identified",
-    "title": "Discover. Curate. Refine. Carry.",
-    "lede": "The same discipline applied to every candidate, in this order, before capital or a name is committed.",
-    "steps": [
-      {
-        "label": "01",
-        "title": "Discover",
-        "body": "A wide, patient search for value that is genuinely distinctive to Sri Lanka — in trade, craft, hospitality or expertise — rather than merely cheap to produce here."
-      },
-      {
-        "label": "02",
-        "title": "Curate",
-        "body": "Most candidates are declined. Saying no is the majority of the work, and the only way a small vehicle keeps its standard intact as it grows."
-      },
-      {
-        "label": "03",
-        "title": "Refine",
-        "body": "What survives is shaped properly — brand, governance and operating standard set before the first customer arrives, not retrofitted afterward."
-      },
-      {
-        "label": "04",
-        "title": "Carry",
-        "body": "Moved to market under its own name, held for the years it takes to compound, and judged on what it looks like a decade on rather than this quarter."
-      }
-    ]
-  },
   "directionsPreview": {
     "eyebrow": "Future directions",
     "title": "Where we are looking.",
@@ -117,17 +67,10 @@
       "href": "/portfolio"
     }
   },
-  "vision": {
-    "eyebrow": "A short note",
-    "quote": "The same meeting kept happening. Someone would hold up something made here — a stone, a cloth, a cup of tea — and the room would agree it was excellent. Then the price would be set as though it were ordinary. Gelian exists because we stopped accepting that as the natural order of things.",
-    "body": "We are not in a hurry, and we are not standing still. The plan is to hold a small number of businesses properly, for a long time, and be judged on what they look like in a decade rather than what they promise this year.",
-    "attributionName": "Founder's note",
-    "attributionRole": "Gelian"
-  },
   "closingCta": {
     "eyebrow": "Come aboard",
-    "title": "If something you hold should be travelling, we should talk.",
-    "body": "We are interested in operators, makers and partners on either side of the crossing — whether the work is leaving the island or landing on it. Tell us what it is and what you need that is not capital.",
+    "title": "Capital, capability, market access, or a strong idea — bring one, and let's talk.",
+    "body": "We currently operate across Australia and Sri Lanka. If you are looking to source a distinctive product or service from either market — or to gain access to those markets yourself — there is a real chance we are working on the same thing, so get in touch. And if you have capital to deploy into those markets, or a fresh idea worth developing, we are listening.",
     "primaryCta": {
       "label": "Start a conversation",
       "href": "/contact"
