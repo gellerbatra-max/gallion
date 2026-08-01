@@ -50,7 +50,7 @@ export function Hero() {
 
       <Container
         size="wide"
-        className="flex min-h-[92svh] flex-col justify-center pt-36 pb-24 sm:pt-40 lg:min-h-[94svh]"
+        className="flex min-h-[88svh] flex-col justify-center pt-28 pb-14 sm:pt-32 lg:min-h-[90svh]"
       >
         <Reveal className="flex items-center gap-4">
           <span aria-hidden="true" className="h-px w-10 bg-brass/60" />
@@ -58,7 +58,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={90}>
-          <h1 className="mt-10 max-w-5xl text-[2.75rem] leading-[1.05] font-light sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
+          <h1 className="mt-8 max-w-5xl text-[2.75rem] leading-[1.05] font-light sm:text-6xl lg:text-[4.75rem] xl:text-[5.25rem]">
             <Headline text={hero.headline} accent={hero.headlineAccent} />
           </h1>
         </Reveal>
@@ -70,7 +70,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={260}>
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button href={hero.primaryCta.href} withArrow>
               {hero.primaryCta.label}
             </Button>
@@ -82,7 +82,7 @@ export function Hero() {
 
         {/* Standing facts — quiet, factual, no invented performance claims */}
         <Reveal delay={340}>
-          <dl className="mt-20 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-8 border-t border-tide/60 pt-10 sm:grid-cols-3">
+          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-8 border-t border-tide/60 pt-8 sm:grid-cols-3">
             {hero.stats.map((item) => (
               <div key={item.label} className="flex flex-col gap-2.5">
                 <dt className="font-display text-3xl leading-none text-ivory sm:text-4xl">
