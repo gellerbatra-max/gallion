@@ -48,15 +48,12 @@
     }
   },
   "exchange": {
-    "eyebrow": "Both directions",
-    "title": "Sri Lanka to the world.",
-    "titleAccent": "And the world to Sri Lanka.",
+    "eyebrow": "Reach",
+    "title": "Rooted in two markets.",
     "paragraphs": [
-      "A crossing with traffic in one direction only is a drain, not a bridge. Half the mandate is carrying distinctive Sri Lankan value into demanding markets. The other half is bringing capital, standards, partners and opportunity back — and leaving the place better supplied than we found it.",
-      "Getting out is hard. Getting in is harder still. International operators are rarely deterred by competition here; they are deterred by not knowing whom to trust. That is a solvable problem, and solving it properly is itself part of the work."
-    ],
-    "corridorsLabel": "Corridors of interest",
-    "corridorsNote": "Illustrative corridors under study. Not an indication of established operations or partnerships in these markets."
+      "We are beginning with the route we know best: Sri Lanka and Australia. For now, our focus is moving distinctive products, services and opportunities between these two markets, in both directions.",
+      "Over time, we intend to widen that reach. What we prove between two home markets, we aim to extend outward — to the global markets where demand, relevance and long-term value are strongest."
+    ]
   },
   "directionsPreview": {
     "eyebrow": "Future directions",

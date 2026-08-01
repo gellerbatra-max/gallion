@@ -32,10 +32,7 @@ export type HomeContent = {
   exchange: {
     eyebrow: string;
     title: string;
-    titleAccent: string;
     paragraphs: string[];
-    corridorsLabel: string;
-    corridorsNote: string;
   };
   directionsPreview: {
     eyebrow: string;

@@ -12,7 +12,7 @@ import { RouteDiagram } from "@/components/visuals/RouteDiagram";
 
 import { home } from "@/content/home";
 import { directions } from "@/content/directions";
-import { ports, site } from "@/content/site";
+import { site } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -105,7 +105,6 @@ export default function HomePage() {
                   className="mt-6 text-3xl leading-[1.14] sm:text-4xl lg:text-[2.9rem]"
                 >
                   {exchange.title}
-                  <span className="block text-gilt">{exchange.titleAccent}</span>
                 </h2>
                 {exchange.paragraphs.map((paragraph, index) => (
                   <p
@@ -126,23 +125,6 @@ export default function HomePage() {
               <Reveal delay={120}>
                 <div className="rounded-2xl border border-tide/70 bg-hull/30 p-6 sm:p-8">
                   <RouteDiagram />
-
-                  <div className="mt-6 border-t border-tide/60 pt-6">
-                    <p className="label text-haze">{exchange.corridorsLabel}</p>
-                    <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
-                      {ports.map((port) => (
-                        <li key={port.code} className="flex flex-col gap-1">
-                          <span className="text-sm text-sand">{port.name}</span>
-                          <span className="text-xs text-haze">
-                            {port.region}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-6 text-xs leading-relaxed text-haze">
-                      {exchange.corridorsNote}
-                    </p>
-                  </div>
                 </div>
               </Reveal>
             </div>
