@@ -20,6 +20,8 @@ export type Direction = {
   description: string;
   status: DirectionStatus;
   marketFocus: string;
+  /** Optional: what Gelian is actually doing in this area. */
+  involvement?: string;
 };
 
 export const directionsEyebrow = data.eyebrow;

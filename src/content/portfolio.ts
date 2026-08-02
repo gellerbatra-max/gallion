@@ -19,11 +19,6 @@ export type PortfolioContent = {
     lede: string;
     meta: MetaPair[];
   };
-  legend: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-  };
   closingCta: {
     eyebrow: string;
     title: string;

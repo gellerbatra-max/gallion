@@ -56,9 +56,9 @@
     ]
   },
   "directionsPreview": {
-    "eyebrow": "Future directions",
-    "title": "Where we are looking.",
-    "lede": "A compact preview of the categories under study — not a portfolio of holdings, a set of active questions.",
+    "eyebrow": "What we're building",
+    "title": "The work has already begun.",
+    "lede": "A few of the areas we are exploring are already in development. Here are three — the full set, across every stage, is on the portfolio.",
     "cta": {
       "label": "View the portfolio",
       "href": "/portfolio"

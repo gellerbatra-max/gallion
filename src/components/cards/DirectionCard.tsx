@@ -39,6 +39,15 @@ export function DirectionCard({
           {direction.description}
         </p>
 
+        {direction.involvement ? (
+          <div className="mt-5 border-t border-tide/50 pt-5">
+            <span className="label text-brass/70">Where Gelian comes in</span>
+            <p className="mt-2.5 text-[0.9375rem] leading-[1.7] text-mist">
+              {direction.involvement}
+            </p>
+          </div>
+        ) : null}
+
         <div className="mt-auto flex flex-col gap-1.5 border-t border-tide/60 pt-6">
           <span className="label text-haze">Market focus</span>
           <span className="text-sm text-sand/80">{direction.marketFocus}</span>

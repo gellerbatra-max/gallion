@@ -27,7 +27,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function PortfolioPage() {
-  const { header, legend, closingCta } = portfolio;
+  const { header, closingCta } = portfolio;
   const statusKeys = Object.keys(directionStatusMeta) as DirectionStatus[];
 
   return (
@@ -40,7 +40,7 @@ export default function PortfolioPage() {
       />
 
       {/* ---------------------------------------------------------------- */}
-      {/* The portfolio grid                                                */}
+      {/* The portfolio grid, with a label key as a footnote                */}
       {/* ---------------------------------------------------------------- */}
       <Section aria-labelledby="portfolio-heading">
         <Container size="wide">
@@ -57,34 +57,23 @@ export default function PortfolioPage() {
               </Reveal>
             ))}
           </div>
-        </Container>
-      </Section>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* Status legend — what each label on the cards means                */}
-      {/* ---------------------------------------------------------------- */}
-      <Section tone="raised" bordered aria-labelledby="legend-heading">
-        <Container size="wide">
-          <SectionHeading
-            eyebrow={legend.eyebrow}
-            title={<span id="legend-heading">{legend.title}</span>}
-            lede={<p>{legend.lede}</p>}
-          />
-
-          <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {statusKeys.map((status, index) => (
-              <Reveal
-                key={status}
-                delay={(index % 4) * 90}
-                className="flex flex-col items-start gap-4 border-t border-tide/70 pt-7"
-              >
-                <Badge status={status} />
-                <p className="text-[0.9375rem] leading-[1.75] text-mist">
-                  {directionStatusMeta[status].description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+          {/* Label key — a compact footnote to the boxes above */}
+          <Reveal className="mt-14 border-t border-tide/60 pt-8">
+            <p className="label text-haze">What the labels mean</p>
+            <dl className="mt-6 grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+              {statusKeys.map((status) => (
+                <div key={status} className="flex flex-col items-start gap-2.5">
+                  <dt>
+                    <Badge status={status} />
+                  </dt>
+                  <dd className="text-xs leading-relaxed text-haze">
+                    {directionStatusMeta[status].description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
         </Container>
       </Section>
 

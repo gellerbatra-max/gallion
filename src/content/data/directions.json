@@ -1,7 +1,7 @@
 {
   "eyebrow": "Areas of exploration",
   "title": "Where distinctive value is likely to be found.",
-  "lede": "Six categories under active study, not committed investments. Each is a candidate for the same treatment: identify what is genuinely distinctive, shape it properly, and carry it out under its own name.",
+  "lede": "Gelian is currently exploring six areas across Sri Lanka and Australia, in search of opportunities to create lasting value. Each sits at a different stage — from early study to active development.",
   "statusMeta": {
     "exploring": {
       "label": "Exploring",
@@ -23,45 +23,51 @@
   "items": [
     {
       "id": "gemstones",
-      "title": "Jewellery & Gemstones",
-      "description": "Ceylon sapphire and fine stones, traced from source to setting and sold on provenance rather than volume.",
-      "status": "selective",
-      "marketFocus": "Ratnapura → global collectors"
+      "title": "Natural Gemstones & Fine Jewellery",
+      "description": "Ceylon sapphires are scarce and sought after by the world's leading jewellers and collectors, and Sri Lanka's tradition of handmade gold and platinum jewellery remains a living craft — one the founder's own family has long been part of.",
+      "involvement": "We are working with an established local house — one that mines its own gemstones, crafts jewellery, and runs a network of retail stores — to build it into an international brand with a global online store.",
+      "status": "developing",
+      "marketFocus": "Sri Lanka → global collectors & online"
     },
     {
       "id": "hospitality",
       "title": "Curated Travel & Hospitality",
-      "description": "Small-footprint stays built around a genuine sense of place, with an operating standard that survives a second visit.",
+      "description": "Sri Lanka and Australia are both island nations with tourism industries built around the ocean, and each draws millions of visitors a year with striking scenery and abundant wildlife. We see room to serve those travellers better — with experiences shaped around what makes each place worth the journey.",
+      "involvement": "We are studying the value chain, aiming at affordable, all-in-one packages — pairing, for example, Sri Lanka's well-priced medical and dental care with wildlife safaris and a cooking class.",
       "status": "exploring",
-      "marketFocus": "Southern & Central Sri Lanka"
+      "marketFocus": "Sri Lanka & Australia"
     },
     {
       "id": "export",
-      "title": "Export-Ready Ceylon Products",
-      "description": "Categories the island already produces well, brought to market under a name it owns rather than a private label.",
+      "title": "Specialty Agriculture",
+      "description": "Sri Lanka is known the world over for its spices and tea — distinctive in taste and commanding a premium over what other origins produce. Yet much of it still reaches the shelf blended or sold under someone else's label, with the grower and the true origin left anonymous.",
+      "involvement": "We are working with traditional growers to take their tea and spices direct to global markets under their own name — pure, unblended and free of additives, so the true Ceylon character reaches the customer intact and more of the value stays close to source.",
       "status": "developing",
-      "marketFocus": "Sri Lanka → Europe & the Gulf"
+      "marketFocus": "Sri Lanka → global markets"
     },
     {
-      "id": "craft",
-      "title": "Heritage Craft & Design",
-      "description": "Traditional making — textile, ceramic, timber — reintroduced through contemporary design and direct relationships with buyers.",
-      "status": "exploring",
-      "marketFocus": "Island workshops → design markets"
-    },
-    {
-      "id": "digital",
-      "title": "Digital Experiences",
-      "description": "Specialist technical and creative teams, priced on outcome rather than headcount, for clients in mature markets.",
+      "id": "manufacturing",
+      "title": "Deep Tech Manufacturing",
+      "description": "Sri Lanka manufactures apparel for many of the world's leading brands — Nike, Victoria's Secret and others. Alongside it, the country has built world-class technical talent, with companies like IFS and the London Stock Exchange running dedicated engineering offices here.",
+      "involvement": "Our founder has spent over a decade in this industry; we are working with him to build AI-driven software that automates apparel design, cutting cost well below the tools in use today.",
       "status": "developing",
-      "marketFocus": "Colombo → North America & Europe"
+      "marketFocus": "Sri Lanka → global manufacturers"
     },
     {
-      "id": "trade",
-      "title": "Cross-Border Trade Opportunities",
-      "description": "Structures that move credible operators in both directions — into Sri Lanka, and out of it — with one party accountable for the outcome.",
+      "id": "assets",
+      "title": "Asset Management",
+      "description": "Sri Lanka and Australia each have distinctive asset classes with their own risk-and-return profiles — Australia's housing market and the developments driven by Colombo's Port City are two clear examples. Access to the best of them is usually reserved for those already on the inside.",
+      "involvement": "With a presence in both countries, Gelian is positioned to open a door to some of these undervalued opportunities for prospective investors.",
+      "status": "selective",
+      "marketFocus": "Sri Lanka & Australia"
+    },
+    {
+      "id": "education",
+      "title": "Education",
+      "description": "Australia is one of the world's most sought-after destinations for higher education — world-class universities across every discipline, with a student-friendly environment and quality of living to match. For students in Sri Lanka, though, actually getting there means navigating cost, paperwork and uncertainty.",
+      "involvement": "We have an active interest in building a bridge between the two countries — one that helps Sri Lankan students study in Australia, closing the gaps in today's process and handling every step end to end.",
       "status": "active",
-      "marketFocus": "Sri Lanka ⇄ global markets"
+      "marketFocus": "Sri Lanka → Australia"
     }
   ]
 }

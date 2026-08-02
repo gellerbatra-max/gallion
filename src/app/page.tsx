@@ -162,11 +162,13 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {directions.map((direction, index) => (
-              <Reveal key={direction.id} delay={(index % 3) * 90} className="h-full">
-                <DirectionCard direction={direction} />
-              </Reveal>
-            ))}
+            {directions
+              .filter((direction) => direction.status === "developing")
+              .map((direction, index) => (
+                <Reveal key={direction.id} delay={(index % 3) * 90} className="h-full">
+                  <DirectionCard direction={direction} />
+                </Reveal>
+              ))}
           </div>
         </Container>
       </Section>
