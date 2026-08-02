@@ -13,6 +13,8 @@ type PageHeaderProps = {
   meta?: Array<{ label: string; value: string }>;
   children?: React.ReactNode;
   className?: string;
+  /** Drop the chart backdrop for a plainer header (e.g. legal pages). */
+  plain?: boolean;
 };
 
 export function PageHeader({
@@ -22,6 +24,7 @@ export function PageHeader({
   meta,
   children,
   className,
+  plain = false,
 }: PageHeaderProps) {
   return (
     <header
@@ -30,8 +33,12 @@ export function PageHeader({
         className,
       )}
     >
-      <Meridians className="text-tide" opacity={0.32} />
-      <HorizonGlow tone="tide" />
+      {!plain ? (
+        <>
+          <Meridians className="text-tide" opacity={0.32} />
+          <HorizonGlow tone="tide" />
+        </>
+      ) : null}
 
       <Container size="wide" className="relative">
         <Reveal className="flex flex-col gap-6">

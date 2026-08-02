@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { DirectionCard } from "@/components/cards/DirectionCard";
 import { RouteDiagram } from "@/components/visuals/RouteDiagram";
+import { CompassRose } from "@/components/visuals/CompassRose";
 
 import { home } from "@/content/home";
 import { directions } from "@/content/directions";
@@ -35,8 +36,15 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* What Gelian is                                                    */}
       {/* ---------------------------------------------------------------- */}
-      <Section id="what" tone="raised" bordered aria-labelledby="what-heading">
-        <Container size="wide">
+      <Section
+        id="what"
+        tone="raised"
+        bordered
+        className="overflow-hidden"
+        aria-labelledby="what-heading"
+      >
+        <CompassRose className="pointer-events-none absolute -top-32 -right-40 w-[40rem] text-brass/[0.04]" />
+        <Container size="wide" className="relative">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>

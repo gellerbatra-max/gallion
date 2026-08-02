@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   keywords: [
     "Gelian",
     "investment vehicle",
-    "Sri Lanka",
     "holding company",
-    "Ceylon trade",
-    "Colombo",
-    "cross-border trade",
-    "market entry Sri Lanka",
+    "private investment",
+    "Australia",
+    "Sri Lanka",
+    "products and services",
+    "ventures",
   ],
   authors: [{ name: site.legalName }],
   creator: site.legalName,
@@ -75,6 +75,13 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// The legal entity is registered in Sri Lanka, so structured data and legal
+// pages must reference the registered office rather than whichever office
+// happens to sit first in the list.
+const registeredOffice =
+  contact.offices.find((office) => office.role === "Registered office") ??
+  contact.offices[0];
+
 /** Organisation schema — no claims beyond identity and contact details. */
 const organisationSchema = {
   "@context": "https://schema.org",
@@ -87,7 +94,7 @@ const organisationSchema = {
   email: contact.general,
   address: {
     "@type": "PostalAddress",
-    addressLocality: contact.offices[0].city,
+    addressLocality: registeredOffice.city,
     addressCountry: "LK",
   },
   sameAs: social.map((item) => item.href),

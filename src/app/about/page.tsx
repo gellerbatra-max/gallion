@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading, Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Timeline } from "@/components/Timeline";
+import { CompassRose } from "@/components/visuals/CompassRose";
 
 import { about } from "@/content/about";
 import { pageMeta } from "@/lib/seo";
@@ -155,8 +156,14 @@ export default function AboutPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Long-term vision                                                  */}
       {/* ---------------------------------------------------------------- */}
-      <Section tone="raised" bordered aria-labelledby="longview-heading">
-        <Container size="wide">
+      <Section
+        tone="raised"
+        bordered
+        className="overflow-hidden"
+        aria-labelledby="longview-heading"
+      >
+        <CompassRose className="pointer-events-none absolute -bottom-44 -left-40 w-[42rem] text-brass/[0.04]" />
+        <Container size="wide" className="relative">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Prose } from "@/components/ui/Prose";
@@ -21,27 +20,24 @@ export const metadata: Metadata = pageMeta({
  * advice and not reviewed by a lawyer — have counsel adapt this to your
  * jurisdiction and actual practices before launch.
  */
-const LAST_UPDATED = "1 June 2026";
+const LAST_UPDATED = "2 August 2026";
+
+const registeredOffice =
+  contact.offices.find((office) => office.role === "Registered office") ??
+  contact.offices[0];
 
 export default function TermsPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Legal"
-        title="Terms of Use"
-        lede={
-          <p>
-            The rules that apply when you use this website, and some
-            disclosures that matter more than usual given what we describe here.
-          </p>
-        }
-        meta={[
-          { label: "Last updated", value: LAST_UPDATED },
-          { label: "Applies to", value: "This website" },
-          { label: "Governing law", value: "Sri Lanka" },
-          { label: "Contact", value: contact.general },
-        ]}
-      />
+      <header className="border-b border-tide/50 pt-36 pb-14 sm:pt-44 sm:pb-16 lg:pt-48 lg:pb-20">
+        <Container size="narrow">
+          <Reveal>
+            <h1 className="text-[2.5rem] leading-[1.08] sm:text-[3.25rem] lg:text-[4rem]">
+              Terms of Use
+            </h1>
+          </Reveal>
+        </Container>
+      </header>
 
       <Section spacing="lg">
         <Container size="narrow">
@@ -106,10 +102,7 @@ export default function TermsPage() {
                 We take reasonable care to ensure the site is accurate at the
                 time of publication, but we give no warranty that it is
                 complete, current or error-free. Content may be changed,
-                withdrawn or updated at any time without notice. Editorial
-                content in the Insights section reflects the views of its author
-                at the date of publication and is offered as commentary, not as
-                a recommendation.
+                withdrawn or updated at any time without notice.
               </p>
 
               <h2>5. Intellectual property</h2>
@@ -209,10 +202,11 @@ export default function TermsPage() {
 
               <h2>12. Changes to these terms</h2>
               <p>
-                We may amend these terms from time to time. The version in force
-                is the one published on this page, with the date shown at the
-                top. Your continued use of the site after a change takes effect
-                constitutes acceptance of the amended terms.
+                We may amend these terms from time to time. These terms were
+                last updated on {LAST_UPDATED}. The version in force is the one
+                published on this page, and your continued use of the site after
+                a change takes effect constitutes acceptance of the amended
+                terms.
               </p>
 
               <h2>13. Governing law</h2>
@@ -228,8 +222,7 @@ export default function TermsPage() {
               <p>
                 {site.legalName}
                 <br />
-                {contact.offices[0].note}, {contact.offices[0].city},{" "}
-                {contact.offices[0].country}
+                {registeredOffice.city}, {registeredOffice.country}
                 <br />
                 <a href={`mailto:${contact.general}`}>{contact.general}</a>
               </p>

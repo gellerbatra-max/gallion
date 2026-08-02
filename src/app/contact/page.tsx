@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading, Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { CompassRose } from "@/components/visuals/CompassRose";
 
 import { contact } from "@/content/site";
 import { contactContent } from "@/content/contact";
@@ -127,9 +128,11 @@ export default function ContactPage() {
         id="collaboration"
         tone="raised"
         bordered
+        className="overflow-hidden"
         aria-labelledby="collaboration-heading"
       >
-        <Container size="wide">
+        <CompassRose className="pointer-events-none absolute -bottom-40 -right-44 w-[40rem] text-brass/[0.04]" />
+        <Container size="wide" className="relative">
           <SectionHeading
             eyebrow={collaboration.eyebrow}
             title={<span id="collaboration-heading">{collaboration.title}</span>}

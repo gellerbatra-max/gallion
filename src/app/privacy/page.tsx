@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Prose } from "@/components/ui/Prose";
@@ -22,28 +21,24 @@ export const metadata: Metadata = pageMeta({
  * legal advice and has not been reviewed by a lawyer. Have counsel check it
  * against your actual data practices and jurisdiction before launch.
  */
-const LAST_UPDATED = "1 June 2026";
+const LAST_UPDATED = "2 August 2026";
+
+const registeredOffice =
+  contact.offices.find((office) => office.role === "Registered office") ??
+  contact.offices[0];
 
 export default function PrivacyPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Legal"
-        title="Privacy Policy"
-        lede={
-          <p>
-            We collect as little as we can, keep it only as long as it is
-            useful, and never sell it. This page explains the detail behind
-            that.
-          </p>
-        }
-        meta={[
-          { label: "Last updated", value: LAST_UPDATED },
-          { label: "Applies to", value: "This website" },
-          { label: "Controller", value: site.legalName },
-          { label: "Contact", value: contact.general },
-        ]}
-      />
+      <header className="border-b border-tide/50 pt-36 pb-14 sm:pt-44 sm:pb-16 lg:pt-48 lg:pb-20">
+        <Container size="narrow">
+          <Reveal>
+            <h1 className="text-[2.5rem] leading-[1.08] sm:text-[3.25rem] lg:text-[4rem]">
+              Privacy Policy
+            </h1>
+          </Reveal>
+        </Container>
+      </header>
 
       <Section spacing="lg">
         <Container size="narrow">
@@ -60,7 +55,7 @@ export default function PrivacyPage() {
               <h2>1. Who we are</h2>
               <p>
                 Gelian is a privately held investment vehicle registered in Sri
-                Lanka, with its registered office in {contact.offices[0].city}.
+                Lanka, with its registered office in {registeredOffice.city}.
                 For the purposes of applicable data protection law, Gelian is
                 the controller of the personal information described in this
                 policy. Questions about this policy or about how we handle your
@@ -231,17 +226,14 @@ export default function PrivacyPage() {
               <h2>14. Changes to this policy</h2>
               <p>
                 We may update this policy as our practices or the law change.
-                The version in force is the one published here, with the date
-                shown at the top of this page. Material changes will be flagged
-                on this page for a reasonable period.
+                This policy was last updated on {LAST_UPDATED}. The version in
+                force is the one published here, and material changes will be
+                flagged on this page for a reasonable period.
               </p>
 
               <h2>15. Contact</h2>
               <p>
                 {site.legalName}
-                <br />
-                {contact.offices[0].note}, {contact.offices[0].city},{" "}
-                {contact.offices[0].country}
                 <br />
                 <a href={`mailto:${contact.general}`}>{contact.general}</a>
               </p>

@@ -21,18 +21,24 @@ function EssaySection({
   id,
   block,
   raised = false,
+  decor = false,
 }: {
   id: string;
   block: EssayBlock;
   raised?: boolean;
+  decor?: boolean;
 }) {
   return (
     <Section
       tone={raised ? "raised" : "base"}
       bordered={raised}
+      className={decor ? "overflow-hidden" : undefined}
       aria-labelledby={`${id}-heading`}
     >
-      <Container size="narrow">
+      {decor ? (
+        <CompassRose className="pointer-events-none absolute top-1/2 -left-44 w-[40rem] -translate-y-1/2 text-brass/[0.04]" />
+      ) : null}
+      <Container size="narrow" className={decor ? "relative" : undefined}>
         <Reveal>
           <Eyebrow>{block.eyebrow}</Eyebrow>
           <h2
@@ -130,7 +136,7 @@ export default function PhilosophyPage() {
       {/* ---------------------------------------------------------------- */}
       {/* Process — how we execute (the operating loop)                     */}
       {/* ---------------------------------------------------------------- */}
-      <EssaySection id="process" block={processBlock} raised />
+      <EssaySection id="process" block={processBlock} raised decor />
 
       {/* ---------------------------------------------------------------- */}
       {/* Style — our overall posture                                       */}
