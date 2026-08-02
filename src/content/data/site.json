@@ -53,11 +53,7 @@
     ],
     "responseTime": "We reply to every serious enquiry within three working days."
   },
-  "social": [
-    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/gelian" },
-    { "label": "Instagram", "href": "https://www.instagram.com/gelian" },
-    { "label": "X", "href": "https://x.com/gelian" }
-  ],
+  "social": [],
   "ports": [
     { "code": "CMB", "name": "Colombo", "region": "Sri Lanka" },
     { "code": "DXB", "name": "Dubai", "region": "Middle East" },
